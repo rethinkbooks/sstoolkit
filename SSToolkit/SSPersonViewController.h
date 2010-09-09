@@ -15,10 +15,15 @@
 	ABRecordRef _displayedPerson;
 	
 	SSPersonHeaderView *_headerView;
+	NSInteger _numberOfSections;
+	NSMutableArray *_rowCounts;
+	NSMutableDictionary *_cellData;
 }
 
 @property (nonatomic, assign) ABRecordRef displayedPerson;
 
 - (id)initWithPerson:(ABRecordRef)aPerson;
+
+- (void)reload;
 
 @end

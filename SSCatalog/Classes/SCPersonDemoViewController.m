@@ -58,7 +58,7 @@
 	
 	SSPersonViewController *personViewController = [[SSPersonViewController alloc] initWithPerson:person];
 	[self.navigationController pushViewController:personViewController animated:YES];
-	[personViewController release];	
+	[personViewController release];
 	
 	return NO;
 }
