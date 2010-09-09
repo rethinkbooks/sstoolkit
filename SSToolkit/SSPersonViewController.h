@@ -8,16 +8,17 @@
 
 #import <AddressBook/AddressBook.h>
 
+@class SSPersonHeaderView;
+
 @interface SSPersonViewController : UITableViewController {
 
-	ABAddressBookRef _addressBook;
 	ABRecordRef _displayedPerson;
+	
+	SSPersonHeaderView *_headerView;
 }
 
-@property (nonatomic, assign) ABAddressBookRef addressBook;
 @property (nonatomic, assign) ABRecordRef displayedPerson;
 
 - (id)initWithPerson:(ABRecordRef)aPerson;
-- (id)initWithPerson:(ABRecordRef)aPerson addressBook:(ABAddressBookRef)anAddressBook;
 
 @end

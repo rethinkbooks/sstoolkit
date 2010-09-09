@@ -77,6 +77,8 @@
 		B25EE3FD123883C200FDA801 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25EE3FC123883C200FDA801 /* AddressBook.framework */; };
 		B25EE401123883D100FDA801 /* SSPersonViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B25EE3FF123883D100FDA801 /* SSPersonViewController.h */; };
 		B25EE402123883D100FDA801 /* SSPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25EE400123883D100FDA801 /* SSPersonViewController.m */; };
+		B25EE4531238883400FDA801 /* SSPersonHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = B25EE4511238883400FDA801 /* SSPersonHeaderView.h */; };
+		B25EE4541238883400FDA801 /* SSPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25EE4521238883400FDA801 /* SSPersonHeaderView.m */; };
 		B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B267D3431226CE0400B66519 /* SSCollectionViewController.h */; };
 		B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B267D3441226CE0400B66519 /* SSCollectionViewController.m */; };
 		B27B1A1B12241D3400111EA2 /* SSCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B27B1A1912241D3400111EA2 /* SSCollectionView.h */; };
@@ -159,6 +161,8 @@
 		B25EE3FC123883C200FDA801 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = iphoneos3.0/System/Library/Frameworks/AddressBook.framework; sourceTree = "<group>"; };
 		B25EE3FF123883D100FDA801 /* SSPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPersonViewController.h; sourceTree = "<group>"; };
 		B25EE400123883D100FDA801 /* SSPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPersonViewController.m; sourceTree = "<group>"; };
+		B25EE4511238883400FDA801 /* SSPersonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPersonHeaderView.h; sourceTree = "<group>"; };
+		B25EE4521238883400FDA801 /* SSPersonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPersonHeaderView.m; sourceTree = "<group>"; };
 		B267D3431226CE0400B66519 /* SSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewController.h; sourceTree = "<group>"; };
 		B267D3441226CE0400B66519 /* SSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewController.m; sourceTree = "<group>"; };
 		B27B1A1912241D3400111EA2 /* SSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionView.h; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 			children = (
 				B24E9E25121DC29A0085F81E /* SSMessageTableViewCellBubbleView.h */,
 				B24E9E26121DC29A0085F81E /* SSMessageTableViewCellBubbleView.m */,
+				B25EE4511238883400FDA801 /* SSPersonHeaderView.h */,
+				B25EE4521238883400FDA801 /* SSPersonHeaderView.m */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				B27B1A2212241D6F00111EA2 /* SSCollectionViewItem.h in Headers */,
 				B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */,
 				B25EE401123883D100FDA801 /* SSPersonViewController.h in Headers */,
+				B25EE4531238883400FDA801 /* SSPersonHeaderView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +528,7 @@
 				B27B1A2312241D6F00111EA2 /* SSCollectionViewItem.m in Sources */,
 				B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */,
 				B25EE402123883D100FDA801 /* SSPersonViewController.m in Sources */,
+				B25EE4541238883400FDA801 /* SSPersonHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

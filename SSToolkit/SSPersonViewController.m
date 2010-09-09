@@ -7,10 +7,10 @@
 //
 
 #import "SSPersonViewController.h"
+#import "SSPersonHeaderView.h"
 
 @implementation SSPersonViewController
 
-@synthesize addressBook = _addressBook;
 @synthesize displayedPerson = _displayedPerson; 
 
 #pragma mark NSObject
@@ -21,22 +21,70 @@
 }
 
 
+- (void)dealloc {
+	[_headerView release];
+	[super dealloc];
+}
+
+
 #pragma mark Initializers
 
 - (id)initWithPerson:(ABRecordRef)aPerson {
 	if (self = [self init]) {
+		_headerView = [[SSPersonHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 79.0)];
+		
 		self.displayedPerson = aPerson;
 	}
 	return self;
 }
 
 
-- (id)initWithPerson:(ABRecordRef)aPerson addressBook:(ABAddressBookRef)anAddressBook {
-	if (self = [self init]) {
-		self.displayedPerson = aPerson;
-		self.addressBook = anAddressBook;
+#pragma mark UIViewController
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	
+	self.title = @"Info";
+	
+	self.tableView.tableHeaderView = _headerView;
+}
+
+#pragma mark Setters
+
+- (void)setDisplayedPerson:(ABRecordRef)person {
+	_displayedPerson = person;
+	
+	// Image
+	if (ABPersonHasImageData(_displayedPerson)) {
+		NSData *imageData = (NSData *)ABPersonCopyImageData(_displayedPerson);
+		UIImage *image = [UIImage imageWithData:imageData];
+		_headerView.image = image;
+		[imageData release];
+	} else {
+		_headerView.image = nil;
 	}
-	return self;
+	
+	// Name
+	ABPropertyID nameProperties[] = {
+		kABPersonPrefixProperty,
+		kABPersonFirstNameProperty,
+		kABPersonMiddleNameProperty,
+		kABPersonLastNameProperty,
+		kABPersonSuffixProperty
+	};
+	
+	NSMutableArray *namePieces = [[NSMutableArray alloc] init];
+	NSInteger total = sizeof(nameProperties) / sizeof(ABPropertyID);
+	for (NSInteger i = 0; i < total; i++) {
+		NSString *piece = (NSString *)ABRecordCopyValue(_displayedPerson, nameProperties[i]);
+		if (piece) {
+			[namePieces addObject:piece];
+			[piece release];
+		}
+	}
+	
+	_headerView.personName = [namePieces componentsJoinedByString:@" "];
+	[namePieces release];
 }
 
 @end

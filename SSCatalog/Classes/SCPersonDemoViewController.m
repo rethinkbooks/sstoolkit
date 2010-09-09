@@ -14,13 +14,15 @@
 #pragma mark Class Methods
 
 + (NSString *)title {
-	return @"Person";
+	return @"People";
 }
 
 
 #pragma mark UIViewController
 
 - (void)viewDidLoad {
+	[super viewDidLoad];
+	self.title = [[self class] title];
 	self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -28,6 +30,14 @@
 	[button setTitle:@"Pick Person" forState:UIControlStateNormal];
 	[button addTarget:self action:@selector(pickPerson:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		return toInterfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+	}
+	return YES;
 }
 
 
@@ -61,7 +71,6 @@
 
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
 	[self.navigationController dismissModalViewControllerAnimated:YES];
-	[self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
