@@ -7,8 +7,7 @@
 //
 
 #import "SCRootViewController.h"
-#import "SCPickerDemoViewController.h"
-#import "SCGradientViewDemoViewController.h"
+#import "SCCollectionViewDemoViewController.h"
 
 static NSString *const kTitleKey = @"title";
 static NSString *const kClassesKey =  @"classes";
@@ -49,6 +48,7 @@ static NSString *const kClassesKey =  @"classes";
 						 nil],
 						[NSDictionary dictionaryWithObjectsAndKeys:
 						 [NSArray arrayWithObjects:
+						  @"SCPersonDemoViewController",
 						  @"SCPickerDemoViewController",
 						  @"SCMessagesDemoViewController",
 						  nil],

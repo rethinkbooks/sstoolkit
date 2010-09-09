@@ -24,6 +24,9 @@
 		B24E9EB1121DC35B0085F81E /* SCPieProgressViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9EA7121DC35B0085F81E /* SCPieProgressViewDemoViewController.m */; };
 		B24E9EB2121DC35B0085F81E /* SCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9EA9121DC35B0085F81E /* SCRootViewController.m */; };
 		B24E9EB7121DC3760085F81E /* SSToolkit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B24E9EB6121DC3760085F81E /* SSToolkit.bundle */; };
+		B25EE40B1238844700FDA801 /* SCPersonDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25EE40A1238844700FDA801 /* SCPersonDemoViewController.m */; };
+		B25EE4111238856900FDA801 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25EE4101238856900FDA801 /* AddressBook.framework */; };
+		B25EE4131238856900FDA801 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25EE4121238856900FDA801 /* AddressBookUI.framework */; };
 		B27B1A581224228000111EA2 /* SCCollectionViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B27B1A571224228000111EA2 /* SCCollectionViewDemoViewController.m */; };
 		B27B1C2C12248A6F00111EA2 /* SSToolkit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B24E9EB6121DC3760085F81E /* SSToolkit.bundle */; };
 		B27B1C3012248A6F00111EA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B21B85BC1067D4F300E5C076 /* main.m */; };
@@ -119,6 +122,10 @@
 		B24E9EB3121DC3610085F81E /* SSCatalog_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCatalog_Prefix.pch; sourceTree = "<group>"; };
 		B24E9EB6121DC3760085F81E /* SSToolkit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SSToolkit.bundle; path = ../Resources/SSToolkit.bundle; sourceTree = SOURCE_ROOT; };
 		B24E9EC5121DC3CF0085F81E /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = ../SSToolkit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		B25EE4091238844700FDA801 /* SCPersonDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPersonDemoViewController.h; sourceTree = "<group>"; };
+		B25EE40A1238844700FDA801 /* SCPersonDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPersonDemoViewController.m; sourceTree = "<group>"; };
+		B25EE4101238856900FDA801 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = iphoneos4.0/System/Library/Frameworks/AddressBook.framework; sourceTree = "<group>"; };
+		B25EE4121238856900FDA801 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = iphoneos4.0/System/Library/Frameworks/AddressBookUI.framework; sourceTree = "<group>"; };
 		B27B1A561224228000111EA2 /* SCCollectionViewDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCCollectionViewDemoViewController.h; sourceTree = "<group>"; };
 		B27B1A571224228000111EA2 /* SCCollectionViewDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCCollectionViewDemoViewController.m; sourceTree = "<group>"; };
 		B27B1C4612248A6F00111EA2 /* SSCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +153,8 @@
 				B21B86441067D7EA00E5C076 /* libsqlite3.dylib in Frameworks */,
 				B24521CD1211AF2800E80F78 /* Security.framework in Frameworks */,
 				B2E0323F121DC49700D02434 /* libTWToolkit.a in Frameworks */,
+				B25EE4111238856900FDA801 /* AddressBook.framework in Frameworks */,
+				B25EE4131238856900FDA801 /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				B24E9EC5121DC3CF0085F81E /* SSToolkit.xcodeproj */,
+				B25EE4101238856900FDA801 /* AddressBook.framework */,
+				B25EE4121238856900FDA801 /* AddressBookUI.framework */,
 				B21B86431067D7EA00E5C076 /* libsqlite3.dylib */,
 				B21B85B71067D4B500E5C076 /* SystemConfiguration.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -277,6 +288,8 @@
 		B27B1B0412246B6100111EA2 /* View Controller Demos */ = {
 			isa = PBXGroup;
 			children = (
+				B25EE4091238844700FDA801 /* SCPersonDemoViewController.h */,
+				B25EE40A1238844700FDA801 /* SCPersonDemoViewController.m */,
 				B24E9EA2121DC35B0085F81E /* SCPickerDemoViewController.h */,
 				B24E9EA3121DC35B0085F81E /* SCPickerDemoViewController.m */,
 				B24E9EA4121DC35B0085F81E /* SCPickerDetailViewController.h */,
@@ -336,7 +349,14 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "SSCatalog" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectReferences = (
@@ -416,6 +436,7 @@
 				B24E9EB1121DC35B0085F81E /* SCPieProgressViewDemoViewController.m in Sources */,
 				B24E9EB2121DC35B0085F81E /* SCRootViewController.m in Sources */,
 				B27B1A581224228000111EA2 /* SCCollectionViewDemoViewController.m in Sources */,
+				B25EE40B1238844700FDA801 /* SCPersonDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +490,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = SSCatalog;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};

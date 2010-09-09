@@ -74,6 +74,9 @@
 		B24E9E7E121DC29A0085F81E /* UIView+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E40121DC29A0085F81E /* UIView+SSToolkitAdditions.m */; };
 		B24E9E7F121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E41121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h */; };
 		B24E9E80121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E42121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m */; };
+		B25EE3FD123883C200FDA801 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25EE3FC123883C200FDA801 /* AddressBook.framework */; };
+		B25EE401123883D100FDA801 /* SSPersonViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B25EE3FF123883D100FDA801 /* SSPersonViewController.h */; };
+		B25EE402123883D100FDA801 /* SSPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25EE400123883D100FDA801 /* SSPersonViewController.m */; };
 		B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B267D3431226CE0400B66519 /* SSCollectionViewController.h */; };
 		B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B267D3441226CE0400B66519 /* SSCollectionViewController.m */; };
 		B27B1A1B12241D3400111EA2 /* SSCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B27B1A1912241D3400111EA2 /* SSCollectionView.h */; };
@@ -153,6 +156,9 @@
 		B24E9E40121DC29A0085F81E /* UIView+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 		B24E9E41121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SSToolkitAdditions.h"; sourceTree = "<group>"; };
 		B24E9E42121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		B25EE3FC123883C200FDA801 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = iphoneos3.0/System/Library/Frameworks/AddressBook.framework; sourceTree = "<group>"; };
+		B25EE3FF123883D100FDA801 /* SSPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPersonViewController.h; sourceTree = "<group>"; };
+		B25EE400123883D100FDA801 /* SSPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPersonViewController.m; sourceTree = "<group>"; };
 		B267D3431226CE0400B66519 /* SSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewController.h; sourceTree = "<group>"; };
 		B267D3441226CE0400B66519 /* SSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewController.m; sourceTree = "<group>"; };
 		B27B1A1912241D3400111EA2 /* SSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionView.h; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				B21504CA10583B4000409ED4 /* SystemConfiguration.framework in Frameworks */,
 				B215051210583BBB00409ED4 /* UIKit.framework in Frameworks */,
+				B25EE3FD123883C200FDA801 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +208,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B25EE3FC123883C200FDA801 /* AddressBook.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				B21504C910583B4000409ED4 /* SystemConfiguration.framework */,
 				B215051110583BBB00409ED4 /* UIKit.framework */,
@@ -322,6 +330,8 @@
 				B24E9E21121DC29A0085F81E /* SSMessagesViewController.h */,
 				B24E9E22121DC29A0085F81E /* SSMessagesViewController.m */,
 				B24E9E27121DC29A0085F81E /* SSModalViewController.h */,
+				B25EE3FF123883D100FDA801 /* SSPersonViewController.h */,
+				B25EE400123883D100FDA801 /* SSPersonViewController.m */,
 				B24E9E28121DC29A0085F81E /* SSPickerViewController.h */,
 				B24E9E29121DC29A0085F81E /* SSPickerViewController.m */,
 				B24E9E31121DC29A0085F81E /* SSViewController.h */,
@@ -419,6 +429,7 @@
 				B27B1A1B12241D3400111EA2 /* SSCollectionView.h in Headers */,
 				B27B1A2212241D6F00111EA2 /* SSCollectionViewItem.h in Headers */,
 				B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */,
+				B25EE401123883D100FDA801 /* SSPersonViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +520,7 @@
 				B27B1A1C12241D3400111EA2 /* SSCollectionView.m in Sources */,
 				B27B1A2312241D6F00111EA2 /* SSCollectionViewItem.m in Sources */,
 				B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */,
+				B25EE402123883D100FDA801 /* SSPersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,7 @@
 #import <SSToolkit/SSCollectionViewController.h>
 #import <SSToolkit/SSMessagesViewController.h>
 #import <SSToolkit/SSModalViewController.h>
+#import <SSToolkit/SSPersonViewController.h>
 #import <SSToolkit/SSPickerViewController.h>
 #import <SSToolkit/SSViewController.h>
 
