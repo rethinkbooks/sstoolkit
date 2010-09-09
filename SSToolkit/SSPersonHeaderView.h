@@ -11,7 +11,7 @@
 	BOOL _organization;
 	UIImageView *_imageView;
 	NSString *_personName;
-	NSString *_companyName;
+	NSString *_organizationName;
 }
 
 @property (nonatomic, assign, getter=isOrganization) BOOL organization;
@@ -19,6 +19,6 @@
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, copy) NSString *personName;
-@property (nonatomic, copy) NSString *companyName;
+@property (nonatomic, copy) NSString *organizationName;
 
 @end

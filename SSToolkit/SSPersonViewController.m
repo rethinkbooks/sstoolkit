@@ -85,6 +85,11 @@
 	
 	_headerView.personName = [namePieces componentsJoinedByString:@" "];
 	[namePieces release];
+	
+	// Organization
+	NSString *organizationName = (NSString *)ABRecordCopyValue(_displayedPerson, kABPersonOrganizationProperty);
+	_headerView.organizationName = organizationName;
+	[organizationName release];
 }
 
 @end
