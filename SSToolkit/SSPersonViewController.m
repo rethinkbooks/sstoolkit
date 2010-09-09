@@ -126,7 +126,7 @@
 		}
 		[rawLabel release];
 		
-		if ([label isEqual:@"iPhone"] == NO) {
+		if ([label isEqual:(NSString *)kABPersonPhoneIPhoneLabel] == NO) {
 			label = [label lowercaseString];
 		}
 		
