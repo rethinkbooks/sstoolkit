@@ -9,9 +9,34 @@
 #import "SSPersonViewController.h"
 #import "SSPersonHeaderView.h"
 
+@interface SSPersonViewController (PrivateMethods)
++ (NSString *)_formatLabel:(NSString *)rawLabel;
+@end
+
 @implementation SSPersonViewController
 
 @synthesize displayedPerson = _displayedPerson; 
+
+#pragma mark Class Methods
+
++ (NSString *)_formatLabel:(NSString *)rawLabel {
+	NSString *label = nil;
+	
+	// Strip weird wrapper
+	if ([rawLabel length] > 9 && [[rawLabel substringWithRange:NSMakeRange(0, 4)] isEqual:@"_$!<"]) {
+		label = [rawLabel substringWithRange:NSMakeRange(4, [rawLabel length] - 8)];
+	} else {
+		label = [[rawLabel copy] autorelease];
+	}
+	
+	// Lowercase unless iPhone
+	if ([label isEqual:(NSString *)kABPersonPhoneIPhoneLabel] == NO) {
+		label = [label lowercaseString];
+	}
+	
+	return label;
+}
+
 
 #pragma mark NSObject
 
@@ -35,7 +60,7 @@
 	if (self = [self init]) {
 		_headerView = [[SSPersonHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 84.0)];
 		_numberOfSections = 1;
-		_rowCounts = [[NSMutableArray alloc] initWithCapacity:_numberOfSections];
+		_rowCounts = [[NSMutableArray alloc] init];
 		_cellData = [[NSMutableDictionary alloc] init];
 		
 		self.displayedPerson = aPerson;
@@ -87,8 +112,8 @@
 	};
 	
 	NSMutableArray *namePieces = [[NSMutableArray alloc] init];
-	NSInteger total = sizeof(nameProperties) / sizeof(ABPropertyID);
-	for (NSInteger i = 0; i < total; i++) {
+	NSInteger namePiecesTotal = sizeof(nameProperties) / sizeof(ABPropertyID);
+	for (NSInteger i = 0; i < namePiecesTotal; i++) {
 		NSString *piece = (NSString *)ABRecordCopyValue(_displayedPerson, nameProperties[i]);
 		if (piece) {
 			[namePieces addObject:piece];
@@ -103,44 +128,76 @@
 	NSString *organizationName = (NSString *)ABRecordCopyValue(_displayedPerson, kABPersonOrganizationProperty);
 	_headerView.organizationName = organizationName;
 	[organizationName release];
-	
-	// TODO: Calculate number of sections
-	_numberOfSections = 1;
-	[_rowCounts removeAllObjects];
-	
-	// Get phone numbers
-	ABMultiValueRef phoneNumbersRef = ABRecordCopyValue(_displayedPerson, kABPersonPhoneProperty);
-	NSInteger phoneNumbersCount = ABMultiValueGetCount(phoneNumbersRef);
-	[_rowCounts addObject:[NSNumber numberWithInteger:phoneNumbersCount]];
-	CFRelease(phoneNumbersRef);
-	
-	for (NSInteger i = 0; i < phoneNumbersCount; i++) {
-		NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
 
-		NSString *rawLabel = (NSString *)ABMultiValueCopyLabelAtIndex(phoneNumbersRef, i);
-		NSString *label = nil;
-		if ([rawLabel length] > 9 && [[rawLabel substringWithRange:NSMakeRange(0, 4)] isEqual:@"_$!<"]) {
-			label = [rawLabel substringWithRange:NSMakeRange(4, [rawLabel length] - 8)];
+	// Multivalues
+	_numberOfSections = 0;
+	[_rowCounts removeAllObjects];
+	ABPropertyID multiProperties[] = {
+		kABPersonPhoneProperty,
+		kABPersonEmailProperty,
+		kABPersonURLProperty,
+//		kABPersonAddressProperty
+	};
+	
+	NSInteger multiPropertiesTotal = sizeof(multiProperties) / sizeof(ABPropertyID);
+	for (NSInteger i = 0; i < multiPropertiesTotal; i++) {
+		
+		// Get values count
+		ABMultiValueRef valuesRef = ABRecordCopyValue(_displayedPerson, multiProperties[i]);
+		NSInteger valuesCount = ABMultiValueGetCount(valuesRef);
+		
+		if (valuesCount > 0) {
+			_numberOfSections++;
+			[_rowCounts addObject:[NSNumber numberWithInteger:valuesCount]];
 		} else {
-			label = [[rawLabel copy] autorelease];
-		}
-		[rawLabel release];
-		
-		if ([label isEqual:(NSString *)kABPersonPhoneIPhoneLabel] == NO) {
-			label = [label lowercaseString];
+			CFRelease(valuesRef);
+			continue;
 		}
 		
-		NSString *phoneNumber = (NSString *)ABMultiValueCopyValueAtIndex(phoneNumbersRef, i);
+		// Loop through values
+		for (NSInteger k = 0; k < valuesCount; k++) {
+			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:k inSection:_numberOfSections - 1];
+
+			// Get label
+			NSString *rawLabel = (NSString *)ABMultiValueCopyLabelAtIndex(valuesRef, k);
+			NSString *label = [[self class] _formatLabel:rawLabel];
+			[rawLabel release];
+			
+			// Get value
+			NSString *value = (NSString *)ABMultiValueCopyValueAtIndex(valuesRef, k);
+			
+			// Add dictionary to cell data
+			NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+										label, @"label",
+										value, @"value",
+										nil];
+			[value release];
+			[_cellData setObject:dictionary forKey:indexPath];
+			[dictionary release];
+		}
 		
-		NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-									label, @"label",
-									phoneNumber, @"value",
-									nil];
-		[phoneNumber release];
-		[_cellData setObject:dictionary forKey:indexPath];
-		[dictionary release];
+		CFRelease(valuesRef);
 	}
 	
+	// Note
+	NSString *note = (NSString *)ABRecordCopyValue(_displayedPerson, kABPersonNoteProperty);
+	if (note) {
+		_numberOfSections++;
+		[_rowCounts addObject:[NSNumber numberWithInteger:1]];
+		
+		NSDictionary *noteDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+										@"notes", @"label",
+										note, @"value",
+										nil];
+		[_cellData setObject:noteDictionary forKey:[NSIndexPath indexPathForRow:0 inSection:_numberOfSections - 1]];
+		[noteDictionary release];
+	}
+	[note release];
+	
+	// Reload table
+	if (_numberOfSections < 1) {
+		_numberOfSections = 1;
+	}
 	[self.tableView reloadData];
 }
 
