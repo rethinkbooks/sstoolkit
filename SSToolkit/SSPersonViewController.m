@@ -8,6 +8,7 @@
 
 #import "SSPersonViewController.h"
 #import "SSPersonHeaderView.h"
+#import "NSString+SSToolkitAdditions.h"
 
 @interface SSPersonViewController (PrivateMethods)
 + (NSString *)_formatLabel:(NSString *)rawLabel;
@@ -166,10 +167,42 @@
 			// Get value
 			NSString *value = (NSString *)ABMultiValueCopyValueAtIndex(valuesRef, k);
 			
+			// Get url
+			NSString *urlString = nil;
+			switch (i) {
+				// Phone number
+				case 0: {
+					NSString *cleanedValue = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
+					cleanedValue = [cleanedValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
+					cleanedValue = [cleanedValue stringByReplacingOccurrencesOfString:@"(" withString:@""];
+					cleanedValue = [cleanedValue stringByReplacingOccurrencesOfString:@")" withString:@""];
+					urlString = [NSString stringWithFormat:@"tel://%@", value];
+					break;
+				}
+				
+				// Email
+				case 1: {
+					urlString = [NSString stringWithFormat:@"mailto:%@", value];
+					break;
+				}
+				
+				// URL
+				case 2: {
+					urlString = value;
+					break;
+				}
+				
+				// Address
+				case 3: {
+					urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [value URLEncodedString]];
+				}
+			}
+			
 			// Add dictionary to cell data
 			NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
 										label, @"label",
 										value, @"value",
+										[NSURL URLWithString:urlString], @"url",
 										nil];
 			[value release];
 			[_cellData setObject:dictionary forKey:indexPath];
@@ -226,8 +259,19 @@
 	
 	cell.textLabel.text = [cellDictionary objectForKey:@"label"];
 	cell.detailTextLabel.text = [cellDictionary objectForKey:@"value"];
+	cell.selectionStyle = [[UIApplication sharedApplication] canOpenURL:[cellDictionary objectForKey:@"url"]] ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
 	
 	return cell;
+}
+
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	NSDictionary *cellDictionary = [_cellData objectForKey:indexPath];
+	[[UIApplication sharedApplication] openURL:[cellDictionary objectForKey:@"url"]];
 }
 
 @end
