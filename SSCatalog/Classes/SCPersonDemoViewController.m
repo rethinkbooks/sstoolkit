@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	self.title = [[self class] title];
-	self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+	self.view.backgroundColor = [UIColor whiteColor];
 	
 	UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	button.frame = CGRectMake(20.0, 20.0, 280.0, 37.0);
@@ -56,7 +56,7 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	[self.navigationController dismissModalViewControllerAnimated:YES];
 	
-	SSPersonViewController *personViewController = [[SSPersonViewController alloc] initWithPerson:person];
+	SSPersonViewController *personViewController = [[SSPersonViewController alloc] initWithPerson:person];	
 	[self.navigationController pushViewController:personViewController animated:YES];
 	[personViewController release];
 	

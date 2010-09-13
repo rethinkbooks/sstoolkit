@@ -87,6 +87,8 @@
 		B27B1A2312241D6F00111EA2 /* SSCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B27B1A2112241D6F00111EA2 /* SSCollectionViewItem.m */; };
 		B2E03770121DCCB500D02434 /* SSTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E0376E121DCCB500D02434 /* SSTableViewCell.h */; };
 		B2E03771121DCCB500D02434 /* SSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E0376F121DCCB500D02434 /* SSTableViewCell.m */; };
+		B2ED4833123DA1CB007FBC4C /* SSPersonAddressTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B2ED4831123DA1CB007FBC4C /* SSPersonAddressTableViewCell.h */; };
+		B2ED4834123DA1CB007FBC4C /* SSPersonAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2ED4832123DA1CB007FBC4C /* SSPersonAddressTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -171,6 +173,8 @@
 		B27B1A2112241D6F00111EA2 /* SSCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewItem.m; sourceTree = "<group>"; };
 		B2E0376E121DCCB500D02434 /* SSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTableViewCell.h; sourceTree = "<group>"; };
 		B2E0376F121DCCB500D02434 /* SSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTableViewCell.m; sourceTree = "<group>"; };
+		B2ED4831123DA1CB007FBC4C /* SSPersonAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPersonAddressTableViewCell.h; sourceTree = "<group>"; };
+		B2ED4832123DA1CB007FBC4C /* SSPersonAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPersonAddressTableViewCell.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libTWToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTWToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -386,6 +390,8 @@
 				B24E9E26121DC29A0085F81E /* SSMessageTableViewCellBubbleView.m */,
 				B25EE4511238883400FDA801 /* SSPersonHeaderView.h */,
 				B25EE4521238883400FDA801 /* SSPersonHeaderView.m */,
+				B2ED4831123DA1CB007FBC4C /* SSPersonAddressTableViewCell.h */,
+				B2ED4832123DA1CB007FBC4C /* SSPersonAddressTableViewCell.m */,
 			);
 			name = Private;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */,
 				B25EE401123883D100FDA801 /* SSPersonViewController.h in Headers */,
 				B25EE4531238883400FDA801 /* SSPersonHeaderView.h in Headers */,
+				B2ED4833123DA1CB007FBC4C /* SSPersonAddressTableViewCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +477,6 @@
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SSToolkit" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -529,6 +535,7 @@
 				B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */,
 				B25EE402123883D100FDA801 /* SSPersonViewController.m in Sources */,
 				B25EE4541238883400FDA801 /* SSPersonHeaderView.m in Sources */,
+				B2ED4834123DA1CB007FBC4C /* SSPersonAddressTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

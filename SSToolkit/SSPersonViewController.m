@@ -8,6 +8,7 @@
 
 #import "SSPersonViewController.h"
 #import "SSPersonHeaderView.h"
+#import "SSPersonAddressTableViewCell.h"
 #import "NSString+SSToolkitAdditions.h"
 
 @interface SSPersonViewController (PrivateMethods)
@@ -137,14 +138,15 @@
 		kABPersonPhoneProperty,
 		kABPersonEmailProperty,
 		kABPersonURLProperty,
-//		kABPersonAddressProperty
+		kABPersonAddressProperty
 	};
 	
 	NSInteger multiPropertiesTotal = sizeof(multiProperties) / sizeof(ABPropertyID);
 	for (NSInteger i = 0; i < multiPropertiesTotal; i++) {
 		
 		// Get values count
-		ABMultiValueRef valuesRef = ABRecordCopyValue(_displayedPerson, multiProperties[i]);
+		ABPropertyID property = multiProperties[i];
+		ABMultiValueRef valuesRef = ABRecordCopyValue(_displayedPerson, property);
 		NSInteger valuesCount = ABMultiValueGetCount(valuesRef);
 		
 		if (valuesCount > 0) {
@@ -166,6 +168,59 @@
 			
 			// Get value
 			NSString *value = (NSString *)ABMultiValueCopyValueAtIndex(valuesRef, k);
+			
+			// Merge address dictionary
+			if (i == 3 && [value isKindOfClass:[NSDictionary class]]) {
+				NSDictionary *addressDictionary = (NSDictionary *)value;
+				
+				NSMutableString *addressString = [[NSMutableString alloc] init];
+				
+				NSString *street = [addressDictionary objectForKey:(NSString *)kABPersonAddressStreetKey];
+				NSString *city = [addressDictionary objectForKey:(NSString *)kABPersonAddressCityKey];
+				NSString *state = [addressDictionary objectForKey:(NSString *)kABPersonAddressStateKey];
+				NSString *zip = [addressDictionary objectForKey:(NSString *)kABPersonAddressZIPKey];
+				NSString *country = [addressDictionary objectForKey:(NSString *)kABPersonAddressCountryKey];
+				
+				// Street
+				if (street) {
+					[addressString appendString:street];
+				}
+				
+				// City
+				if (city) {
+					if ([addressString length] > 0) {
+						[addressString appendString:@"\n"];
+					}
+					[addressString appendString:city];
+				}
+				
+				// State
+				if (state) {
+					if ([addressString length] > 0) {
+						[addressString appendString:(city ? @" " : @"\n")];
+					}
+					[addressString appendString:state];
+				}
+				
+				// Zip
+				if (zip) {
+					if ([addressString length] > 0) {
+						[addressString appendString:(state || city ? @" " : @"\n")];
+					}
+					[addressString appendString:zip];
+				}
+				
+				// Country
+				if (country) {
+					if ([addressString length] > 0) {
+						[addressString appendString:@"\n"];
+					}
+					[addressString appendString:country];
+				}
+				
+				[value release];
+				value = addressString;
+			}
 			
 			// Get url
 			NSString *urlString = nil;
@@ -195,6 +250,7 @@
 				// Address
 				case 3: {
 					urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [value URLEncodedString]];
+					break;
 				}
 			}
 			
@@ -203,6 +259,7 @@
 										label, @"label",
 										value, @"value",
 										[NSURL URLWithString:urlString], @"url",
+										[NSNumber numberWithInteger:property], @"property",
 										nil];
 			[value release];
 			[_cellData setObject:dictionary forKey:indexPath];
@@ -221,6 +278,7 @@
 		NSDictionary *noteDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
 										@"notes", @"label",
 										note, @"value",
+										[NSNumber numberWithInteger:kABPersonNoteProperty], @"property",
 										nil];
 		[_cellData setObject:noteDictionary forKey:[NSIndexPath indexPathForRow:0 inSection:_numberOfSections - 1]];
 		[noteDictionary release];
@@ -248,14 +306,23 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *value2CellIdentifier = @"value2CellIdentifier";
-	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:value2CellIdentifier];
-	if (!cell) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:value2CellIdentifier] autorelease];
-	}
+	static NSString *valueCellIdentifier = @"valueCellIdentifier";
+	static NSString *addressValueCellIdentifier = @"addressValueCellIdentifier";
 	
 	NSDictionary *cellDictionary = [_cellData objectForKey:indexPath];
+	UITableViewCell *cell = nil;
+	
+	if ([[cellDictionary objectForKey:@"property"] integerValue] == kABPersonAddressProperty) {
+		cell = [tableView dequeueReusableCellWithIdentifier:addressValueCellIdentifier];
+		if (!cell) {
+			cell = [[[SSPersonAddressTableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:addressValueCellIdentifier] autorelease];
+		}
+	} else {
+		cell = [tableView dequeueReusableCellWithIdentifier:valueCellIdentifier];
+		if (!cell) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:valueCellIdentifier] autorelease];
+		}
+	}
 	
 	cell.textLabel.text = [cellDictionary objectForKey:@"label"];
 	cell.detailTextLabel.text = [cellDictionary objectForKey:@"value"];
@@ -266,6 +333,15 @@
 
 
 #pragma mark UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSDictionary *cellDictionary = [_cellData objectForKey:indexPath];
+	if ([[cellDictionary objectForKey:@"property"] integerValue] == kABPersonAddressProperty) {
+		return [SSPersonAddressTableViewCell heightForDetailText:[cellDictionary objectForKey:@"value"] tableWidth:self.tableView.frame.size.width];
+	}
+	return 44.0;
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
