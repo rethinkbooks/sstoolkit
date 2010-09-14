@@ -43,12 +43,22 @@
 #pragma mark NSObject
 
 - (id)init {
-	self = [super initWithStyle:UITableViewStyleGrouped];
+	if ((self = [super initWithStyle:UITableViewStyleGrouped])) {
+		_headerView = [[SSPersonHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 84.0)];
+		_numberOfSections = 1;
+		_rowCounts = [[NSMutableArray alloc] init];
+		_cellData = [[NSMutableDictionary alloc] init];
+	}
 	return self;
 }
 
 
 - (void)dealloc {
+	if (_displayedPerson) {
+		CFRelease(_displayedPerson);
+		_displayedPerson = nil;
+	}
+	
 	[_headerView release];
 	[_rowCounts release];
 	[_cellData release];
@@ -59,13 +69,10 @@
 #pragma mark Initializers
 
 - (id)initWithPerson:(ABRecordRef)aPerson {
-	if (self = [self init]) {
-		_headerView = [[SSPersonHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 84.0)];
-		_numberOfSections = 1;
-		_rowCounts = [[NSMutableArray alloc] init];
-		_cellData = [[NSMutableDictionary alloc] init];
-		
-		self.displayedPerson = aPerson;
+	if (self = [self init]) {		
+		if (aPerson) {
+			self.displayedPerson = aPerson;
+		}
 	}
 	return self;
 }
@@ -77,22 +84,17 @@
 	[super viewDidLoad];
 	
 	self.title = @"Info";
-	
 	self.tableView.tableHeaderView = _headerView;
-}
-
-
-#pragma mark Person
-
-- (void)reload {
-	self.displayedPerson = _displayedPerson;
 }
 
 
 #pragma mark Setters
 
 - (void)setDisplayedPerson:(ABRecordRef)person {
-	_displayedPerson = person;
+	if (_displayedPerson) {
+		CFRelease(_displayedPerson);
+	}
+	_displayedPerson = CFRetain(person);
 	
 	// Image
 	if (ABPersonHasImageData(_displayedPerson)) {
@@ -130,7 +132,7 @@
 	NSString *organizationName = (NSString *)ABRecordCopyValue(_displayedPerson, kABPersonOrganizationProperty);
 	_headerView.organizationName = organizationName;
 	[organizationName release];
-
+	
 	// Multivalues
 	_numberOfSections = 0;
 	[_rowCounts removeAllObjects];
@@ -143,24 +145,24 @@
 	
 	NSInteger multiPropertiesTotal = sizeof(multiProperties) / sizeof(ABPropertyID);
 	for (NSInteger i = 0; i < multiPropertiesTotal; i++) {
-		
 		// Get values count
 		ABPropertyID property = multiProperties[i];
 		ABMultiValueRef valuesRef = ABRecordCopyValue(_displayedPerson, property);
-		NSInteger valuesCount = ABMultiValueGetCount(valuesRef);
+		NSInteger valuesCount = 0;
+		if (valuesRef != nil) valuesCount = ABMultiValueGetCount(valuesRef);
 		
 		if (valuesCount > 0) {
 			_numberOfSections++;
 			[_rowCounts addObject:[NSNumber numberWithInteger:valuesCount]];
 		} else {
-			CFRelease(valuesRef);
+			//CFRelease(valuesRef);
 			continue;
 		}
 		
 		// Loop through values
 		for (NSInteger k = 0; k < valuesCount; k++) {
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:k inSection:_numberOfSections - 1];
-
+			
 			// Get label
 			NSString *rawLabel = (NSString *)ABMultiValueCopyLabelAtIndex(valuesRef, k);
 			NSString *label = [[self class] _formatLabel:rawLabel];
@@ -225,7 +227,7 @@
 			// Get url
 			NSString *urlString = nil;
 			switch (i) {
-				// Phone number
+					// Phone number
 				case 0: {
 					NSString *cleanedValue = [value stringByReplacingOccurrencesOfString:@" " withString:@""];
 					cleanedValue = [cleanedValue stringByReplacingOccurrencesOfString:@"-" withString:@""];
@@ -234,20 +236,20 @@
 					urlString = [NSString stringWithFormat:@"tel://%@", value];
 					break;
 				}
-				
-				// Email
+					
+					// Email
 				case 1: {
 					urlString = [NSString stringWithFormat:@"mailto:%@", value];
 					break;
 				}
-				
-				// URL
+					
+					// URL
 				case 2: {
 					urlString = value;
 					break;
 				}
-				
-				// Address
+					
+					// Address
 				case 3: {
 					urlString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", [value URLEncodedString]];
 					break;
@@ -301,6 +303,9 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	if ([_rowCounts count] == 0) {
+		return 0;
+	}
 	return [[_rowCounts objectAtIndex:section] integerValue];
 }
 

@@ -11,7 +11,7 @@
 @class SSPersonHeaderView;
 
 @interface SSPersonViewController : UITableViewController {
-
+	
 	ABRecordRef _displayedPerson;
 	
 	SSPersonHeaderView *_headerView;
@@ -23,7 +23,5 @@
 @property (nonatomic, assign) ABRecordRef displayedPerson;
 
 - (id)initWithPerson:(ABRecordRef)aPerson;
-
-- (void)reload;
 
 @end
