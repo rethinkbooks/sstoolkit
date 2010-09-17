@@ -11,6 +11,8 @@
 @class SSPersonHeaderView;
 @class SSPersonFooterView;
 
+extern NSInteger kSSPersonViewControllerDeleteActionSheetTag;
+
 @interface SSPersonViewController : UITableViewController <UIActionSheetDelegate> {
 	
 	ABRecordRef _displayedPerson;

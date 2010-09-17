@@ -14,6 +14,8 @@
 #import "NSString+SSToolkitAdditions.h"
 #import <AddressBookUI/AddressBookUI.h>
 
+NSInteger kSSPersonViewControllerDeleteActionSheetTag = 987;
+
 @interface SSPersonViewController (PrivateMethods)
 + (NSString *)_formatLabel:(NSString *)rawLabel;
 @end
@@ -106,7 +108,7 @@
 	self.title = @"Info";
 	self.tableView.tableHeaderView = _headerView;
 	
-	_footerView = [[SSPersonFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 37.0)];
+	_footerView = [[SSPersonFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 47.0)];
 	self.tableView.tableFooterView = _footerView;
 	
 	[_footerView.editButton addTarget:self action:@selector(editPerson:) forControlEvents:UIControlEventTouchUpInside];
@@ -128,7 +130,7 @@
 
 - (void)deletePerson:(id)sender {
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Contact" otherButtonTitles:nil];
-	actionSheet.tag = 1;
+	actionSheet.tag = kSSPersonViewControllerDeleteActionSheetTag;
 	[actionSheet showInView:self.view];
 	[actionSheet release];
 }
@@ -152,7 +154,13 @@
 - (void)setAddressBook:(ABAddressBookRef)book {
 	if (_addressBook) {
 		CFRelease(_addressBook);
+		_addressBook = nil;
 	}
+	
+	if (!book) {
+		return;
+	}
+	
 	_addressBook = CFRetain(book);
 }
 
@@ -160,6 +168,11 @@
 - (void)setDisplayedPerson:(ABRecordRef)person {
 	if (_displayedPerson) {
 		CFRelease(_displayedPerson);
+		_displayedPerson = nil;
+	}
+	
+	if (!person) {
+		return;
 	}
 	_displayedPerson = CFRetain(person);
 	
@@ -426,7 +439,7 @@
 #pragma mark UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
-	if (actionSheet.tag != 1) {
+	if (actionSheet.tag != kSSPersonViewControllerDeleteActionSheetTag) {
 		return;
 	}
 	
