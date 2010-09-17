@@ -36,10 +36,10 @@
 
 
 - (void)layoutSubviews {
-	CGSize buttonSize = CGSizeMake(ceil(self.frame.size.width / 2.0) - 15.0, 37.0);
+	CGSize buttonSize = CGSizeMake(ceil(self.frame.size.width / 2.0) - 15.0, 44.0);
 	
-	_editButton.frame = CGRectMake(10.0, 0.0, buttonSize.width, buttonSize.height);
-	_deleteButton.frame = CGRectMake(10.0 + buttonSize.width + 10, 0.0, buttonSize.width, buttonSize.height);
+	_editButton.frame = CGRectMake(10.0, 10.0, buttonSize.width, buttonSize.height);
+	_deleteButton.frame = CGRectMake(10.0 + buttonSize.width + 10, 10.0, buttonSize.width, buttonSize.height);
 }
 
 @end

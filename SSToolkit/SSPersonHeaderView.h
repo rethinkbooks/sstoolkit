@@ -8,6 +8,7 @@
 
 @interface SSPersonHeaderView : UIView {
 
+	BOOL _alignImageToLeft;
 	BOOL _organization;
 	UIImageView *_imageView;
 	NSString *_personName;
@@ -15,6 +16,7 @@
 }
 
 @property (nonatomic, assign, getter=isOrganization) BOOL organization;
+@property (nonatomic, assign) BOOL alignImageToLeft;
 @property (nonatomic, retain, readonly) UIImageView *imageView;
 
 @property (nonatomic, retain) UIImage *image;

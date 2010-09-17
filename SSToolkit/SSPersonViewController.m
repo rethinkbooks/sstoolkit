@@ -108,7 +108,7 @@ NSInteger kSSPersonViewControllerDeleteActionSheetTag = 987;
 	self.title = @"Info";
 	self.tableView.tableHeaderView = _headerView;
 	
-	_footerView = [[SSPersonFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 47.0)];
+	_footerView = [[SSPersonFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 74.0)];
 	self.tableView.tableFooterView = _footerView;
 	
 	[_footerView.editButton addTarget:self action:@selector(editPerson:) forControlEvents:UIControlEventTouchUpInside];

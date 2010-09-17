@@ -39,6 +39,8 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
 	[super setEditing:editing animated:animated];
 	if (editing == NO) {
+		ABAddressBookSave(self.addressBook, nil);
+		
 		[self dismissModalViewControllerAnimated:YES];
 	}
 }

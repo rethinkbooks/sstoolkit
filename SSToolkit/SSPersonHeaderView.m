@@ -20,6 +20,7 @@ static CGFloat kSSPersonHeaderViewImageSize = 64.0;
 @implementation SSPersonHeaderView
 
 @synthesize organization = _organization;
+@synthesize alignImageToLeft = _alignImageToLeft;
 @synthesize imageView = _imageView;
 @synthesize personName = _personName;
 @synthesize organizationName = _organizationName;
@@ -44,6 +45,7 @@ static CGFloat kSSPersonHeaderViewImageSize = 64.0;
 		self.opaque = YES;
 		
 		_organization = NO;
+		_alignImageToLeft = YES;
 		
 		_imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
 		_imageView.clipsToBounds = YES;
@@ -56,12 +58,12 @@ static CGFloat kSSPersonHeaderViewImageSize = 64.0;
 
 
 - (void)layoutSubviews {
-	_imageView.frame = CGRectMake(19.0, 15.0, kSSPersonHeaderViewImageSize, kSSPersonHeaderViewImageSize);
+	_imageView.frame = CGRectMake(_alignImageToLeft ? 10.0 : 19.0, 15.0, kSSPersonHeaderViewImageSize, kSSPersonHeaderViewImageSize);
 }
 
 
 - (void)drawRect:(CGRect)rect {
-	static CGFloat textX = 96.0;
+	CGFloat textX = _alignImageToLeft ? 87.0 : 96.0;
 
 	CGFloat width = self.frame.size.width - 105.0;
 	CGSize constraintSize = CGSizeMake(width, 200.0);
