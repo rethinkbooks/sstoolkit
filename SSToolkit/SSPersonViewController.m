@@ -8,8 +8,11 @@
 
 #import "SSPersonViewController.h"
 #import "SSPersonHeaderView.h"
+#import "SSPersonFooterView.h"
 #import "SSPersonAddressTableViewCell.h"
+#import "SSEditPersonViewController.h"
 #import "NSString+SSToolkitAdditions.h"
+#import <AddressBookUI/AddressBookUI.h>
 
 @interface SSPersonViewController (PrivateMethods)
 + (NSString *)_formatLabel:(NSString *)rawLabel;
@@ -60,6 +63,7 @@
 	}
 	
 	[_headerView release];
+	[_footerView release];
 	[_rowCounts release];
 	[_cellData release];
 	[super dealloc];
@@ -85,6 +89,29 @@
 	
 	self.title = @"Info";
 	self.tableView.tableHeaderView = _headerView;
+	
+	_footerView = [[SSPersonFooterView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 37.0)];
+	self.tableView.tableFooterView = _footerView;
+	
+	[_footerView.editButton addTarget:self action:@selector(editPerson:) forControlEvents:UIControlEventTouchUpInside];
+	[_footerView.deleteButton addTarget:self action:@selector(deletePerson:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
+#pragma mark Actions
+
+- (void)editPerson:(id)sender {
+	SSEditPersonViewController *viewController = [[SSEditPersonViewController alloc] init];
+	viewController.displayedPerson = self.displayedPerson;
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+	[viewController release];
+	[self.navigationController presentModalViewController:navigationController animated:YES];
+	[navigationController release];
+}
+
+
+- (void)deletePerson:(id)sender {
+	// TODO
 }
 
 
