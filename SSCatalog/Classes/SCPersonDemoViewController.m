@@ -56,7 +56,7 @@
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
 	[self.navigationController dismissModalViewControllerAnimated:YES];
 	
-	SSPersonViewController *personViewController = [[SSPersonViewController alloc] initWithPerson:person];	
+	SSPersonViewController *personViewController = [[SSPersonViewController alloc] initWithPerson:person addressBook:peoplePicker.addressBook];
 	[self.navigationController pushViewController:personViewController animated:YES];
 	[personViewController release];
 	

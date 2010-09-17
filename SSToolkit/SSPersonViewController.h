@@ -11,9 +11,10 @@
 @class SSPersonHeaderView;
 @class SSPersonFooterView;
 
-@interface SSPersonViewController : UITableViewController {
+@interface SSPersonViewController : UITableViewController <UIActionSheetDelegate> {
 	
 	ABRecordRef _displayedPerson;
+	ABAddressBookRef _addressBook;
 	
 	SSPersonHeaderView *_headerView;
 	SSPersonFooterView *_footerView;
@@ -23,8 +24,10 @@
 }
 
 @property (nonatomic, assign) ABRecordRef displayedPerson;
+@property (nonatomic, assign) ABAddressBookRef addressBook;
 
 - (id)initWithPerson:(ABRecordRef)aPerson;
+- (id)initWithPerson:(ABRecordRef)aPerson addressBook:(ABAddressBookRef)anAddressBook;
 
 - (void)editPerson:(id)sender;
 - (void)deletePerson:(id)sender;

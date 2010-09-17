@@ -20,6 +20,7 @@
 
 @implementation SSPersonViewController
 
+@synthesize addressBook = _addressBook;
 @synthesize displayedPerson = _displayedPerson; 
 
 #pragma mark Class Methods
@@ -57,6 +58,11 @@
 
 
 - (void)dealloc {
+	if (_addressBook) {
+		CFRelease(_addressBook);
+		_addressBook = nil;
+	}
+	
 	if (_displayedPerson) {
 		CFRelease(_displayedPerson);
 		_displayedPerson = nil;
@@ -73,9 +79,19 @@
 #pragma mark Initializers
 
 - (id)initWithPerson:(ABRecordRef)aPerson {
+	self = [self initWithPerson:aPerson addressBook:nil];
+	return self;
+}
+
+
+- (id)initWithPerson:(ABRecordRef)aPerson addressBook:(ABAddressBookRef)anAddressBook {
 	if (self = [self init]) {		
 		if (aPerson) {
 			self.displayedPerson = aPerson;
+			
+			if (anAddressBook) {
+				self.addressBook = anAddressBook;
+			}
 		}
 	}
 	return self;
@@ -111,11 +127,35 @@
 
 
 - (void)deletePerson:(id)sender {
-	// TODO
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete Contact" otherButtonTitles:nil];
+	actionSheet.tag = 1;
+	[actionSheet showInView:self.view];
+	[actionSheet release];
+}
+
+
+#pragma mark Getters
+
+- (ABAddressBookRef)addressBook {
+	if (_addressBook) {
+		return _addressBook;
+	}
+	
+	// Create one if none exists	
+	_addressBook = ABAddressBookCreate();
+	return _addressBook;
 }
 
 
 #pragma mark Setters
+
+- (void)setAddressBook:(ABAddressBookRef)book {
+	if (_addressBook) {
+		CFRelease(_addressBook);
+	}
+	_addressBook = CFRetain(book);
+}
+
 
 - (void)setDisplayedPerson:(ABRecordRef)person {
 	if (_displayedPerson) {
@@ -380,6 +420,20 @@
 	
 	NSDictionary *cellDictionary = [_cellData objectForKey:indexPath];
 	[[UIApplication sharedApplication] openURL:[cellDictionary objectForKey:@"url"]];
+}
+
+
+#pragma mark UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	if (actionSheet.tag != 1) {
+		return;
+	}
+	
+	// Delete person
+	ABAddressBookRemoveRecord(self.addressBook, self.displayedPerson, nil);
+	ABAddressBookSave(self.addressBook, nil);
+	[self.navigationController popViewControllerAnimated:YES];	
 }
 
 @end
