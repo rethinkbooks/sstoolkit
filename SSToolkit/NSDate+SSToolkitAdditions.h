@@ -15,4 +15,9 @@
 - (NSString *)timeAgoInWords;
 - (NSString *)timeAgoInWordsIncludingSeconds:(BOOL)includeSeconds;
 
+// Adjusts for the current time zone
+- (NSDate *)adjustedDate;
+- (NSString *)adjustedTimeAgoInWords;
+- (NSString *)adjustedTimeAgoInWordsIncludingSeconds:(BOOL)includeSeconds;
+
 @end

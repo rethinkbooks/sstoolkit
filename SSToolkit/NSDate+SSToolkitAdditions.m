@@ -94,4 +94,18 @@
 }
 
 
+- (NSDate *)adjustedDate {
+	return [[[NSDate alloc] initWithTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT] sinceDate:self] autorelease];
+}
+
+
+- (NSString *)adjustedTimeAgoInWords {
+	return [self adjustedTimeAgoInWordsIncludingSeconds:YES];
+}
+
+
+- (NSString *)adjustedTimeAgoInWordsIncludingSeconds:(BOOL)includeSeconds {
+	return [[self class] timeAgoInWordsFromTimeInterval:fabs([self timeIntervalSinceNow] + [[NSTimeZone localTimeZone] secondsFromGMT]) includingSeconds:includeSeconds];
+}
+
 @end
