@@ -32,8 +32,11 @@ enum {
 	
 	UIFont *_font;
 	UIColor *_textColor;
+	UIColor *_highlightedTextColor;
 	UIColor *_textShadowColor;
+	UIColor *_highlightedTextShadowColor;
 	CGSize _textShadowOffset;
+	CGSize _highlightedTextShadowOffset;
 	UIEdgeInsets _textEdgeInsets;
 }
 
@@ -48,8 +51,11 @@ enum {
 
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIColor *textColor;
+@property (nonatomic, retain) UIColor *highlightedTextColor;
 @property (nonatomic, retain) UIColor *textShadowColor;
+@property (nonatomic, retain) UIColor *highlightedTextShadowColor;
 @property (nonatomic, assign) CGSize textShadowOffset;
+@property (nonatomic, assign) CGSize highlightedTextShadowOffset;
 @property (nonatomic, assign) UIEdgeInsets textEdgeInsets;
 
 - (id)initWithItems:(NSArray *)items;

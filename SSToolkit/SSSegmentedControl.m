@@ -20,8 +20,11 @@
 @synthesize highlightedDividerImage = _highlightedDividerImage;
 @synthesize font = _font;
 @synthesize textColor = _textColor;
+@synthesize highlightedTextColor = _highlightedTextColor;
 @synthesize textShadowColor = _textShadowColor;
+@synthesize highlightedTextShadowColor = _highlightedTextShadowColor;
 @synthesize textShadowOffset = _textShadowOffset;
+@synthesize highlightedTextShadowOffset = _highlightedTextShadowOffset;
 @synthesize textEdgeInsets = _textEdgeInsets;
 
 #pragma mark NSObject
@@ -34,7 +37,9 @@
 	[_highlightedDividerImage release];
 	[_font release];
 	[_textColor release];
+	[_highlightedTextColor release];
 	[_textShadowColor release];
+	[_highlightedTextShadowColor release];
 	[super dealloc];
 }
 
@@ -70,8 +75,11 @@
 		
 		_font = [[UIFont boldSystemFontOfSize:12.0f] retain];
 		_textColor = [[UIColor whiteColor] retain];
+		_highlightedTextColor = [_textColor retain];
 		_textShadowColor = [[UIColor colorWithWhite:0.0f alpha:0.5f] retain];
+		_highlightedTextShadowColor = [_textShadowColor retain];
 		_textShadowOffset = CGSizeMake(0.0f, -1.0f);
+		_highlightedTextShadowOffset = CGSizeMake(0.0f, -1.0f);
 		_textEdgeInsets = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0f);
 	}
 	return self;
@@ -154,10 +162,19 @@
 			CGRect textRect = CGRectMake(x, roundf((size.height - textSize.height) / 2.0f), segmentWidth, size.height);
 			textRect = UIEdgeInsetsInsetRect(textRect, _textEdgeInsets);
 
-			[_textShadowColor set];
-			[string drawInRect:CGRectAddPoint(textRect, CGPointMake(_textShadowOffset.width, _textShadowOffset.height)) withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+            if (_selectedSegmentIndex == i) {
+                [_highlightedTextShadowColor set];
+                [string drawInRect:CGRectAddPoint(textRect, CGPointMake(_highlightedTextShadowOffset.width, _highlightedTextShadowOffset.height)) withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+            } else {
+                [_textShadowColor set];
+                [string drawInRect:CGRectAddPoint(textRect, CGPointMake(_textShadowOffset.width, _textShadowOffset.height)) withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
+            }
 			
-			[_textColor set];
+            if (_selectedSegmentIndex == i) {
+                [_highlightedTextColor set];
+            } else {
+                [_textColor set];
+            }
 			[string drawInRect:textRect withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentCenter];
 		}
 		
