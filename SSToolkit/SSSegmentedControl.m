@@ -10,6 +10,14 @@
 #import "SSDrawingMacros.h"
 #import "UIImage+SSToolkitAdditions.h"
 
+
+@interface SSSegmentedControl()
+
+- (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex sendAction:(BOOL)sendAction;
+
+@end
+
+
 @implementation SSSegmentedControl
 
 @synthesize numberOfSegments = _numberOfSegments;
@@ -55,7 +63,8 @@
 		return;
 	}
 	
-	self.selectedSegmentIndex = (NSInteger)floorf((CGFloat)x / (self.frame.size.width / (CGFloat)[_items count]));	
+	NSInteger selectedSegmentIndex = (NSInteger)floorf((CGFloat)x / (self.frame.size.width / (CGFloat)[_items count]));
+    [self setSelectedSegmentIndex:selectedSegmentIndex sendAction:YES];
 }
 
 
@@ -189,7 +198,6 @@
 	[super willMoveToSuperview:newSuperview];
 		
 	if (newSuperview) {
-		[self addObserver:self forKeyPath:@"selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"buttonImage" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"highlightedButtonImage" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"dividerImage" options:NSKeyValueObservingOptionNew context:nil];
@@ -200,7 +208,6 @@
 		[self addObserver:self forKeyPath:@"textShadowOffset" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"textEdgeInsets" options:NSKeyValueObservingOptionNew context:nil];
 	} else {
-		[self removeObserver:self forKeyPath:@"selectedSegmentIndex"];
 		[self removeObserver:self forKeyPath:@"buttonImage"];
 		[self removeObserver:self forKeyPath:@"highlightedButtonImage"];
 		[self removeObserver:self forKeyPath:@"dividerImage"];
@@ -257,15 +264,22 @@
 }
 
 
+- (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
+    [self setSelectedSegmentIndex:selectedSegmentIndex sendAction:NO];
+}
+
+
+- (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex sendAction:(BOOL)sendAction {
+    _selectedSegmentIndex = selectedSegmentIndex;
+    [self setNeedsDisplay];
+    if (sendAction) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+}
+
 #pragma mark NSKeyValueObserving
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if ([keyPath isEqual:@"selectedSegmentIndex"]) {
-		[self setNeedsDisplay];
-		[self sendActionsForControlEvents:UIControlEventValueChanged];
-		return;
-	}
-	
 	if ([keyPath isEqual:@"buttonImage"] || [keyPath isEqual:@"highlightedButtonImage"] ||
 		[keyPath isEqual:@"dividerImage"] || [keyPath isEqual:@"highlightedDividerImage"] ||
 		[keyPath isEqual:@"font"] || [keyPath isEqual:@"textColor"] || [keyPath isEqual:@"textShadowColor"] ||
