@@ -16,6 +16,13 @@
 @synthesize contentSizeForViewInCustomModal = _contentSizeForViewInCustomModal;
 @synthesize originOffsetForViewInCustomModal = _originOffsetForViewInCustomModal;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        self.originOffsetForViewInCustomModal = CGPointMake(0.0, 20.0);
+    }
+    return self;
+}
+
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 

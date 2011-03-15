@@ -96,7 +96,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		modalSize = [_customModalViewController contentSizeForViewInCustomModal];
 	}
 	
-	CGPoint originOffset = CGPointZero;
+	CGPoint originOffset = CGPointMake(0.0, 20.0);
 	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
 		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
 	}
@@ -118,6 +118,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		return;
 	}
 	
+    UIWindow *window = self.view.window;
 	_customModalViewController.modalParentViewController = self;
 	
 	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
@@ -132,7 +133,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		_vignetteButton.alpha = 0.0f;
 	}
 	
-	[self.view addSubview:_vignetteButton];
+	[window addSubview:_vignetteButton];
 	[_vignetteButton fadeIn];
 	
 	if (_modalContainerBackgroundView == nil) {
@@ -142,7 +143,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		_modalContainerBackgroundView.userInteractionEnabled = YES;
 	}
 	
-	[self.view addSubview:_modalContainerBackgroundView];
+	[window addSubview:_modalContainerBackgroundView];
 	
 	if (_modalContainerView == nil) {
 		_modalContainerView = [[UIView alloc] initWithFrame:CGRectMake(kSSViewControllerModalPadding, kSSViewControllerModalPadding, modalSize.width, modalSize.height)];
