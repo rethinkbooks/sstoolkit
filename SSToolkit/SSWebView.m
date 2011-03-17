@@ -7,6 +7,7 @@
 //
 
 #import "SSWebView.h"
+#import "SSInnerWebView.h"
 #import "NSString+SSToolkitAdditions.h"
 
 static NSTimeInterval kSSWebViewLoadDelay = 0.3;
@@ -110,7 +111,7 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 		[_webView release];
 	}
 	
-	_webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+	_webView = [[SSInnerWebView alloc] initWithFrame:CGRectZero];
 	_webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	
 	if (loadPreviousSettings) {
@@ -434,6 +435,21 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 
 - (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script {
 	return [_webView stringByEvaluatingJavaScriptFromString:script];
+}
+
+
+- (BOOL)disableStandardActions {
+    return _webView.disableStandardActions;
+}
+
+
+- (void)setDisableStandardActions:(BOOL)value {
+    _webView.disableStandardActions = value;
+}
+
+
+- (void)copy:(id)sender {
+    [_webView copy:sender];
 }
 
 

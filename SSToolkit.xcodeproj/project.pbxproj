@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */; };
+		956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		B207C63712EA209100412418 /* SSWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B207C63512EA209100412418 /* SSWindow.h */; };
 		B207C63812EA209100412418 /* SSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B207C63612EA209100412418 /* SSWindow.m */; };
@@ -109,6 +111,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInnerWebView.h; sourceTree = "<group>"; };
+		956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B207C63512EA209100412418 /* SSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWindow.h; sourceTree = "<group>"; };
 		B207C63612EA209100412418 /* SSWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWindow.m; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 				B24E9E34121DC29A0085F81E /* SSWebView.m */,
 				B207C63512EA209100412418 /* SSWindow.h */,
 				B207C63612EA209100412418 /* SSWindow.m */,
+				956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */,
+				956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				B2E241541301C71400F7DC3B /* SSAddressBarTextField.h in Headers */,
 				B2E241561301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h in Headers */,
 				B2E241581301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h in Headers */,
+				956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +612,7 @@
 				B2E241551301C71400F7DC3B /* SSAddressBarTextField.m in Sources */,
 				B2E241571301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m in Sources */,
 				B2E241591301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */,
+				956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

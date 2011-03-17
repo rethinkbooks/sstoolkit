@@ -6,6 +6,7 @@
 //  Copyright 2009-2010 Sam Soffes. All rights reserved.
 //
 
+@class SSInnerWebView;
 @protocol SSWebViewDelegate;
 
 /**
@@ -22,7 +23,7 @@
 
 	id<SSWebViewDelegate> _delegate;
 	 
-	UIWebView *_webView;
+	SSInnerWebView *_webView;
 	NSURLRequest *_lastRequest;
 	BOOL _loadingPage;
 	BOOL _bounces;
@@ -145,6 +146,16 @@
  passes it the URL.
  */
 @property (nonatomic, assign) UIDataDetectorTypes dataDetectorTypes;
+
+/**
+ @brief Disable or enable standard actions in UIMenuController.
+
+ You can use this property to get rid of all the standard menu action in UIMenuController.
+ Typicallly, this is done to get rid to "More" submenu and display all the custom menu
+ items in the top level menu. If you still need a standard action such as copy you can add
+ a custom menu item with the same label and call copy: on the UIWebView.
+ */
+@property (nonatomic, assign) BOOL disableStandardActions;
 
 #ifdef __IPHONE_4_0
 
