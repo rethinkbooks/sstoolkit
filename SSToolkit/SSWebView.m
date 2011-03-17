@@ -48,6 +48,13 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 }
 
 
+#pragma mark UIResponder
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return NO;
+}
+
+
 #pragma mark UIView
 
 - (id)initWithFrame:(CGRect)frame {

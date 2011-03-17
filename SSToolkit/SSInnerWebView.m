@@ -13,6 +13,9 @@
 
 @synthesize disableStandardActions = _disableStandardActions;
 
+
+#pragma mark UIResponder
+
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     if(self.disableStandardActions) {
         return NO;
