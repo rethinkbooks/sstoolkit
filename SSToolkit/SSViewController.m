@@ -101,6 +101,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
 	}
 	_modalContainerBackgroundView.frame = CGRectMake((roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.x, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.y, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
+    _modalContainerView.frame = CGRectMake(kSSViewControllerModalPadding, kSSViewControllerModalPadding, modalSize.width, modalSize.height);
 }
 
 
