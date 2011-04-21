@@ -656,6 +656,7 @@
 				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -692,6 +693,7 @@
 				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
 				PRODUCT_NAME = SSToolkit;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
