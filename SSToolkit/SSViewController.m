@@ -19,6 +19,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)_presentModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
+- (void)_transformView:(UIView *)view animated:(BOOL)animated;
 @end
 
 
@@ -53,6 +54,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	[UIView beginAnimations:@"rotate" context:self];
 	[UIView setAnimationDuration:duration];
+    [self _transformView:_modalRotatingContainerView animated:YES];
 	[self layoutViewsWithOrientation:toInterfaceOrientation];
 	[UIView commitAnimations];
 }
@@ -90,6 +92,14 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		screenSize = CGSizeMake(768.0f, 1024.0f);
 		_vignetteButton.frame = CGRectMake(-128.0f, 0.0f, 1024.0f, 1024.0f);
 	}
+    
+    if(_modalRotatingContainerView) {
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        [CATransaction setAnimationDuration:0.0];
+        _modalRotatingContainerView.frame = CGRectMake(0.0, 0.0, screenSize.width, screenSize.height);
+        [CATransaction commit];    
+    }
 	
 	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
 	if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
@@ -136,6 +146,11 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 	
 	[window addSubview:_vignetteButton];
 	[_vignetteButton fadeIn];
+    
+    if(_modalRotatingContainerView == NULL) {
+        _modalRotatingContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+    }
+	[window addSubview:_modalRotatingContainerView];
 	
 	if (_modalContainerBackgroundView == nil) {
 		UIImage *modalBackgroundImage = [[UIImage imageNamed:@"SSViewControllerFormBackground.png" bundle:kSSToolkitBundleName] stretchableImageWithLeftCapWidth:43 topCapHeight:45];
@@ -144,7 +159,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		_modalContainerBackgroundView.userInteractionEnabled = YES;
 	}
 	
-	[window addSubview:_modalContainerBackgroundView];
+	[_modalRotatingContainerView addSubview:_modalContainerBackgroundView];
 	
 	if (_modalContainerView == nil) {
 		_modalContainerView = [[UIView alloc] initWithFrame:CGRectMake(kSSViewControllerModalPadding, kSSViewControllerModalPadding, modalSize.width, modalSize.height)];
@@ -186,6 +201,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		[UIView setAnimationDidStopSelector:@selector(_presentModalAnimationDidStop:finished:context:)];
 	}
 	
+    [self _transformView:_modalRotatingContainerView animated:NO];
 	[self layoutViews];
 	
 	if (animated) {
@@ -275,6 +291,10 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark Private Methods
 
 - (void)_cleanUpModal {
+	[_modalRotatingContainerView removeFromSuperview];
+	[_modalRotatingContainerView release];
+	_modalRotatingContainerView = nil;
+
 	[_modalContainerBackgroundView removeFromSuperview];
 	[_modalContainerBackgroundView release];
 	_modalContainerBackgroundView = nil;
@@ -319,6 +339,25 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
 	[self _cleanUpModal];
+}
+
+- (void)_transformView:(UIView *)view animated:(BOOL)animated{
+    
+    [CATransaction begin];
+    if(!animated) {
+        [CATransaction setDisableActions:YES];
+        [CATransaction setAnimationDuration:0.0];
+    }
+    switch([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationPortraitUpsideDown:
+            view.transform = CGAffineTransformMake(-1.0, 0.0, 0.0, -1.0, 0.0, 0.0);
+            break;
+        default:
+            view.transform = CGAffineTransformIdentity;
+            break;
+    }
+    [CATransaction commit];    
+    [view setNeedsDisplay];
 }
 
 @end

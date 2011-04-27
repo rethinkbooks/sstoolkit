@@ -27,6 +27,7 @@
 	UIView *_modalContainerView;
 	UIImageView *_modalContainerBackgroundView;
 	UIButton *_vignetteButton;
+    UIView *_modalRotatingContainerView;
 }
 
 @property (nonatomic, assign) SSViewController *modalParentViewController;
