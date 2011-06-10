@@ -56,7 +56,7 @@ static CGFloat indicatorRightMargin = 8.0f;
 		[self addSubview:_activityIndicatorView];
 		
 		// Defaults
-		self.text = @"Loading...";
+		self.text = NSLocalizedString(@"Loading...", @"Loading view loading text");
 		self.font = [UIFont systemFontOfSize:16.0f];
 		self.textColor = [UIColor darkGrayColor];
 		self.shadowColor = [UIColor whiteColor];

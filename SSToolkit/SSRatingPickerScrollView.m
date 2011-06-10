@@ -65,7 +65,7 @@
 		_titleTextField = [[SSTextField alloc] initWithFrame:CGRectZero];
 		_titleTextField.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
 		_titleTextField.font = font;
-		_titleTextField.placeholder = @"Title";
+		_titleTextField.placeholder = NSLocalizedString(@"Title", @"Rating picker scroller title");
 		_titleTextField.textEdgeInsets = UIEdgeInsetsMake(10.0f, 8.0f, 10.0f, 8.0f);
 		[self addSubview:_titleTextField];
 		
@@ -76,7 +76,7 @@
 
 		_reviewTextView = [[SSTextView alloc] initWithFrame:CGRectZero];
 		_reviewTextView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-		_reviewTextView.placeholder = @"Review (Optional)";
+		_reviewTextView.placeholder = NSLocalizedString(@"Review (Optional)", @"Rating picker scroller review");
 		_reviewTextView.font = font;
 		_reviewTextView.scrollEnabled = NO;
 		_reviewTextView.delegate = self;

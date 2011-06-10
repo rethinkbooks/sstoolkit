@@ -89,14 +89,14 @@
 		// On label
 		_onLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		_onLabel.backgroundColor = [UIColor clearColor];
-		_onLabel.text = @"ON";
+		_onLabel.text = NSLocalizedString(@"ON", @"SSSwitch ON");
 		_onLabel.textAlignment = UITextAlignmentCenter;
 		[_labelMaskView addSubview:_onLabel];
 		
 		// Off label
 		_offLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		_offLabel.backgroundColor = [UIColor clearColor];
-		_offLabel.text = @"OFF";
+		_offLabel.text = NSLocalizedString(@"OFF", @"SSSwitch OFF");
 		_offLabel.textAlignment = UITextAlignmentCenter;
 		[_labelMaskView addSubview:_offLabel];
 		

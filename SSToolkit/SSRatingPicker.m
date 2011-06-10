@@ -67,7 +67,7 @@
 		label.shadowColor = [UIColor whiteColor];
 		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
 		label.backgroundColor = [UIColor clearColor];
-		label.text = @"Tap a Star to Rate";
+		label.text = NSLocalizedString(@"Tap a Star to Rate", @"Rating picker tap a star");
 		label.font = [UIFont boldSystemFontOfSize:10.0f];
 		label.textAlignment = UITextAlignmentCenter;
 		self.textLabel = label;
