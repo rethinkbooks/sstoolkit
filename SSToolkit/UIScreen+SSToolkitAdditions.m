@@ -10,11 +10,6 @@
 
 @implementation UIScreen (SSToolkitAdditions)
 
-- (CGRect)currentBounds {
-	return [self boundsForOrientation:[[UIDevice currentDevice] orientation]];
-}
-
-
 - (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation {
 	CGRect bounds = [self bounds];
 	

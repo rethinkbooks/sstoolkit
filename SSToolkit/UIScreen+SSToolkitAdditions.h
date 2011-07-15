@@ -8,7 +8,6 @@
 
 @interface UIScreen (SSToolkitAdditions)
 
-- (CGRect)currentBounds;
 - (CGRect)boundsForOrientation:(UIInterfaceOrientation)orientation;
 
 @end

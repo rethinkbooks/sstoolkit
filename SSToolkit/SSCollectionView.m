@@ -197,7 +197,7 @@
 
 
 - (SSCollectionViewItem *)itemPathForIndex:(NSIndexPath *)indexPath {
-	if (indexPath.row >= [_items count]) {
+	if ((NSUInteger)indexPath.row >= [_items count]) {
 		return nil;
 	}
 	return [_items objectAtIndex:indexPath.row];
@@ -224,7 +224,7 @@
 
 
 - (void)reloadItemAtIndexPaths:(NSIndexPath *)indexPaths {
-	if ([indexPaths row] < [_items count]) {
+	if ((NSUInteger)[indexPaths row] < [_items count]) {
 		SSCollectionViewItem *oldItem = [_items objectAtIndex:[indexPaths row]];
 		SSCollectionViewItem *newItem = [_dataSource collectionView:self itemForIndexPath:indexPaths];
 		
