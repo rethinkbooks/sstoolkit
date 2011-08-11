@@ -113,7 +113,7 @@
 	}
 	
 	// Set content size
-	CGRect lastFrame = [[_items lastObject] frame];
+	CGRect lastFrame = [_items lastObject] ? [[_items lastObject] frame] : CGRectZero;
 	CGFloat contentWidth = totalWidth - self.contentInset.left - self.contentInset.right;
 	CGFloat contentHeight = lastFrame.origin.y + lastFrame.size.height + bottomPadding;
 	CGFloat minContentHeight = (self.frame.size.height - self.contentInset.top - self.contentInset.bottom) + 1.0f;
