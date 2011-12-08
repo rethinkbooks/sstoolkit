@@ -20,6 +20,8 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_transformView:(UIView *)view animated:(BOOL)animated;
+- (CGSize)_screenSize;
+- (CGRect)_vignetteSize:(UIInterfaceOrientation)orientation;
 @end
 
 
@@ -77,22 +79,11 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		return;
 	}
 	
-	CGSize screenSize;
+	CGSize screenSize = [self _screenSize];
+    _vignetteButton.frame = [self _vignetteSize:orientation];
 	
 	// TODO: Make this not iPad specific
 	
-	// Landscape
-	if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-		screenSize = CGSizeMake(1024.0f, 768.0f);
-		_vignetteButton.frame = CGRectMake(0.0f, -128.0f, 1024.0f, 1024.0f);
-	}
-	
-	// Portrait
-	else {
-		screenSize = CGSizeMake(768.0f, 1024.0f);
-		_vignetteButton.frame = CGRectMake(-128.0f, 0.0f, 1024.0f, 1024.0f);
-	}
-    
     if(_modalRotatingContainerView) {
         [CATransaction begin];
         [CATransaction setDisableActions:YES];
@@ -172,13 +163,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 	[_modalContainerView addSubview:modalView];
 	modalView.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
 	
-	CGSize screenSize;
-	if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-		screenSize = CGSizeMake(1024.0f, 768.0f);
-	} else {
-		screenSize = CGSizeMake(768.0f, 1024.0f);
-	}
-	
+	CGSize screenSize = [self _screenSize];
 	CGPoint originOffset = CGPointZero;
 	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
 		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
@@ -218,13 +203,11 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 
 - (void)dismissCustomModalViewController:(BOOL)animated {
-	CGSize screenSize;
-	if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft || self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-		screenSize = CGSizeMake(1024.0f, 768.0f);
-	} else {
-		screenSize = CGSizeMake(768.0f, 1024.0f);
+	CGSize screenSize = [self _screenSize];
+	CGPoint originOffset = CGPointZero;
+	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
+		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
 	}
-	
 	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
 	if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
 		modalSize = [_customModalViewController contentSizeForViewInCustomModal];
@@ -246,7 +229,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 		[self _dismissModalAnimationDidStop:nil finished:nil context:nil];
 	}
 	
-	_modalContainerBackgroundView.frame = CGRectMake(roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + screenSize.height, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
+	_modalContainerBackgroundView.frame = CGRectMake(roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f + originOffset.x, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.y + screenSize.height, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
 	
 	if (animated) {
 		[UIView commitAnimations];
@@ -358,6 +341,41 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     }
     [CATransaction commit];    
     [view setNeedsDisplay];
+}
+
+- (CGSize)_screenSize {
+    // TODO: fix positioning and use iPhone screen size
+    if(true || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+            self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+            return CGSizeMake(1024.0f, 768.0f);
+        } else {
+            return CGSizeMake(768.0f, 1024.0f);
+        }
+    } else {
+        if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+            self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+            return CGSizeMake(480.0f, 320.0f);
+        } else {
+            return CGSizeMake(320.0f, 480.0f);
+        }
+    }
+}
+
+- (CGRect)_vignetteSize:(UIInterfaceOrientation)orientation {
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+            return CGRectMake(0.0f, -128.0f, 1024.0f, 1024.0f);
+        } else {
+            return CGRectMake(-128.0f, 0.0f, 1024.0f, 1024.0f);
+        }
+    } else {
+        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
+            return CGRectMake(0.0f, -80.0f, 480.0f, 480.0f);
+        } else {
+            return CGRectMake(-80.0f, 0.0f, 480.0f, 480.0f);
+        }
+    }
 }
 
 @end
