@@ -163,10 +163,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
     _modalContainerBackgroundView.frame = [self _modalContainerBackgroundViewOffScreenRect];
 
-    if ([_customModalViewController respondsToSelector:@selector(viewWillAppear:)]) {
-        [_customModalViewController viewWillAppear:animated];
-    }
-
     [self customModalWillAppear:animated];
 
     [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:self];
@@ -180,10 +176,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 
 - (void)dismissCustomModalViewControllerAnimated:(BOOL)animated {
-    if ([_customModalViewController respondsToSelector:@selector(viewWillDisappear:)]) {
-        [_customModalViewController viewWillDisappear:animated];
-    }
-
     [self customModalWillDisappear:animated];    
     
     [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:self];
@@ -245,13 +237,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 - (void)_presentModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     BOOL animated = (animationID != nil);
-    
-    if ([_customModalViewController respondsToSelector:@selector(viewDidAppear:)]) {
-        [_customModalViewController viewDidAppear:animated];
-    }
-    
     [self customModalDidAppear:animated];
-    
     if ([_customModalViewController respondsToSelector:@selector(dismissCustomModalOnVignetteTap)] && [_customModalViewController dismissCustomModalOnVignetteTap]) {
         [_vignetteButton addTarget:self
                             action:@selector(_vignetteButtonTapped:)
@@ -262,11 +248,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     BOOL animated = (animationID != nil);
-        
-    if ([_customModalViewController respondsToSelector:@selector(viewDidDisappear:)]) {
-        [_customModalViewController viewDidDisappear:animated];
-    }
-    
     [self customModalDidDisappear:animated];
 }
 
