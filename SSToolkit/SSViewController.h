@@ -15,19 +15,16 @@
  Note: Currently only iPad is supported.
  */
 @interface SSViewController : UIViewController <SSModalViewController> {
+    SSViewController *_modalParentViewController;
+    BOOL _dismissCustomModalOnVignetteTap;
+    CGSize _contentSizeForViewInCustomModal;
+    CGPoint _originForViewInCustomModal;
 
-	SSViewController *_modalParentViewController;
-	UIViewController<SSModalViewController> *_customModalViewController;
-	BOOL _dismissCustomModalOnVignetteTap;
-	CGSize _contentSizeForViewInCustomModal;
-	CGPoint _originForViewInCustomModal;
-	
-@protected
-	
-	UIView *_modalContainerView;
-	UIImageView *_modalContainerBackgroundView;
-	UIButton *_vignetteButton;
-    UIView *_modalRotatingContainerView;
+@private
+    UIViewController<SSModalViewController> *_customModalViewController;
+    UIButton *_vignetteButton;
+    UIImageView *_modalContainerBackgroundView;
+    UIView *_modalContainerView;
 }
 
 @property (nonatomic, assign) SSViewController *modalParentViewController;
@@ -39,10 +36,8 @@
 - (void)layoutViews;
 - (void)layoutViewsWithOrientation:(UIInterfaceOrientation)orientation;
 
-- (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController;
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated;
-- (void)dismissCustomModalViewController;
-- (void)dismissCustomModalViewController:(BOOL)animated;
+- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated;
 
 - (void)customModalWillAppear:(BOOL)animated;
 - (void)customModalDidAppear:(BOOL)animated;

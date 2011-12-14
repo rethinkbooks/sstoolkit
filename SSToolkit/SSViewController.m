@@ -11,17 +11,19 @@
 #import "UIView+SSToolkitAdditions.h"
 #import <QuartzCore/QuartzCore.h>
 
+
 static CGFloat const kSSViewControllerModalPadding = 22.0f;
 static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {540.0f, 620.0f};
+
 
 @interface SSViewController (PrivateMethods)
 - (void)_cleanUpModal;
 - (void)_presentModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
-- (void)_transformView:(UIView *)view animated:(BOOL)animated;
-- (CGSize)_screenSize;
-- (CGRect)_vignetteSize:(UIInterfaceOrientation)orientation;
+- (void)_vignetteButtonTapped:(id)sender;
+- (CGPoint)_modalOriginOffset;
+- (CGRect)_modalContainerBackgroundViewOffScreenRect;
 @end
 
 
@@ -36,346 +38,285 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark NSObject
 
 - (id)init {
-	if ((self = [super init])) {
-		_dismissCustomModalOnVignetteTap = NO;
-		_contentSizeForViewInCustomModal = kSSViewControllerDefaultContentSizeForViewInCustomModal;
-		_originOffsetForViewInCustomModal = CGPointZero;
-	}
-	return self;
+    if ((self = [super init])) {
+        _dismissCustomModalOnVignetteTap = NO;
+        _contentSizeForViewInCustomModal = kSSViewControllerDefaultContentSizeForViewInCustomModal;
+        _originOffsetForViewInCustomModal = CGPointZero;
+    }
+    return self;
 }
 
 
 - (void)dealloc {
-	[self _cleanUpModal];
-	[super dealloc];
+    [self _cleanUpModal];
+    [super dealloc];
 }
-
 
 #pragma mark UIViewController
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-	[UIView beginAnimations:@"rotate" context:self];
-	[UIView setAnimationDuration:duration];
-    [self _transformView:_modalRotatingContainerView animated:YES];
-	[self layoutViewsWithOrientation:toInterfaceOrientation];
-	[UIView commitAnimations];
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
+    CGAffineTransform transform;
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            transform = CGAffineTransformMakeRotation(0.0f);
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            transform = CGAffineTransformMakeRotation(M_PI);
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            transform = CGAffineTransformMakeRotation(-M_PI_2);
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            transform = CGAffineTransformMakeRotation(M_PI_2);
+            break;
+    }
+    _modalContainerBackgroundView.transform = transform;
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
-	[self layoutViews];
+    [self layoutViews];
 }
-
 
 #pragma mark Layout
 
 - (void)layoutViews {
-	[self layoutViewsWithOrientation:self.interfaceOrientation];
+    [self layoutViewsWithOrientation:self.interfaceOrientation];
 }
 
 
 - (void)layoutViewsWithOrientation:(UIInterfaceOrientation)orientation {
-	if (!_customModalViewController) {
-		return;
-	}
-	
-	CGSize screenSize = [self _screenSize];
-    _vignetteButton.frame = [self _vignetteSize:orientation];
-	
-	// TODO: Make this not iPad specific
-	
-    if(_modalRotatingContainerView) {
-        [CATransaction begin];
-        [CATransaction setDisableActions:YES];
-        [CATransaction setAnimationDuration:0.0];
-        _modalRotatingContainerView.frame = CGRectMake(0.0, 0.0, screenSize.width, screenSize.height);
-        [CATransaction commit];    
+    if (!_customModalViewController) {
+        return;
     }
-	
-	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
-	if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
-		modalSize = [_customModalViewController contentSizeForViewInCustomModal];
-	}
-	
-	CGPoint originOffset = CGPointMake(0.0, 20.0);
-	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
-		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
-	}
-	_modalContainerBackgroundView.frame = CGRectMake((roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.x, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.y, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
-    _modalContainerView.frame = CGRectMake(kSSViewControllerModalPadding, kSSViewControllerModalPadding, modalSize.width, modalSize.height);
-}
 
+    UIWindow *window = _modalContainerBackgroundView.window;
+    CGPoint originOffset = [self _modalOriginOffset];
+    _modalContainerBackgroundView.frame = CGRectMake(originOffset.x + CGRectGetMidX(window.bounds) - CGRectGetWidth(_modalContainerBackgroundView.frame) / 2.0f,
+                                                     originOffset.y + CGRectGetMidY(window.bounds) - CGRectGetHeight(_modalContainerBackgroundView.frame) / 2.0f,
+                                                     CGRectGetWidth(_modalContainerBackgroundView.frame),
+                                                     CGRectGetHeight(_modalContainerBackgroundView.frame));
+}
 
 #pragma mark Modal
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController {
-	[self presentCustomModalViewController:viewController animated:YES];
+    [self presentCustomModalViewController:viewController animated:YES];
 }
 
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated {
-	_customModalViewController = [viewController retain];
-	
-	if (_customModalViewController == nil) {
-		return;
-	}
-	
-    UIWindow *window = self.view.window;
-	_customModalViewController.modalParentViewController = self;
-	
-	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
-	if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
-		modalSize = [_customModalViewController contentSizeForViewInCustomModal];
-	}
-	
-	if (_vignetteButton == nil) {
-		_vignetteButton = [[UIButton alloc] initWithFrame:CGRectZero];
-		[_vignetteButton setImage:[UIImage imageNamed:@"SSViewControllerModalVignetteiPad.png" bundle:kSSToolkitBundleName] forState:UIControlStateNormal];
-		_vignetteButton.adjustsImageWhenHighlighted = NO;
-		_vignetteButton.alpha = 0.0f;
-	}
-	
-	[window addSubview:_vignetteButton];
-	[_vignetteButton fadeIn];
-    
-    if(_modalRotatingContainerView == NULL) {
-        _modalRotatingContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+    if (_customModalViewController) {
+        NSLog(@"ERROR: Attempt to present a modal view controller while one is already being shown.");
+        return;
     }
-	[window addSubview:_modalRotatingContainerView];
-	
-	if (_modalContainerBackgroundView == nil) {
-		UIImage *modalBackgroundImage = [[UIImage imageNamed:@"SSViewControllerFormBackground.png" bundle:kSSToolkitBundleName] stretchableImageWithLeftCapWidth:43 topCapHeight:45];
-		_modalContainerBackgroundView = [[UIImageView alloc] initWithImage:modalBackgroundImage];
-		_modalContainerBackgroundView.autoresizesSubviews = NO;
-		_modalContainerBackgroundView.userInteractionEnabled = YES;
-	}
-	
-	[_modalRotatingContainerView addSubview:_modalContainerBackgroundView];
-	
-	if (_modalContainerView == nil) {
-		_modalContainerView = [[UIView alloc] initWithFrame:CGRectMake(kSSViewControllerModalPadding, kSSViewControllerModalPadding, modalSize.width, modalSize.height)];
-		_modalContainerView.layer.cornerRadius = 5.0f;
-		_modalContainerView.clipsToBounds = YES;
-		[_modalContainerBackgroundView addSubview:_modalContainerView];
-	}
-	
-	UIView *modalView = _customModalViewController.view;
-	[_modalContainerView addSubview:modalView];
-	modalView.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
-	
-	CGSize screenSize = [self _screenSize];
-	CGPoint originOffset = CGPointZero;
-	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
-		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
-	}
-	
-	_modalContainerBackgroundView.frame = CGRectMake((roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.x, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.y + screenSize.height, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
-	
-	
-	if ([_customModalViewController respondsToSelector:@selector(viewWillAppear:)]) {
-		[_customModalViewController viewWillAppear:animated];
-	}
-	
-	[self customModalWillAppear:animated];
-	
-	if (animated) {
-		[UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:self];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		[UIView setAnimationDuration:0.5];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDidStopSelector:@selector(_presentModalAnimationDidStop:finished:context:)];
-	}
-	
-    [self _transformView:_modalRotatingContainerView animated:NO];
-	[self layoutViews];
-	
-	if (animated) {
-		[UIView commitAnimations];
-	} else {
-		[self _presentModalAnimationDidStop:nil finished:nil context:nil];
-	}
+
+    _customModalViewController = [viewController retain];
+    if (_customModalViewController == nil) {
+        NSLog(@"ERROR: Attempt to present a nil modal view controller");
+        return;
+    }
+
+    UIWindow *window = self.view.window;
+    _customModalViewController.modalParentViewController = self;
+
+    CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
+    if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
+        modalSize = [_customModalViewController contentSizeForViewInCustomModal];
+    }
+
+    if (_vignetteButton == nil) {
+        _vignetteButton = [[UIButton alloc] initWithFrame:window.bounds];
+        [_vignetteButton setImage:[UIImage imageNamed:@"SSViewControllerModalVignetteiPad.png"
+                                               bundle:kSSToolkitBundleName]
+                         forState:UIControlStateNormal];
+        _vignetteButton.adjustsImageWhenHighlighted = NO;
+        _vignetteButton.alpha = 0.0f;
+        _vignetteButton.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    }
+    [window addSubview:_vignetteButton];
+    [_vignetteButton fadeIn];
+
+    if (_modalContainerBackgroundView == nil) {
+        UIImage *modalBackgroundImage = [[UIImage imageNamed:@"SSViewControllerFormBackground.png" bundle:kSSToolkitBundleName] stretchableImageWithLeftCapWidth:43 topCapHeight:45];
+        _modalContainerBackgroundView = [[UIImageView alloc] initWithImage:modalBackgroundImage];
+        _modalContainerBackgroundView.autoresizesSubviews = NO;
+        _modalContainerBackgroundView.userInteractionEnabled = YES;
+    }
+    _modalContainerBackgroundView.frame = CGRectMake(0.0f, 0.0f,
+                                                     modalSize.width + 2.0f * kSSViewControllerModalPadding,
+                                                     modalSize.height + 2.0f * kSSViewControllerModalPadding);
+    [window addSubview:_modalContainerBackgroundView];
+
+    if (_modalContainerView == nil) {
+        _modalContainerView = [[UIView alloc] initWithFrame:CGRectMake(kSSViewControllerModalPadding,
+                                                                       kSSViewControllerModalPadding,
+                                                                       modalSize.width,
+                                                                       modalSize.height)];
+        _modalContainerView.layer.cornerRadius = 5.0f;
+        _modalContainerView.clipsToBounds = YES;
+        [_modalContainerBackgroundView addSubview:_modalContainerView];
+    }
+    UIView *modalView = _customModalViewController.view;
+    modalView.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
+    [_modalContainerView addSubview:modalView];
+
+    _modalContainerBackgroundView.frame = [self _modalContainerBackgroundViewOffScreenRect];
+
+    if ([_customModalViewController respondsToSelector:@selector(viewWillAppear:)]) {
+        [_customModalViewController viewWillAppear:animated];
+    }
+
+    [self customModalWillAppear:animated];
+
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:self];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:animated ? 0.5 : 0.0];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(_presentModalAnimationDidStop:finished:context:)];
+    [self layoutViews];
+    [UIView commitAnimations];
 }
 
 
-- (void)dismissCustomModalViewController {
-	[self dismissCustomModalViewController:YES];
-}
+- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated {
+    if ([_customModalViewController respondsToSelector:@selector(viewWillDisappear:)]) {
+        [_customModalViewController viewWillDisappear:animated];
+    }
 
+    [self customModalWillDisappear:animated];    
+    
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:self];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:animated ? 0.4 : 0.0];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(_dismissModalAnimationDidStop:finished:context:)];
+    _modalContainerBackgroundView.frame = [self _modalContainerBackgroundViewOffScreenRect];
+    [UIView commitAnimations];
 
-- (void)dismissCustomModalViewController:(BOOL)animated {
-	CGSize screenSize = [self _screenSize];
-	CGPoint originOffset = CGPointZero;
-	if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
-		originOffset = [_customModalViewController originOffsetForViewInCustomModal];
-	}
-	CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
-	if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
-		modalSize = [_customModalViewController contentSizeForViewInCustomModal];
-	}
-	
-	if ([_customModalViewController respondsToSelector:@selector(viewWillDisappear:)]) {
-		[_customModalViewController viewWillDisappear:animated];
-	}
-	
-	[self customModalWillDisappear:animated];	
-	
-	if (animated) {
-		[UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:self];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		[UIView setAnimationDuration:0.4];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDidStopSelector:@selector(_dismissModalAnimationDidStop:finished:context:)];
-	} else {
-		[self _dismissModalAnimationDidStop:nil finished:nil context:nil];
-	}
-	
-	_modalContainerBackgroundView.frame = CGRectMake(roundf(screenSize.width - modalSize.width - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f + originOffset.x, (roundf(screenSize.height - modalSize.height - kSSViewControllerModalPadding - kSSViewControllerModalPadding) / 2.0f) + originOffset.y + screenSize.height, modalSize.width + kSSViewControllerModalPadding + kSSViewControllerModalPadding, modalSize.height + kSSViewControllerModalPadding + kSSViewControllerModalPadding);
-	
-	if (animated) {
-		[UIView commitAnimations];
-		
-		[UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.remove-vignette" context:self];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		[UIView setAnimationDelay:0.2];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDidStopSelector:@selector(_dismissVignetteAnimationDidStop:finished:context:)];
-	}
-	
-	_vignetteButton.alpha = 0.0f;
-	
-	if (animated) {
-		[UIView commitAnimations];
-	} else {
-		[self _dismissVignetteAnimationDidStop:nil finished:nil context:nil];
-	}
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.remove-vignette" context:self];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelay:animated ? 0.2 : 0.0];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(_dismissVignetteAnimationDidStop:finished:context:)];
+    _vignetteButton.alpha = 0.0f;
+    [UIView commitAnimations];
 }
 
 
 - (void)customModalWillAppear:(BOOL)animated {
-	// Can be overridden by a subclass
+    // Can be overridden by a subclass
 }
 
 
 - (void)customModalDidAppear:(BOOL)animated {
-	// Can be overridden by a subclass
+    // Can be overridden by a subclass
 }
 
 
 - (void)customModalWillDisappear:(BOOL)animated {
-	// Can be overridden by a subclass
+    // Can be overridden by a subclass
 }
 
 
 - (void)customModalDidDisappear:(BOOL)animated {
-	// Can be overridden by a subclass
+    // Can be overridden by a subclass
 }
-
 
 #pragma mark Private Methods
 
 - (void)_cleanUpModal {
-	[_modalRotatingContainerView removeFromSuperview];
-	[_modalRotatingContainerView release];
-	_modalRotatingContainerView = nil;
+    [_modalContainerView removeFromSuperview];
+    [_modalContainerView release];
+    _modalContainerView = nil;
 
-	[_modalContainerBackgroundView removeFromSuperview];
-	[_modalContainerBackgroundView release];
-	_modalContainerBackgroundView = nil;
-	
-	[_vignetteButton removeFromSuperview];
-	[_vignetteButton release];
-	_vignetteButton = nil;
-	
-	[_customModalViewController release];
-	_customModalViewController = nil;
-	
-	[_modalContainerView release];
-	_modalContainerView = nil;
+    [_modalContainerBackgroundView removeFromSuperview];
+    [_modalContainerBackgroundView release];
+    _modalContainerBackgroundView = nil;
+
+    [_vignetteButton removeFromSuperview];
+    [_vignetteButton release];
+    _vignetteButton = nil;
+
+    [_customModalViewController release];
+    _customModalViewController = nil;
 }
 
 
 - (void)_presentModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-	BOOL animated = (animationID != nil);
-	
-	if ([_customModalViewController respondsToSelector:@selector(viewDidAppear:)]) {
-		[_customModalViewController viewDidAppear:animated];
-	}
-	
-	[self customModalDidAppear:animated];
-	
-	if ([_customModalViewController respondsToSelector:@selector(dismissCustomModalOnVignetteTap)] && [_customModalViewController dismissCustomModalOnVignetteTap] == YES) {
-		[_vignetteButton addTarget:self action:@selector(dismissCustomModalViewController) forControlEvents:UIControlEventTouchUpInside];
-	}
+    BOOL animated = (animationID != nil);
+    
+    if ([_customModalViewController respondsToSelector:@selector(viewDidAppear:)]) {
+        [_customModalViewController viewDidAppear:animated];
+    }
+    
+    [self customModalDidAppear:animated];
+    
+    if ([_customModalViewController respondsToSelector:@selector(dismissCustomModalOnVignetteTap)] && [_customModalViewController dismissCustomModalOnVignetteTap]) {
+        [_vignetteButton addTarget:self
+                            action:@selector(_vignetteButtonTapped:)
+                  forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-	BOOL animated = (animationID != nil);
-		
-	if ([_customModalViewController respondsToSelector:@selector(viewDidDisappear:)]) {
-		[_customModalViewController viewDidDisappear:animated];
-	}
-	
-	[self customModalDidDisappear:animated];
+    BOOL animated = (animationID != nil);
+        
+    if ([_customModalViewController respondsToSelector:@selector(viewDidDisappear:)]) {
+        [_customModalViewController viewDidDisappear:animated];
+    }
+    
+    [self customModalDidDisappear:animated];
 }
 
 
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-	[self _cleanUpModal];
+    [self _cleanUpModal];
 }
 
-- (void)_transformView:(UIView *)view animated:(BOOL)animated{
-    
-    [CATransaction begin];
-    if(!animated) {
-        [CATransaction setDisableActions:YES];
-        [CATransaction setAnimationDuration:0.0];
+
+- (void)_vignetteButtonTapped:(id)sender {
+    [self dismissCustomModalViewControllerAnimated:YES];
+}
+
+
+- (CGPoint)_modalOriginOffset {
+    CGPoint originOffset = CGPointZero;
+    if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
+        originOffset = [_customModalViewController originOffsetForViewInCustomModal];
     }
-    switch([UIDevice currentDevice].orientation) {
-        case UIDeviceOrientationPortraitUpsideDown:
-            view.transform = CGAffineTransformMake(-1.0, 0.0, 0.0, -1.0, 0.0, 0.0);
+    return originOffset;
+}
+
+
+- (CGRect)_modalContainerBackgroundViewOffScreenRect {
+    CGPoint originOffset = [self _modalOriginOffset];
+    CGRect windowBounds = _modalContainerBackgroundView.window.bounds;
+    CGFloat midX = originOffset.x + CGRectGetMidX(windowBounds) - CGRectGetWidth(_modalContainerBackgroundView.frame) / 2.0f;
+    CGFloat midY = originOffset.x + CGRectGetMidY(windowBounds) - CGRectGetHeight(_modalContainerBackgroundView.frame) / 2.0f;
+    CGRect result = CGRectMake(0.0f, 0.0f,
+                               CGRectGetWidth(_modalContainerBackgroundView.frame),
+                               CGRectGetHeight(_modalContainerBackgroundView.frame));
+    switch (self.interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            result.origin.x = midX;
+            result.origin.y = CGRectGetMaxY(windowBounds);
             break;
-        default:
-            view.transform = CGAffineTransformIdentity;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            result.origin.x = midX;
+            result.origin.y = CGRectGetMinY(windowBounds) - result.size.height;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            result.origin.x = CGRectGetMaxX(windowBounds);
+            result.origin.y = midY;
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            result.origin.x = CGRectGetMinX(windowBounds) - result.size.width;
+            result.origin.y = midY;
             break;
     }
-    [CATransaction commit];    
-    [view setNeedsDisplay];
-}
-
-- (CGSize)_screenSize {
-    // TODO: fix positioning and use iPhone screen size
-    if(true || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-            self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-            return CGSizeMake(1024.0f, 768.0f);
-        } else {
-            return CGSizeMake(768.0f, 1024.0f);
-        }
-    } else {
-        if (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-            self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-            return CGSizeMake(480.0f, 320.0f);
-        } else {
-            return CGSizeMake(320.0f, 480.0f);
-        }
-    }
-}
-
-- (CGRect)_vignetteSize:(UIInterfaceOrientation)orientation {
-    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-            return CGRectMake(0.0f, -128.0f, 1024.0f, 1024.0f);
-        } else {
-            return CGRectMake(-128.0f, 0.0f, 1024.0f, 1024.0f);
-        }
-    } else {
-        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-            return CGRectMake(0.0f, -80.0f, 480.0f, 480.0f);
-        } else {
-            return CGRectMake(-80.0f, 0.0f, 480.0f, 480.0f);
-        }
-    }
+    return result;
 }
 
 @end
