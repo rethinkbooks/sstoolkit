@@ -91,14 +91,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     _modalDropShadowView.center = [self _modalDropShadowViewCenter];
 }
 
-    UIWindow *window = _modalContainerBackgroundView.window;
-    CGPoint originOffset = [self _modalOriginOffset];
-    _modalContainerBackgroundView.frame = CGRectMake(originOffset.x + CGRectGetMidX(window.bounds) - CGRectGetWidth(_modalContainerBackgroundView.frame) / 2.0f,
-                                                     originOffset.y + CGRectGetMidY(window.bounds) - CGRectGetHeight(_modalContainerBackgroundView.frame) / 2.0f,
-                                                     CGRectGetWidth(_modalContainerBackgroundView.frame),
-                                                     CGRectGetHeight(_modalContainerBackgroundView.frame));
-}
-
 #pragma mark Modal
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController {
