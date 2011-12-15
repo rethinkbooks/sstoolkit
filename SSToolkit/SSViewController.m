@@ -9,10 +9,9 @@
 #import "SSViewController.h"
 #import "UIImage+SSToolkitAdditions.h"
 #import "UIView+SSToolkitAdditions.h"
+#import "SSDropShadowView.h"
 #import <QuartzCore/QuartzCore.h>
 
-
-static CGFloat const kSSViewControllerModalPadding = 22.0f;
 static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {540.0f, 620.0f};
 
 
@@ -22,7 +21,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)_dismissModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)_vignetteButtonTapped:(id)sender;
-- (CGPoint)_modalOriginOffset;
+- (CGPoint)_modalDropShadowViewCenter;
 - (CGRect)_modalContainerBackgroundViewOffScreenRect;
 @end
 
@@ -70,7 +69,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
             transform = CGAffineTransformMakeRotation(M_PI_2);
             break;
     }
-    _modalContainerBackgroundView.transform = transform;
+    _modalDropShadowView.transform = transform;
 }
 
 
@@ -89,6 +88,8 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     if (!_customModalViewController) {
         return;
     }
+    _modalDropShadowView.center = [self _modalDropShadowViewCenter];
+}
 
     UIWindow *window = _modalContainerBackgroundView.window;
     CGPoint originOffset = [self _modalOriginOffset];
@@ -120,51 +121,27 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     UIWindow *window = self.view.window;
     _customModalViewController.modalParentViewController = self;
 
+    _vignetteButton = [[UIButton alloc] initWithFrame:window.bounds];
+    [_vignetteButton setImage:[UIImage imageNamed:@"SSViewControllerModalVignetteiPad.png"
+                                           bundle:kSSToolkitBundleName]
+                     forState:UIControlStateNormal];
+    _vignetteButton.adjustsImageWhenHighlighted = NO;
+    _vignetteButton.alpha = 0.0f;
+    _vignetteButton.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [window addSubview:_vignetteButton];
+    [_vignetteButton fadeIn];
+
     CGSize modalSize = kSSViewControllerDefaultContentSizeForViewInCustomModal;
     if ([_customModalViewController respondsToSelector:@selector(contentSizeForViewInCustomModal)]) {
         modalSize = [_customModalViewController contentSizeForViewInCustomModal];
     }
+    _customModalViewController.view.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
 
-    if (_vignetteButton == nil) {
-        _vignetteButton = [[UIButton alloc] initWithFrame:window.bounds];
-        [_vignetteButton setImage:[UIImage imageNamed:@"SSViewControllerModalVignetteiPad.png"
-                                               bundle:kSSToolkitBundleName]
-                         forState:UIControlStateNormal];
-        _vignetteButton.adjustsImageWhenHighlighted = NO;
-        _vignetteButton.alpha = 0.0f;
-        _vignetteButton.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    }
-    [window addSubview:_vignetteButton];
-    [_vignetteButton fadeIn];
+    _modalDropShadowView = [[SSDropShadowView alloc] initWithView:_customModalViewController.view];
+    _modalDropShadowView.center = [self _modalDropShadowViewCenter];
+    [window addSubview:_modalDropShadowView];
 
-    if (_modalContainerBackgroundView == nil) {
-        UIImage *modalBackgroundImage = [[UIImage imageNamed:@"SSViewControllerFormBackground.png" bundle:kSSToolkitBundleName] stretchableImageWithLeftCapWidth:43 topCapHeight:45];
-        _modalContainerBackgroundView = [[UIImageView alloc] initWithImage:modalBackgroundImage];
-        _modalContainerBackgroundView.autoresizesSubviews = NO;
-        _modalContainerBackgroundView.userInteractionEnabled = YES;
-    }
-    _modalContainerBackgroundView.frame = CGRectMake(0.0f, 0.0f,
-                                                     modalSize.width + 2.0f * kSSViewControllerModalPadding,
-                                                     modalSize.height + 2.0f * kSSViewControllerModalPadding);
-    [window addSubview:_modalContainerBackgroundView];
-
-    if (_modalContainerView == nil) {
-        _modalContainerView = [[UIView alloc] initWithFrame:CGRectMake(kSSViewControllerModalPadding,
-                                                                       kSSViewControllerModalPadding,
-                                                                       modalSize.width,
-                                                                       modalSize.height)];
-        _modalContainerView.layer.cornerRadius = 5.0f;
-        _modalContainerView.clipsToBounds = YES;
-        [_modalContainerBackgroundView addSubview:_modalContainerView];
-    }
-    UIView *modalView = _customModalViewController.view;
-    modalView.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
-    [_modalContainerView addSubview:modalView];
-
-    _modalContainerBackgroundView.frame = [self _modalContainerBackgroundViewOffScreenRect];
-
-    [self customModalWillAppear:animated];
-
+    _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
     [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:self];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:animated ? 0.5 : 0.0];
@@ -183,7 +160,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     [UIView setAnimationDuration:animated ? 0.4 : 0.0];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(_dismissModalAnimationDidStop:finished:context:)];
-    _modalContainerBackgroundView.frame = [self _modalContainerBackgroundViewOffScreenRect];
+    _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
     [UIView commitAnimations];
 
     [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.remove-vignette" context:self];
@@ -222,13 +199,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark Private Methods
 
 - (void)_cleanUpModal {
-    [_modalContainerView removeFromSuperview];
-    [_modalContainerView release];
-    _modalContainerView = nil;
-
-    [_modalContainerBackgroundView removeFromSuperview];
-    [_modalContainerBackgroundView release];
-    _modalContainerBackgroundView = nil;
+    [_modalDropShadowView removeFromSuperview];
+    [_modalDropShadowView release];
+    _modalDropShadowView = nil;
 
     [_vignetteButton removeFromSuperview];
     [_vignetteButton release];
@@ -266,23 +239,31 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 }
 
 
-- (CGPoint)_modalOriginOffset {
+- (CGPoint)_modalDropShadowViewCenter {
     CGPoint originOffset = CGPointZero;
     if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
         originOffset = [_customModalViewController originOffsetForViewInCustomModal];
     }
-    return originOffset;
+
+    CGPoint center = _modalDropShadowView.window.center;
+    center.x -= originOffset.x;
+    center.y -= originOffset.y;
+    return center;
 }
 
 
 - (CGRect)_modalContainerBackgroundViewOffScreenRect {
-    CGPoint originOffset = [self _modalOriginOffset];
-    CGRect windowBounds = _modalContainerBackgroundView.window.bounds;
-    CGFloat midX = originOffset.x + CGRectGetMidX(windowBounds) - CGRectGetWidth(_modalContainerBackgroundView.frame) / 2.0f;
-    CGFloat midY = originOffset.x + CGRectGetMidY(windowBounds) - CGRectGetHeight(_modalContainerBackgroundView.frame) / 2.0f;
+    CGPoint originOffset = CGPointZero;
+    if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
+        originOffset = [_customModalViewController originOffsetForViewInCustomModal];
+    }
+
+    CGRect windowBounds = _modalDropShadowView.window.bounds;
+    CGFloat midX = originOffset.x + CGRectGetMidX(windowBounds) - CGRectGetWidth(_modalDropShadowView.frame) / 2.0f;
+    CGFloat midY = originOffset.x + CGRectGetMidY(windowBounds) - CGRectGetHeight(_modalDropShadowView.frame) / 2.0f;
     CGRect result = CGRectMake(0.0f, 0.0f,
-                               CGRectGetWidth(_modalContainerBackgroundView.frame),
-                               CGRectGetHeight(_modalContainerBackgroundView.frame));
+                               CGRectGetWidth(_modalDropShadowView.frame),
+                               CGRectGetHeight(_modalDropShadowView.frame));
     switch (self.interfaceOrientation) {
         case UIInterfaceOrientationPortrait:
             result.origin.x = midX;

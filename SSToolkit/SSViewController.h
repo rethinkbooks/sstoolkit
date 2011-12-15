@@ -8,6 +8,8 @@
 
 #import "SSModalViewController.h"
 
+@class SSDropShadowView;
+
 /**
  @brief UIViewController subclass that displaying custom modals and
  other nice enhancements.
@@ -23,8 +25,7 @@
 @private
     UIViewController<SSModalViewController> *_customModalViewController;
     UIButton *_vignetteButton;
-    UIImageView *_modalContainerBackgroundView;
-    UIView *_modalContainerView;
+    SSDropShadowView *_modalDropShadowView;
 }
 
 @property (nonatomic, assign) SSViewController *modalParentViewController;
@@ -38,7 +39,6 @@
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated;
 - (void)dismissCustomModalViewControllerAnimated:(BOOL)animated;
-- (void)dismissCustomModalViewController;
 
 - (void)customModalWillAppear:(BOOL)animated;
 - (void)customModalDidAppear:(BOOL)animated;

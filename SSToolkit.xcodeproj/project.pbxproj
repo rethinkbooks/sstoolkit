@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		867DA5AB149A60DF00F54740 /* SSDropShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 867DA5A9149A60DF00F54740 /* SSDropShadowView.h */; };
+		867DA5AC149A60DF00F54740 /* SSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 867DA5AA149A60DF00F54740 /* SSDropShadowView.m */; };
 		956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -111,6 +113,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		867DA5A9149A60DF00F54740 /* SSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDropShadowView.h; sourceTree = "<group>"; };
+		867DA5AA149A60DF00F54740 /* SSDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDropShadowView.m; sourceTree = "<group>"; };
 		956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInnerWebView.h; sourceTree = "<group>"; };
 		956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -394,6 +398,8 @@
 				B20AC0681267988600687143 /* SSTableViewController.m */,
 				B24E9E31121DC29A0085F81E /* SSViewController.h */,
 				B24E9E32121DC29A0085F81E /* SSViewController.m */,
+				867DA5A9149A60DF00F54740 /* SSDropShadowView.h */,
+				867DA5AA149A60DF00F54740 /* SSDropShadowView.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				B2E241581301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h in Headers */,
 				956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */,
 				B215045F10583A7300409ED4 /* SSToolkit_Prefix.pch in Headers */,
+				867DA5AB149A60DF00F54740 /* SSDropShadowView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +621,7 @@
 				B2E241571301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m in Sources */,
 				B2E241591301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */,
 				956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */,
+				867DA5AC149A60DF00F54740 /* SSDropShadowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
