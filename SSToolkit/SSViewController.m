@@ -196,6 +196,10 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 }
 
 
+- (void)dismissCustomModalViewController {
+    [self dismissCustomModalViewControllerAnimated:YES];
+}
+
 - (void)customModalWillAppear:(BOOL)animated {
     // Can be overridden by a subclass
 }

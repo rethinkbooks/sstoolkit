@@ -38,6 +38,7 @@
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated;
 - (void)dismissCustomModalViewControllerAnimated:(BOOL)animated;
+- (void)dismissCustomModalViewController;
 
 - (void)customModalWillAppear:(BOOL)animated;
 - (void)customModalDidAppear:(BOOL)animated;
