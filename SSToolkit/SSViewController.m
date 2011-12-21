@@ -74,6 +74,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self layoutViews];
 }
 
@@ -92,11 +93,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 }
 
 #pragma mark Modal
-
-- (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController {
-    [self presentCustomModalViewController:viewController animated:YES];
-}
-
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated {
     if (_customModalViewController) {
