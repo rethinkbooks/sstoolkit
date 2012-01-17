@@ -203,11 +203,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)_presentModalAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
     BOOL animated = (animationID != nil);
     [self customModalDidAppear:animated];
-    if ([_customModalViewController respondsToSelector:@selector(dismissCustomModalOnVignetteTap)] && [_customModalViewController dismissCustomModalOnVignetteTap]) {
-        [_vignetteButton addTarget:self
-                            action:@selector(_vignetteButtonTapped:)
-                  forControlEvents:UIControlEventTouchUpInside];
-    }
+    [_vignetteButton addTarget:self
+                        action:@selector(_vignetteButtonTapped:)
+              forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -223,7 +221,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 
 - (void)_vignetteButtonTapped:(id)sender {
-    [self dismissCustomModalViewControllerAnimated:YES];
+    if ([_customModalViewController respondsToSelector:@selector(dismissCustomModalOnVignetteTap)] && [_customModalViewController dismissCustomModalOnVignetteTap]) {
+        [self dismissCustomModalViewControllerAnimated:YES];
+    }
 }
 
 
