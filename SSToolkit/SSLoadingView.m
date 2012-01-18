@@ -41,40 +41,53 @@ static CGFloat indicatorRightMargin = 8.0f;
 
 #pragma mark UIView
 
+- (void)initSSLoadingView {
+    // View defaults
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.backgroundColor = [UIColor whiteColor];
+    self.opaque = YES;
+
+    // Setup the indicator
+    _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _activityIndicatorView.hidesWhenStopped = NO;
+    [_activityIndicatorView startAnimating];
+    [self addSubview:_activityIndicatorView];
+
+    // Defaults
+    self.text = NSLocalizedString(@"Loading...", @"Loading view loading text");
+    self.font = [UIFont systemFontOfSize:16.0f];
+    self.textColor = [UIColor darkGrayColor];
+    self.shadowColor = [UIColor whiteColor];
+    _shadowOffset = CGSizeMake(0.0f, 1.0f);
+
+    // Add observers
+    [self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"shadowColor" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"shadowOffset" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+
 - (id)initWithFrame:(CGRect)frame {
-    if ((self = [super initWithFrame:frame])) {
-        
-		// View defaults
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		self.backgroundColor = [UIColor whiteColor];
-		self.opaque = YES;
-		
-		// Setup the indicator
-		_activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-		_activityIndicatorView.hidesWhenStopped = NO;
-		[_activityIndicatorView startAnimating];
-		[self addSubview:_activityIndicatorView];
-		
-		// Defaults
-		self.text = NSLocalizedString(@"Loading...", @"Loading view loading text");
-		self.font = [UIFont systemFontOfSize:16.0f];
-		self.textColor = [UIColor darkGrayColor];
-		self.shadowColor = [UIColor whiteColor];
-		_shadowOffset = CGSizeMake(0.0f, 1.0f);
-		
-		// Add observers
-		[self addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"font" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"shadowColor" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"shadowOffset" options:NSKeyValueObservingOptionNew context:nil];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initSSLoadingView];
+    }
+    return self;
+}
+
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initSSLoadingView];
     }
     return self;
 }
 
 
 - (void)drawRect:(CGRect)rect {
-	
 	CGRect frame = self.frame;
 	
 	// Calculate sizes
@@ -107,7 +120,6 @@ static CGFloat indicatorRightMargin = 8.0f;
 #pragma mark NSKeyValueObserving
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {	
-	
 	// Redraw if colors or borders changed
 	if ([keyPath isEqualToString:@"text"] || [keyPath isEqualToString:@"font"] || 
 		[keyPath isEqualToString:@"textColor"] || [keyPath isEqualToString:@"shadowColor"]) {
