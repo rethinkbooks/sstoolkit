@@ -229,8 +229,10 @@
 		for (id item in items) {
 			if ([item isKindOfClass:[NSString class]]) {
 				[self setTitle:item forSegmentAtIndex:(NSUInteger)index];
-				index++;
-			}
+			} else {
+				[self setTitle:@"" forSegmentAtIndex:(NSUInteger)index];
+            }
+            index++;
 		}
 	}
 	return self;
