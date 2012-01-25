@@ -7,6 +7,7 @@
 //
 
 #import "NSDate+SSToolkitAdditions.h"
+#import "NSCalendar+SSToolkitAdditions.h"
 #include <time.h>
 
 @implementation NSDate (SSToolkitAdditions)
@@ -141,6 +142,25 @@
 
 - (NSString *)adjustedTimeAgoInWordsIncludingSeconds:(BOOL)includeSeconds {
 	return [[self class] timeAgoInWordsFromTimeInterval:fabs([self timeIntervalSinceNow] + [[NSTimeZone localTimeZone] secondsFromGMT]) includingSeconds:includeSeconds];
+}
+
+- (NSString *)unitsGroupStringFromDate:(NSDate *)date {
+    NSString *result = nil;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    if ([cal units:NSDayCalendarUnit withinEraFromDate:self toDate:date] < 1) {
+        result = NSLocalizedString(@"Today", @"Today");
+    } else if ([cal units:NSDayCalendarUnit withinEraFromDate:self toDate:date] < 2) {
+        result = NSLocalizedString(@"Yesterday", @"Yesterday");
+    } else if ([cal units:NSWeekCalendarUnit withinEraFromDate:self toDate:date] < 1) {
+        result = NSLocalizedString(@"This Week", @"This Week");
+    } else if ([cal units:NSMonthCalendarUnit withinEraFromDate:self toDate:date] < 1) {
+        result = NSLocalizedString(@"This Month", @"This Month");
+    } else if ([cal units:NSYearCalendarUnit withinEraFromDate:self toDate:date] < 1) {
+        result = NSLocalizedString(@"This Year", @"This Year");
+    } else {
+        result = NSLocalizedString(@"More Than One Year Ago", @"More Than One Year Ago");
+    }
+    return result;
 }
 
 @end

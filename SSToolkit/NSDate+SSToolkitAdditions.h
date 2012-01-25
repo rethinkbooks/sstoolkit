@@ -23,4 +23,6 @@
 - (NSString *)adjustedTimeAgoInWords;
 - (NSString *)adjustedTimeAgoInWordsIncludingSeconds:(BOOL)includeSeconds;
 
+- (NSString *)unitsGroupStringFromDate:(NSDate *)date;
+
 @end
