@@ -157,6 +157,8 @@
         result = NSLocalizedString(@"This Month", @"This Month");
     } else if ([cal units:NSYearCalendarUnit withinEraFromDate:self toDate:date] < 1) {
         result = NSLocalizedString(@"This Year", @"This Year");
+    } else if ([cal units:NSYearCalendarUnit withinEraFromDate:self toDate:date] < 2) {
+        result = NSLocalizedString(@"Last Year", @"Last Year");
     } else {
         result = NSLocalizedString(@"More Than One Year Ago", @"More Than One Year Ago");
     }
