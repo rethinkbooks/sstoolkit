@@ -147,20 +147,23 @@
 - (NSString *)unitsGroupStringFromDate:(NSDate *)date {
     NSString *result = nil;
     NSCalendar *cal = [NSCalendar currentCalendar];
-    if ([cal units:NSDayCalendarUnit withinEraFromDate:self toDate:date] < 1) {
-        result = NSLocalizedString(@"Today", @"Today");
-    } else if ([cal units:NSDayCalendarUnit withinEraFromDate:self toDate:date] < 2) {
-        result = NSLocalizedString(@"Yesterday", @"Yesterday");
-    } else if ([cal units:NSWeekCalendarUnit withinEraFromDate:self toDate:date] < 1) {
-        result = NSLocalizedString(@"This Week", @"This Week");
-    } else if ([cal units:NSMonthCalendarUnit withinEraFromDate:self toDate:date] < 1) {
-        result = NSLocalizedString(@"This Month", @"This Month");
-    } else if ([cal units:NSYearCalendarUnit withinEraFromDate:self toDate:date] < 1) {
-        result = NSLocalizedString(@"This Year", @"This Year");
-    } else if ([cal units:NSYearCalendarUnit withinEraFromDate:self toDate:date] < 2) {
-        result = NSLocalizedString(@"Last Year", @"Last Year");
-    } else {
+    unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekOfMonthCalendarUnit|NSDayCalendarUnit;
+    NSDateComponents *selfComps = [cal components:unitFlags fromDate:self];
+    NSDateComponents *dateComps = [cal components:unitFlags fromDate:date];
+    if (dateComps.year - selfComps.year > 1) {
         result = NSLocalizedString(@"More Than One Year Ago", @"More Than One Year Ago");
+    } else if (dateComps.year != selfComps.year) {
+        result = NSLocalizedString(@"Last Year", @"Last Year");
+    } else if (dateComps.month != selfComps.month) {
+        result = NSLocalizedString(@"This Year", @"This Year");
+    } else if (dateComps.weekOfMonth != selfComps.weekOfMonth) {
+        result = NSLocalizedString(@"This Month", @"This Month");
+    } else if (dateComps.day - selfComps.day > 1) {
+        result = NSLocalizedString(@"This Week", @"This Week");
+    } else if (dateComps.day != selfComps.day) {
+        result = NSLocalizedString(@"Yesterday", @"Yesterday");
+    } else {
+        result = NSLocalizedString(@"Today", @"Today");
     }
     return result;
 }
