@@ -22,9 +22,9 @@
 	
 	strptime([string cStringUsingEncoding:NSUTF8StringEncoding], "%Y-%m-%dT%H:%M:%S%z", &tm);
 	tm.tm_isdst = -1;
-	t = mktime(&tm);
+	t = timegm(&tm);
 	
-	return [NSDate dateWithTimeIntervalSince1970:t + [[NSTimeZone localTimeZone] secondsFromGMT]];
+	return [NSDate dateWithTimeIntervalSince1970:t];
 }
 
 
@@ -32,7 +32,7 @@
 	struct tm *timeinfo;
 	char buffer[80];
 	
-	time_t rawtime = [self timeIntervalSince1970] - [[NSTimeZone localTimeZone] secondsFromGMT];
+	time_t rawtime = [self timeIntervalSince1970];
 	timeinfo = localtime(&rawtime);
 	
 	strftime(buffer, 80, "%Y-%m-%dT%H:%M:%S%z", timeinfo);
