@@ -150,9 +150,7 @@
     unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekOfMonthCalendarUnit|NSDayCalendarUnit;
     NSDateComponents *selfComps = [cal components:unitFlags fromDate:self];
     NSDateComponents *dateComps = [cal components:unitFlags fromDate:date];
-    if ([self earlierDate:date] != self) {
-        result = NSLocalizedString(@"In The Future", @"In The Future");
-    } else if (dateComps.year - selfComps.year > 1) {
+    if (dateComps.year - selfComps.year > 1) {
         result = NSLocalizedString(@"More Than One Year Ago", @"More Than One Year Ago");
     } else if (dateComps.year - selfComps.year > 0) {
         result = NSLocalizedString(@"Last Year", @"Last Year");
@@ -164,8 +162,10 @@
         result = NSLocalizedString(@"This Week", @"This Week");
     } else if (dateComps.day - selfComps.day > 0) {
         result = NSLocalizedString(@"Yesterday", @"Yesterday");
-    } else {
+    } else if (dateComps.year == selfComps.year && dateComps.month == selfComps.month && dateComps.day == selfComps.day) {
         result = NSLocalizedString(@"Today", @"Today");
+    } else {
+        result = NSLocalizedString(@"In The Future", @"In The Future");
     }
     return result;
 }
