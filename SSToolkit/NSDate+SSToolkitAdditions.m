@@ -147,37 +147,43 @@
 - (NSString *)unitsGroupStringFromDate:(NSDate *)date {
     NSString *result = nil;
     NSCalendar *cal = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSWeekOfMonthCalendarUnit|NSDayCalendarUnit;
+    NSDateComponents *delta = [[[NSDateComponents alloc] init] autorelease];
+    const BOOL haveWeeks = [delta respondsToSelector:@selector(weekOfMonth)];
+    unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
+    if (haveWeeks) {
+        unitFlags |= NSWeekOfMonthCalendarUnit;
+    }
     NSDateComponents *selfComps = [cal components:unitFlags fromDate:self];
     NSDateComponents *dateComps = [cal components:unitFlags fromDate:date];
-
-    NSDateComponents *delta = [[[NSDateComponents alloc] init] autorelease];
     delta.year = dateComps.year - selfComps.year;
     delta.month = dateComps.month - selfComps.month;
-    delta.weekOfMonth = dateComps.weekOfMonth - selfComps.weekOfMonth;
+    if (haveWeeks) {
+        delta.weekOfMonth = dateComps.weekOfMonth - selfComps.weekOfMonth;
+    }
     delta.day = dateComps.day - selfComps.day;
 
-    if (delta.year == 0) {
-        if (delta.month == 0) {
-            if (delta.weekOfMonth == 0) {
-                if (delta.day == 0) {
-                    result = NSLocalizedString(@"Today", @"Today");
-                } else if (delta.day > 1) {
-                    result = NSLocalizedString(@"This Week", @"This Week");
-                } else if (delta.day > 0) {
-                    result = NSLocalizedString(@"Yesterday", @"Yesterday");
-                }
-            } else if (delta.weekOfMonth > 0) {
-                result = NSLocalizedString(@"This Month", @"This Month");
-            }
-        } else if (delta.month > 0) {
-            result = NSLocalizedString(@"This Year", @"This Year");
-        }
-    } else if (delta.year > 1) {
+    if (delta.year > 1) {
         result = NSLocalizedString(@"More Than One Year Ago", @"More Than One Year Ago");
     } else if (delta.year > 0) {
         result = NSLocalizedString(@"Last Year", @"Last Year");
+    } else if (delta.year == 0) {
+        if (delta.month > 0) {
+            result = NSLocalizedString(@"This Year", @"This Year");
+        } else if (delta.month == 0) {
+            if (delta.day > 1) {
+                if (!haveWeeks || delta.weekOfMonth > 0) {
+                    result = NSLocalizedString(@"This Month", @"This Month");
+                } else if (delta.weekOfMonth == 0) {
+                    result = NSLocalizedString(@"This Week", @"This Week");
+                }
+            } else if (delta.day > 0) {
+                result = NSLocalizedString(@"Yesterday", @"Yesterday");
+            } else if (delta.day == 0) {
+                result = NSLocalizedString(@"Today", @"Today");
+            }
+        }
     }
+
     if (!result) {
         result = NSLocalizedString(@"In The Future", @"In The Future");
     }
