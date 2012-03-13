@@ -56,6 +56,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
     _modalDropShadowView.transform = [self _transformForOrientation:interfaceOrientation];
+    [self layoutViewsWithOrientation:interfaceOrientation];
 }
 
 
@@ -112,8 +113,8 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     _customModalViewController.view.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
 
     _modalDropShadowView = [[SSDropShadowView alloc] initWithView:_customModalViewController.view];
-    _modalDropShadowView.transform = [self _transformForOrientation:self.interfaceOrientation];
     _modalDropShadowView.center = [self _modalDropShadowViewCenter];
+    _modalDropShadowView.transform = [self _transformForOrientation:self.interfaceOrientation];
     [window addSubview:_modalDropShadowView];
 
     _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
@@ -221,8 +222,20 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     }
 
     CGPoint center = _modalDropShadowView.window.center;
-    center.x -= originOffset.x;
-    center.y -= originOffset.y;
+    switch (self.interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            center.x -= originOffset.x;
+            center.y -= originOffset.y;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            center.x += originOffset.x;
+            center.y += originOffset.y;
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+        case UIInterfaceOrientationLandscapeRight:
+            // TODO: implement
+            break;
+    }
     return center;
 }
 
