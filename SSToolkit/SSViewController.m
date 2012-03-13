@@ -23,6 +23,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)_vignetteButtonTapped:(id)sender;
 - (CGPoint)_modalDropShadowViewCenter;
 - (CGRect)_modalContainerBackgroundViewOffScreenRect;
+- (CGAffineTransform)_transformForOrientation:(UIInterfaceOrientation)interfaceOrientation;
 @end
 
 
@@ -54,22 +55,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark UIViewController
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
-    CGAffineTransform transform;
-    switch (interfaceOrientation) {
-        case UIInterfaceOrientationPortrait:
-            transform = CGAffineTransformMakeRotation(0.0f);
-            break;
-        case UIInterfaceOrientationPortraitUpsideDown:
-            transform = CGAffineTransformMakeRotation(M_PI);
-            break;
-        case UIInterfaceOrientationLandscapeLeft:
-            transform = CGAffineTransformMakeRotation(-M_PI_2);
-            break;
-        case UIInterfaceOrientationLandscapeRight:
-            transform = CGAffineTransformMakeRotation(M_PI_2);
-            break;
-    }
-    _modalDropShadowView.transform = transform;
+    _modalDropShadowView.transform = [self _transformForOrientation:interfaceOrientation];
 }
 
 
@@ -126,6 +112,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     _customModalViewController.view.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
 
     _modalDropShadowView = [[SSDropShadowView alloc] initWithView:_customModalViewController.view];
+    _modalDropShadowView.transform = [self _transformForOrientation:self.interfaceOrientation];
     _modalDropShadowView.center = [self _modalDropShadowViewCenter];
     [window addSubview:_modalDropShadowView];
 
@@ -272,5 +259,23 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     }
     return result;
 }
+
+- (CGAffineTransform)_transformForOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    switch (interfaceOrientation) {
+        case UIInterfaceOrientationPortrait:
+            return CGAffineTransformMakeRotation(0.0f);
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return CGAffineTransformMakeRotation(M_PI);
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            return CGAffineTransformMakeRotation(-M_PI_2);
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            return CGAffineTransformMakeRotation(M_PI_2);
+            break;
+    }
+}
+
 
 @end
