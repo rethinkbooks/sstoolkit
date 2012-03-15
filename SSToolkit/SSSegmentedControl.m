@@ -272,10 +272,12 @@
 
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex sendAction:(BOOL)sendAction {
-    _selectedSegmentIndex = selectedSegmentIndex;
-    [self setNeedsDisplay];
-    if (sendAction) {
-        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    if (selectedSegmentIndex != _selectedSegmentIndex) {
+        _selectedSegmentIndex = selectedSegmentIndex;
+        [self setNeedsDisplay];
+        if (sendAction) {
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+        }
     }
 }
 
