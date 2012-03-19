@@ -655,6 +655,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
 				PRODUCT_NAME = SSToolkit;
 				PUBLIC_HEADERS_FOLDER_PATH = include;
@@ -679,6 +680,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
 				PRODUCT_NAME = SSToolkit;
 				PUBLIC_HEADERS_FOLDER_PATH = include;
