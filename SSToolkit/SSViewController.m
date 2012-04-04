@@ -57,6 +57,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
     _modalDropShadowView.transform = [self _transformForOrientation:interfaceOrientation];
     [self layoutViewsWithOrientation:interfaceOrientation];
+    [_customModalViewController willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
 }
 
 
@@ -68,7 +69,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark Layout
 
 - (void)layoutViews {
-    [self layoutViewsWithOrientation:self.interfaceOrientation];
+    [self layoutViewsWithOrientation:self.view.window.rootViewController.interfaceOrientation];
 }
 
 
@@ -114,7 +115,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
     _modalDropShadowView = [[SSDropShadowView alloc] initWithView:_customModalViewController.view];
     _modalDropShadowView.center = [self _modalDropShadowViewCenter];
-    _modalDropShadowView.transform = [self _transformForOrientation:self.interfaceOrientation];
+    _modalDropShadowView.transform = [self _transformForOrientation:window.rootViewController.interfaceOrientation];
     [window addSubview:_modalDropShadowView];
 
     _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
@@ -222,7 +223,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     }
 
     CGPoint center = _modalDropShadowView.window.center;
-    switch (self.interfaceOrientation) {
+    switch (self.view.window.rootViewController.interfaceOrientation) {
         case UIInterfaceOrientationPortrait:
             center.x -= originOffset.x;
             center.y -= originOffset.y;
@@ -252,7 +253,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     CGRect result = CGRectMake(0.0f, 0.0f,
                                CGRectGetWidth(_modalDropShadowView.frame),
                                CGRectGetHeight(_modalDropShadowView.frame));
-    switch (self.interfaceOrientation) {
+    switch (self.view.window.rootViewController.interfaceOrientation) {
         case UIInterfaceOrientationPortrait:
             result.origin.x = midX;
             result.origin.y = CGRectGetMaxY(windowBounds);
