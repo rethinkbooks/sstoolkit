@@ -78,6 +78,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
         return;
     }
     _modalDropShadowView.center = [self _modalDropShadowViewCenter];
+    _modalDropShadowView.frame = CGRectIntegral(_modalDropShadowView.frame);
 }
 
 #pragma mark Modal
@@ -114,7 +115,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     _customModalViewController.view.frame = CGRectMake(0.0f, 0.0f, modalSize.width, modalSize.height);
 
     _modalDropShadowView = [[SSDropShadowView alloc] initWithView:_customModalViewController.view];
-    _modalDropShadowView.center = [self _modalDropShadowViewCenter];
     _modalDropShadowView.transform = [self _transformForOrientation:window.rootViewController.interfaceOrientation];
     [window addSubview:_modalDropShadowView];
 
@@ -221,7 +221,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     if ([_customModalViewController respondsToSelector:@selector(originOffsetForViewInCustomModal)]) {
         originOffset = [_customModalViewController originOffsetForViewInCustomModal];
     }
-
     CGPoint center = _modalDropShadowView.window.center;
     switch (self.view.window.rootViewController.interfaceOrientation) {
         case UIInterfaceOrientationPortrait:
