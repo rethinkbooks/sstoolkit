@@ -11,9 +11,8 @@
 + (NSDate *)dateFromISO8601String:(NSString *)string;
 - (NSString *)ISO8601String;
 
-+ (NSString *)timeAgoInWordsFromTimeInterval:(NSTimeInterval)intervalInSeconds includingSeconds:(BOOL)includeSeconds;
++ (NSString *)timeAgoInWordsFromTimeInterval:(NSTimeInterval)intervalInSeconds;
 - (NSString *)timeAgoInWords;
-- (NSString *)timeAgoInWordsIncludingSeconds:(BOOL)includeSeconds;
 
 + (NSString *)timeAgoCrypticFromTimeInterval:(NSTimeInterval)intervalInSeconds;
 - (NSString *)timeAgoCryptic;
@@ -21,7 +20,6 @@
 // Adjusts for the current time zone
 - (NSDate *)adjustedDate;
 - (NSString *)adjustedTimeAgoInWords;
-- (NSString *)adjustedTimeAgoInWordsIncludingSeconds:(BOOL)includeSeconds;
 
 - (NSString *)unitsGroupStringFromDate:(NSDate *)date;
 
