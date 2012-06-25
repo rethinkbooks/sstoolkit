@@ -51,9 +51,9 @@
 		return [NSString stringWithFormat:NSLocalizedString(@"%.0f minutes", @"Time ago less than one hour"), intervalInMinutes];
 	} else if (intervalInMinutes >= 45 && intervalInMinutes <= 89) {
 		return NSLocalizedString(@"about 1 hour ago", @"Time ago about one hour");
-	} else if (intervalInMinutes >= 90 && intervalInMinutes <= 1439) {
+	} else if (intervalInMinutes >= 90 && intervalInMinutes <= 1409) {
 		return [NSString stringWithFormat:NSLocalizedString(@"about %.0f hours", @"Time ago about n hours format"), round(intervalInMinutes/60.0f)];
-	} else if (intervalInMinutes >= 1440 && intervalInMinutes <= 2879) {
+	} else if (intervalInMinutes >= 1410 && intervalInMinutes <= 2879) {
 		return NSLocalizedString(@"1 day ago", @"Time ago one day");
 	} else if (intervalInMinutes >= 2880 && intervalInMinutes <= 43199) {
 		return [NSString stringWithFormat:NSLocalizedString(@"%.0f days", @"Time ago n days format"), round(intervalInMinutes/1440.0f)];
@@ -84,9 +84,9 @@
 		return [NSString stringWithFormat:NSLocalizedString(@"%.0fm", @"Time ago cryptic minutes format"), intervalInMinutes];
 	} else if (intervalInMinutes >= 45 && intervalInMinutes <= 89) {
 		return NSLocalizedString(@"~1h ago", @"Time ago cryptic one hour");
-	} else if (intervalInMinutes >= 90 && intervalInMinutes <= 1439) {
+	} else if (intervalInMinutes >= 90 && intervalInMinutes <= 1409) {
 		return [NSString stringWithFormat:NSLocalizedString(@"%.0fh", @"Time ago cryptic hours format"), round(intervalInMinutes/60.0f)];
-	} else if (intervalInMinutes >= 1440 && intervalInMinutes <= 2879) {
+	} else if (intervalInMinutes >= 1410 && intervalInMinutes <= 2879) {
 		return NSLocalizedString(@"~1d ago", @"Time ago cryptic one day");
 	} else if (intervalInMinutes >= 2880 && intervalInMinutes <= 43199) {
 		return [NSString stringWithFormat:NSLocalizedString(@"%.0fd", @"Time ago cryptic days format"), round(intervalInMinutes/1440.0f)];
