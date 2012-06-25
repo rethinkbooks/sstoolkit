@@ -117,17 +117,29 @@
 	return [[self class] timeAgoInWordsFromTimeInterval:[self timeIntervalSinceNow] + [[NSTimeZone localTimeZone] secondsFromGMT]];
 }
 
-- (NSString *)unitsGroupStringFromDate:(NSDate *)date {
+
+- (NSDate *)endOfDay {
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *delta = [[[NSDateComponents alloc] init] autorelease];
-    const BOOL haveWeeks = [delta respondsToSelector:@selector(weekOfYear)];
+    NSDateComponents *comps = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];
+    [comps setHour:23];
+    [comps setMinute:59];
+    [comps setSecond:59];
+    return [cal dateFromComponents:comps];
+}
+
+
+- (NSString *)unitsGroupStringFromDate:(NSDate *)date {
+    date = [date endOfDay];
+
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    const BOOL haveWeeks = [[[[NSDateComponents alloc] init] autorelease] respondsToSelector:@selector(weekOfYear)];
     unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
     if (haveWeeks) {
         unitFlags |= NSWeekOfYearCalendarUnit;
     }
     NSDateComponents *selfComps = [cal components:unitFlags fromDate:self];
     NSDateComponents *dateComps = [cal components:unitFlags fromDate:date];
-    delta = [cal components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self toDate:date options:0];
     NSInteger deltaDays = [cal components:NSDayCalendarUnit fromDate:self toDate:date options:0].day;
     NSInteger deltaWeeks = 0;
     if(haveWeeks) {
@@ -135,28 +147,28 @@
     }
     NSInteger deltaMonths = dateComps.month - selfComps.month;
     NSInteger deltaYears = dateComps.year - selfComps.year;
-    
-    if(deltaDays == 0) {
-        return NSLocalizedString(@"Today", @"Today");
-    } else if (deltaDays == 1) {
-        return NSLocalizedString(@"Yesterday", @"Yesterday");
-    }
-
-    if(haveWeeks) {
-        if(deltaWeeks == 0) {
-            return NSLocalizedString(@"This Week", @"This Week");
-        } else if(deltaWeeks == 1) {
-            return NSLocalizedString(@"Last Week", @"Last Week");
-        }
-    }
-
-    if(deltaMonths == 0) {
-        return NSLocalizedString(@"This Month", @"This Month");
-    } else if(deltaMonths == 1) {
-        return NSLocalizedString(@"Last Month", @"Last Month");
-    }
 
     if(deltaYears == 0) {
+        if(deltaDays == 0) {
+            return NSLocalizedString(@"Today", @"Today");
+        } else if (deltaDays == 1) {
+            return NSLocalizedString(@"Yesterday", @"Yesterday");
+        }
+
+        if(haveWeeks) {
+            if(deltaWeeks == 0) {
+                return NSLocalizedString(@"This Week", @"This Week");
+            } else if(deltaWeeks == 1) {
+                return NSLocalizedString(@"Last Week", @"Last Week");
+            }
+        }
+
+        if(deltaMonths == 0) {
+            return NSLocalizedString(@"This Month", @"This Month");
+        } else if(deltaMonths == 1) {
+            return NSLocalizedString(@"Last Month", @"Last Month");
+        }
+
         return NSLocalizedString(@"This Year", @"This Year");
     } else if(deltaYears == 1) {
         return NSLocalizedString(@"Last Year", @"Last Year");
