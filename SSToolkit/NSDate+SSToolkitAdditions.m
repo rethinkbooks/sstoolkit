@@ -56,11 +56,11 @@
 	} else if (intervalInMinutes >= 1410 && intervalInMinutes <= 2879) {
 		return NSLocalizedString(@"1 day ago", @"Time ago one day");
 	} else if (intervalInMinutes >= 2880 && intervalInMinutes <= 43199) {
-		return [NSString stringWithFormat:NSLocalizedString(@"%.0f days", @"Time ago n days format"), round(intervalInMinutes/1440.0f)];
+		return [NSString stringWithFormat:NSLocalizedString(@"%.0f days ago", @"Time ago n days format"), round(intervalInMinutes/1440.0f)];
 	} else if (intervalInMinutes >= 43200 && intervalInMinutes <= 86399) {
 		return NSLocalizedString(@"about 1 month ago", @"Time ago one month");
 	} else if (intervalInMinutes >= 86400 && intervalInMinutes <= 525599) {
-		return [NSString stringWithFormat:NSLocalizedString(@"%.0f months", @"Time ago n months format"), round(intervalInMinutes/43200.0f)];
+		return [NSString stringWithFormat:NSLocalizedString(@"%.0f months ago", @"Time ago n months format"), round(intervalInMinutes/43200.0f)];
 	} else if (intervalInMinutes >= 525600 && intervalInMinutes <= 1051199) {
 		return NSLocalizedString(@"about 1 year ago", @"Time ago one year");
 	} else {
@@ -89,11 +89,11 @@
 	} else if (intervalInMinutes >= 1410 && intervalInMinutes <= 2879) {
 		return NSLocalizedString(@"~1d ago", @"Time ago cryptic one day");
 	} else if (intervalInMinutes >= 2880 && intervalInMinutes <= 43199) {
-		return [NSString stringWithFormat:NSLocalizedString(@"%.0fd", @"Time ago cryptic days format"), round(intervalInMinutes/1440.0f)];
+		return [NSString stringWithFormat:NSLocalizedString(@"%.0fd ago", @"Time ago cryptic days format"), round(intervalInMinutes/1440.0f)];
 	} else if (intervalInMinutes >= 43200 && intervalInMinutes <= 86399) {
 		return NSLocalizedString(@"~1M ago", @"Time ago cryptic one month");
 	} else if (intervalInMinutes >= 86400 && intervalInMinutes <= 525599) {
-		return [NSString stringWithFormat:NSLocalizedString(@"%.0fM", @"Time ago cryptic months format"), round(intervalInMinutes/43200.0f)];
+		return [NSString stringWithFormat:NSLocalizedString(@"%.0fM ago", @"Time ago cryptic months format"), round(intervalInMinutes/43200.0f)];
 	} else if (intervalInMinutes >= 525600 && intervalInMinutes <= 1051199) {
 		return NSLocalizedString(@"~1Y ago", @"Time ago cryptic one year");
 	} else {
