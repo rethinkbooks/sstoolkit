@@ -26,6 +26,7 @@
     UIViewController<SSModalViewController> *_customModalViewController;
     UIButton *_vignetteButton;
     SSDropShadowView *_modalDropShadowView;
+    dispatch_block_t _dismissCompletion;
 }
 
 @property (nonatomic, assign) SSViewController *modalParentViewController;
@@ -39,6 +40,8 @@
 
 - (void)presentCustomModalViewController:(UIViewController<SSModalViewController> *)viewController animated:(BOOL)animated;
 - (void)dismissCustomModalViewControllerAnimated:(BOOL)animated;
+- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated completion:(dispatch_block_t)completion;
+
 
 - (void)customModalWillAppear:(BOOL)animated;
 - (void)customModalDidAppear:(BOOL)animated;

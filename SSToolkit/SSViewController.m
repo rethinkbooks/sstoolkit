@@ -46,7 +46,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     return self;
 }
 
-
 - (void)dealloc {
     [self _cleanUpModal];
     [super dealloc];
@@ -128,10 +127,12 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     [UIView commitAnimations];
 }
 
+- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated completion:(dispatch_block_t)completion {
+    [_dismissCompletion release];
+    _dismissCompletion = [completion copy];
 
-- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated {
     [self customModalWillDisappear:animated];    
-    
+
     [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:self];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:animated ? 0.4 : 0.0];
@@ -149,6 +150,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     [UIView commitAnimations];
 }
 
+- (void)dismissCustomModalViewControllerAnimated:(BOOL)animated {
+    [self dismissCustomModalViewControllerAnimated:animated completion:nil];
+}
 
 - (void)dismissCustomModalViewController {
     [self dismissCustomModalViewControllerAnimated:YES];
@@ -176,6 +180,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark Private Methods
 
 - (void)_cleanUpModal {
+    [_dismissCompletion release];
+    _dismissCompletion = nil;
+
     [_modalDropShadowView removeFromSuperview];
     [_modalDropShadowView release];
     _modalDropShadowView = nil;
@@ -205,6 +212,9 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 
 - (void)_dismissVignetteAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+    if (_dismissCompletion) {
+        dispatch_async(dispatch_get_main_queue(), _dismissCompletion);
+    }
     [self _cleanUpModal];
 }
 
