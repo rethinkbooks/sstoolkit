@@ -43,14 +43,6 @@
 	[_collectionView reloadData];
 }
 
-- (void)viewDidUnload {
-	_collectionView.dataSource = nil;
-	_collectionView.delegate = nil;
-	[_collectionView release];
-    _collectionView = nil;
-    [super viewDidUnload];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
 	[_collectionView flashScrollIndicators];
