@@ -14,8 +14,6 @@
 		956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		B207C63712EA209100412418 /* SSWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B207C63512EA209100412418 /* SSWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B207C63812EA209100412418 /* SSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B207C63612EA209100412418 /* SSWindow.m */; };
 		B20AC0691267988600687143 /* SSTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B20AC0671267988600687143 /* SSTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B20AC06A1267988600687143 /* SSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20AC0681267988600687143 /* SSTableViewController.m */; };
 		B215045F10583A7300409ED4 /* SSToolkit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B215045E10583A7300409ED4 /* SSToolkit_Prefix.pch */; };
@@ -120,8 +118,6 @@
 		956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInnerWebView.h; sourceTree = "<group>"; };
 		956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B207C63512EA209100412418 /* SSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWindow.h; sourceTree = "<group>"; };
-		B207C63612EA209100412418 /* SSWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWindow.m; sourceTree = "<group>"; };
 		B20AC0671267988600687143 /* SSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTableViewController.h; sourceTree = "<group>"; };
 		B20AC0681267988600687143 /* SSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTableViewController.m; sourceTree = "<group>"; };
 		B215045E10583A7300409ED4 /* SSToolkit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkit_Prefix.pch; sourceTree = "<group>"; };
@@ -376,8 +372,6 @@
 				B24E9E2B121DC29A0085F81E /* SSPieProgressView.m */,
 				B24E9E33121DC29A0085F81E /* SSWebView.h */,
 				B24E9E34121DC29A0085F81E /* SSWebView.m */,
-				B207C63512EA209100412418 /* SSWindow.h */,
-				B207C63612EA209100412418 /* SSWindow.m */,
 				956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */,
 				956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */,
 			);
@@ -502,7 +496,6 @@
 				B2AE1134126F963300534CF2 /* UIApplication+SSToolkitAdditions.h in Headers */,
 				B2AAE65C1281B73E0068EE7F /* SSNavigationController.h in Headers */,
 				B2B3CED81296F637001BAC94 /* SSSwitch.h in Headers */,
-				B207C63712EA209100412418 /* SSWindow.h in Headers */,
 				B2EA9F5E12F4A5C900C929D6 /* SSBadgeTableViewCell.h in Headers */,
 				B2EA9F6212F4A5E100C929D6 /* SSBadgeView.h in Headers */,
 				B28218BE12FA6AE100BAF3C6 /* SSToolkitDefines.h in Headers */,
@@ -608,7 +601,6 @@
 				B2AE1135126F963300534CF2 /* UIApplication+SSToolkitAdditions.m in Sources */,
 				B2AAE65D1281B73E0068EE7F /* SSNavigationController.m in Sources */,
 				B2B3CED91296F637001BAC94 /* SSSwitch.m in Sources */,
-				B207C63812EA209100412418 /* SSWindow.m in Sources */,
 				B2EA9F5F12F4A5C900C929D6 /* SSBadgeTableViewCell.m in Sources */,
 				B2EA9F6312F4A5E100C929D6 /* SSBadgeView.m in Sources */,
 				B28218BF12FA6AE100BAF3C6 /* SSToolkitDefines.m in Sources */,
