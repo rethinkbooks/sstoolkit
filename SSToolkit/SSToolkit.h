@@ -33,7 +33,6 @@
 #import "SSTextField.h"
 #import "SSTextView.h"
 #import "SSRatingPicker.h"
-#import "SSSegmentedControl.h"
 #import "SSSwitch.h"
 
 // View Controllers
@@ -73,7 +72,6 @@
 #import <SSToolkit/SSTextField.h>
 #import <SSToolkit/SSTextView.h>
 #import <SSToolkit/SSRatingPicker.h>
-#import <SSToolkit/SSSegmentedControl.h>
 #import <SSToolkit/SSSwitch.h>
 
 // View Controllers
