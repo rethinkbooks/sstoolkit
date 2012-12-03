@@ -101,6 +101,28 @@
 }
 
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	if ((self = [super initWithCoder:aDecoder])) {
+		self.opaque = YES;
+
+		// Defaults
+		self.topColor = [SSGradientView defaultTopColor];
+		self.bottomColor = [SSGradientView defaultBottomColor];
+		self.topBorderColor = [SSGradientView defaultTopBorderColor];
+		self.bottomBorderColor = [SSGradientView defaultBottomBorderColor];
+		self.topInsetAlpha = [SSGradientView defaultTopInsetAlpha];
+		self.bottomInsetAlpha = [SSGradientView defaultBottomInsetAlpha];
+		self.gradientScale = [SSGradientView defaultGradientScale];
+		self.hasTopBorder = YES;
+		self.hasBottomBorder = YES;
+		self.showsInsets = YES;
+
+		_gradient = nil;
+	}
+	return self;
+}
+
+
 - (void)drawRect:(CGRect)rect {
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextClipToRect(context, rect);
