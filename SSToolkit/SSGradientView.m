@@ -8,6 +8,8 @@
 
 #import "SSGradientView.h"
 #import "SSDrawingMacros.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface SSGradientView (PrivateMethods)
 
@@ -82,7 +84,7 @@
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
 		self.opaque = YES;
-		
+
 		// Defaults
 		self.topColor = [SSGradientView defaultTopColor];
 		self.bottomColor = [SSGradientView defaultBottomColor];
@@ -94,8 +96,10 @@
 		self.hasTopBorder = YES;
 		self.hasBottomBorder = YES;
 		self.showsInsets = YES;
-		
-		_gradient = nil;		
+
+		_gradient = nil;
+
+        self.layer.needsDisplayOnBoundsChange = YES;
 	}
 	return self;
 }
@@ -118,6 +122,8 @@
 		self.showsInsets = YES;
 
 		_gradient = nil;
+        
+        self.layer.needsDisplayOnBoundsChange = YES;
 	}
 	return self;
 }
