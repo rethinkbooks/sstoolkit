@@ -99,7 +99,7 @@
 
 		_gradient = nil;
 
-        self.layer.needsDisplayOnBoundsChange = YES;
+        self.contentMode = UIViewContentModeRedraw;
 	}
 	return self;
 }
@@ -122,8 +122,8 @@
 		self.showsInsets = YES;
 
 		_gradient = nil;
-        
-        self.layer.needsDisplayOnBoundsChange = YES;
+
+        self.contentMode = UIViewContentModeRedraw;
 	}
 	return self;
 }
