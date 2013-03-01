@@ -7,711 +7,701 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		867DA5AB149A60DF00F54740 /* SSDropShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 867DA5A9149A60DF00F54740 /* SSDropShadowView.h */; };
-		867DA5AC149A60DF00F54740 /* SSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 867DA5AA149A60DF00F54740 /* SSDropShadowView.m */; };
-		868D73C114D0A83900C96124 /* NSCalendar+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 868D73BF14D0A83900C96124 /* NSCalendar+SSToolkitAdditions.h */; };
-		868D73C214D0A83900C96124 /* NSCalendar+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 868D73C014D0A83900C96124 /* NSCalendar+SSToolkitAdditions.m */; };
-		956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */; };
-		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		B20AC0691267988600687143 /* SSTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B20AC0671267988600687143 /* SSTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B20AC06A1267988600687143 /* SSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B20AC0681267988600687143 /* SSTableViewController.m */; };
-		B215045F10583A7300409ED4 /* SSToolkit_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = B215045E10583A7300409ED4 /* SSToolkit_Prefix.pch */; };
-		B21504CA10583B4000409ED4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B21504C910583B4000409ED4 /* SystemConfiguration.framework */; };
-		B215051210583BBB00409ED4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B215051110583BBB00409ED4 /* UIKit.framework */; };
-		B21D2E00121F2FE500161E66 /* SSDrawingMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = B21D2DFF121F2FE500161E66 /* SSDrawingMacros.m */; };
-		B227D2EA124931590078A059 /* NSDictionary+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B227D2E8124931590078A059 /* NSDictionary+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B227D2EB124931590078A059 /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B227D2E9124931590078A059 /* NSDictionary+SSToolkitAdditions.m */; };
-		B24E9E43121DC29A0085F81E /* NSArray+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E05121DC29A0085F81E /* NSArray+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E44121DC29A0085F81E /* NSArray+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E06121DC29A0085F81E /* NSArray+SSToolkitAdditions.m */; };
-		B24E9E45121DC29A0085F81E /* NSData+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E07121DC29A0085F81E /* NSData+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E46121DC29A0085F81E /* NSData+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E08121DC29A0085F81E /* NSData+SSToolkitAdditions.m */; };
-		B24E9E47121DC29A0085F81E /* NSDate+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E09121DC29A0085F81E /* NSDate+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E48121DC29A0085F81E /* NSDate+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E0A121DC29A0085F81E /* NSDate+SSToolkitAdditions.m */; };
-		B24E9E49121DC29A0085F81E /* NSString+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E0B121DC29A0085F81E /* NSString+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E4A121DC29A0085F81E /* NSString+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E0C121DC29A0085F81E /* NSString+SSToolkitAdditions.m */; };
-		B24E9E4B121DC29A0085F81E /* NSURL+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E0D121DC29A0085F81E /* NSURL+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E4C121DC29A0085F81E /* NSURL+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E0E121DC29A0085F81E /* NSURL+SSToolkitAdditions.m */; };
-		B24E9E4D121DC29A0085F81E /* SSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E0F121DC29A0085F81E /* SSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E4E121DC29A0085F81E /* SSConcurrentOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E10121DC29A0085F81E /* SSConcurrentOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E4F121DC29A0085F81E /* SSConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E11121DC29A0085F81E /* SSConcurrentOperation.m */; };
-		B24E9E50121DC29A0085F81E /* SSDrawingMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E12121DC29A0085F81E /* SSDrawingMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E51121DC29A0085F81E /* SSGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E13121DC29A0085F81E /* SSGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E52121DC29A0085F81E /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E14121DC29A0085F81E /* SSGradientView.m */; };
-		B24E9E53121DC29A0085F81E /* SSHUDView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E15121DC29A0085F81E /* SSHUDView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E54121DC29A0085F81E /* SSHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E16121DC29A0085F81E /* SSHUDView.m */; };
-		B24E9E55121DC29A0085F81E /* SSIndicatorLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E17121DC29A0085F81E /* SSIndicatorLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E56121DC29A0085F81E /* SSIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E18121DC29A0085F81E /* SSIndicatorLabel.m */; };
-		B24E9E59121DC29A0085F81E /* SSLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E1B121DC29A0085F81E /* SSLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E5A121DC29A0085F81E /* SSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E1C121DC29A0085F81E /* SSLabel.m */; };
-		B24E9E5B121DC29A0085F81E /* SSLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E1D121DC29A0085F81E /* SSLineView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E5C121DC29A0085F81E /* SSLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E1E121DC29A0085F81E /* SSLineView.m */; };
-		B24E9E5D121DC29A0085F81E /* SSLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E1F121DC29A0085F81E /* SSLoadingView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E5E121DC29A0085F81E /* SSLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E20121DC29A0085F81E /* SSLoadingView.m */; };
-		B24E9E65121DC29A0085F81E /* SSModalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E27121DC29A0085F81E /* SSModalViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E66121DC29A0085F81E /* SSPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E28121DC29A0085F81E /* SSPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E67121DC29A0085F81E /* SSPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E29121DC29A0085F81E /* SSPickerViewController.m */; };
-		B24E9E68121DC29A0085F81E /* SSPieProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E2A121DC29A0085F81E /* SSPieProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E69121DC29A0085F81E /* SSPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E2B121DC29A0085F81E /* SSPieProgressView.m */; };
-		B24E9E6A121DC29A0085F81E /* SSTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E2C121DC29A0085F81E /* SSTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E6B121DC29A0085F81E /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E2D121DC29A0085F81E /* SSTextField.m */; };
-		B24E9E6C121DC29A0085F81E /* SSTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E2E121DC29A0085F81E /* SSTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E6D121DC29A0085F81E /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E2F121DC29A0085F81E /* SSTextView.m */; };
-		B24E9E6E121DC29A0085F81E /* SSToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E30121DC29A0085F81E /* SSToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E6F121DC29A0085F81E /* SSViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E31121DC29A0085F81E /* SSViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E70121DC29A0085F81E /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E32121DC29A0085F81E /* SSViewController.m */; };
-		B24E9E71121DC29A0085F81E /* SSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E33121DC29A0085F81E /* SSWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E72121DC29A0085F81E /* SSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E34121DC29A0085F81E /* SSWebView.m */; };
-		B24E9E73121DC29A0085F81E /* UIColor+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E35121DC29A0085F81E /* UIColor+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E74121DC29A0085F81E /* UIColor+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E36121DC29A0085F81E /* UIColor+SSToolkitAdditions.m */; };
-		B24E9E75121DC29A0085F81E /* UIControl+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E37121DC29A0085F81E /* UIControl+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E76121DC29A0085F81E /* UIControl+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E38121DC29A0085F81E /* UIControl+SSToolkitAdditions.m */; };
-		B24E9E77121DC29A0085F81E /* UIDevice+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E39121DC29A0085F81E /* UIDevice+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E78121DC29A0085F81E /* UIDevice+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E3A121DC29A0085F81E /* UIDevice+SSToolkitAdditions.m */; };
-		B24E9E79121DC29A0085F81E /* UIImage+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E3B121DC29A0085F81E /* UIImage+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E7A121DC29A0085F81E /* UIImage+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E3C121DC29A0085F81E /* UIImage+SSToolkitAdditions.m */; };
-		B24E9E7B121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E3D121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E7C121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E3E121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.m */; };
-		B24E9E7D121DC29A0085F81E /* UIView+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E3F121DC29A0085F81E /* UIView+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E7E121DC29A0085F81E /* UIView+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E40121DC29A0085F81E /* UIView+SSToolkitAdditions.m */; };
-		B24E9E7F121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B24E9E41121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B24E9E80121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B24E9E42121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m */; };
-		B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B267D3431226CE0400B66519 /* SSCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B267D3441226CE0400B66519 /* SSCollectionViewController.m */; };
-		B279539912FC67E300FFE28D /* UIScreen+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B279539712FC67E300FFE28D /* UIScreen+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B279539A12FC67E300FFE28D /* UIScreen+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B279539812FC67E300FFE28D /* UIScreen+SSToolkitAdditions.m */; };
-		B279539E12FC6C6F00FFE28D /* SSRatingPickerScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B279539C12FC6C6F00FFE28D /* SSRatingPickerScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B279539F12FC6C6F00FFE28D /* SSRatingPickerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B279539D12FC6C6F00FFE28D /* SSRatingPickerScrollView.m */; };
-		B27B1A1B12241D3400111EA2 /* SSCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B27B1A1912241D3400111EA2 /* SSCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B27B1A1C12241D3400111EA2 /* SSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B27B1A1A12241D3400111EA2 /* SSCollectionView.m */; };
-		B27B1A2212241D6F00111EA2 /* SSCollectionViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B27B1A2012241D6F00111EA2 /* SSCollectionViewItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B27B1A2312241D6F00111EA2 /* SSCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B27B1A2112241D6F00111EA2 /* SSCollectionViewItem.m */; };
-		B28218BE12FA6AE100BAF3C6 /* SSToolkitDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = B28218BC12FA6AE100BAF3C6 /* SSToolkitDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B28218BF12FA6AE100BAF3C6 /* SSToolkitDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = B28218BD12FA6AE100BAF3C6 /* SSToolkitDefines.m */; };
-		B28219DD12FA8EB500BAF3C6 /* SSRatingPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = B28219DB12FA8EB500BAF3C6 /* SSRatingPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B28219DE12FA8EB500BAF3C6 /* SSRatingPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = B28219DC12FA8EB500BAF3C6 /* SSRatingPicker.m */; };
-		B28C6D0712FBE5C400667755 /* SSRatingPickerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B28C6D0512FBE5C400667755 /* SSRatingPickerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B28C6D0812FBE5C400667755 /* SSRatingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C6D0612FBE5C400667755 /* SSRatingPickerViewController.m */; };
-		B2AAE65C1281B73E0068EE7F /* SSNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = B2AAE65A1281B73E0068EE7F /* SSNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2AAE65D1281B73E0068EE7F /* SSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AAE65B1281B73E0068EE7F /* SSNavigationController.m */; };
-		B2AE1134126F963300534CF2 /* UIApplication+SSToolkitAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B2AE1132126F963300534CF2 /* UIApplication+SSToolkitAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2AE1135126F963300534CF2 /* UIApplication+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AE1133126F963300534CF2 /* UIApplication+SSToolkitAdditions.m */; };
-		B2B3CED81296F637001BAC94 /* SSSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = B2B3CED61296F637001BAC94 /* SSSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2B3CED91296F637001BAC94 /* SSSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B3CED71296F637001BAC94 /* SSSwitch.m */; };
-		B2E241541301C71400F7DC3B /* SSAddressBarTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E2414E1301C71400F7DC3B /* SSAddressBarTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2E241551301C71400F7DC3B /* SSAddressBarTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E2414F1301C71400F7DC3B /* SSAddressBarTextField.m */; };
-		B2E241561301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E241501301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2E241571301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E241511301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m */; };
-		B2E241581301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E241521301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2E241591301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E241531301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m */; };
-		B2EA9F5E12F4A5C900C929D6 /* SSBadgeTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = B2EA9F5C12F4A5C900C929D6 /* SSBadgeTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EA9F5F12F4A5C900C929D6 /* SSBadgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EA9F5D12F4A5C900C929D6 /* SSBadgeTableViewCell.m */; };
-		B2EA9F6212F4A5E100C929D6 /* SSBadgeView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2EA9F6012F4A5E100C929D6 /* SSBadgeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2EA9F6312F4A5E100C929D6 /* SSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2EA9F6112F4A5E100C929D6 /* SSBadgeView.m */; };
+		8648328D16E158BC00D64E89 /* SSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795416E14FBF000EEA84 /* SSCollectionView.m */; };
+		8648328E16E158BC00D64E89 /* SSCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */; };
+		8648328F16E158BC00D64E89 /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795816E14FBF000EEA84 /* SSGradientView.m */; };
+		8648329016E158BC00D64E89 /* SSHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795A16E14FBF000EEA84 /* SSHUDView.m */; };
+		8648329116E158BC00D64E89 /* SSIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795C16E14FBF000EEA84 /* SSIndicatorLabel.m */; };
+		8648329216E158BC00D64E89 /* SSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795E16E14FBF000EEA84 /* SSLabel.m */; };
+		8648329316E158BC00D64E89 /* SSLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796016E14FBF000EEA84 /* SSLineView.m */; };
+		8648329416E158BC00D64E89 /* SSLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796216E14FBF000EEA84 /* SSLoadingView.m */; };
+		8648329516E158BC00D64E89 /* SSPieProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796416E14FBF000EEA84 /* SSPieProgressView.m */; };
+		8648329616E158BC00D64E89 /* SSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796616E14FBF000EEA84 /* SSWebView.m */; };
+		8648329716E158BC00D64E89 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796816E14FBF000EEA84 /* SSInnerWebView.m */; };
+		8648329816E158BC00D64E89 /* SSBadgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796B16E14FEB000EEA84 /* SSBadgeTableViewCell.m */; };
+		8648329916E158BC00D64E89 /* SSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796E16E15000000EEA84 /* SSCollectionViewController.m */; };
+		8648329A16E158BC00D64E89 /* SSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797016E15000000EEA84 /* SSNavigationController.m */; };
+		8648329B16E158BC00D64E89 /* SSPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797316E15000000EEA84 /* SSPickerViewController.m */; };
+		8648329C16E158BC00D64E89 /* SSRatingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797516E15000000EEA84 /* SSRatingPickerViewController.m */; };
+		8648329D16E158BC00D64E89 /* SSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797716E15000000EEA84 /* SSTableViewController.m */; };
+		8648329E16E158BC00D64E89 /* SSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797916E15000000EEA84 /* SSViewController.m */; };
+		8648329F16E158BC00D64E89 /* SSDropShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797B16E15000000EEA84 /* SSDropShadowView.m */; };
+		864832A016E158BC00D64E89 /* SSAddressBarTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797E16E1500F000EEA84 /* SSAddressBarTextField.m */; };
+		864832A116E158BC00D64E89 /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798016E1500F000EEA84 /* SSTextField.m */; };
+		864832A216E158BC00D64E89 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798216E1500F000EEA84 /* SSTextView.m */; };
+		864832A316E158BC00D64E89 /* SSRatingPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798416E1500F000EEA84 /* SSRatingPicker.m */; };
+		864832A416E158BC00D64E89 /* SSSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798616E1500F000EEA84 /* SSSwitch.m */; };
+		864832A516E158BC00D64E89 /* SSConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798916E1501D000EEA84 /* SSConcurrentOperation.m */; };
+		864832A616E158BC00D64E89 /* SSDrawingMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798B16E1501D000EEA84 /* SSDrawingMacros.m */; };
+		864832A716E158BC00D64E89 /* SSToolkitDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798D16E1501D000EEA84 /* SSToolkitDefines.m */; };
+		864832A816E158BC00D64E89 /* SSRatingPickerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799016E15037000EEA84 /* SSRatingPickerScrollView.m */; };
+		864832A916E158BC00D64E89 /* SSAddressBarTextFieldBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799216E15037000EEA84 /* SSAddressBarTextFieldBackgroundView.m */; };
+		864832AA16E158BC00D64E89 /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799416E15037000EEA84 /* SSAddressBarTextFieldBackgroundViewInnerView.m */; };
+		864832AB16E158BC00D64E89 /* NSArray+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799716E15049000EEA84 /* NSArray+SSToolkitAdditions.m */; };
+		864832AC16E158BC00D64E89 /* NSCalendar+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799916E15049000EEA84 /* NSCalendar+SSToolkitAdditions.m */; };
+		864832AD16E158BC00D64E89 /* NSData+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799B16E15049000EEA84 /* NSData+SSToolkitAdditions.m */; };
+		864832AE16E158BC00D64E89 /* NSDate+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799D16E15049000EEA84 /* NSDate+SSToolkitAdditions.m */; };
+		864832AF16E158BC00D64E89 /* NSDictionary+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF799F16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.m */; };
+		864832B016E158BC00D64E89 /* NSString+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79A116E15049000EEA84 /* NSString+SSToolkitAdditions.m */; };
+		864832B116E158BC00D64E89 /* NSURL+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79A316E15049000EEA84 /* NSURL+SSToolkitAdditions.m */; };
+		864832B216E158BC00D64E89 /* UIApplication+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79A616E15060000EEA84 /* UIApplication+SSToolkitAdditions.m */; };
+		864832B316E158BC00D64E89 /* UIColor+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79A816E15060000EEA84 /* UIColor+SSToolkitAdditions.m */; };
+		864832B416E158BC00D64E89 /* UIControl+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79AA16E15060000EEA84 /* UIControl+SSToolkitAdditions.m */; };
+		864832B516E158BC00D64E89 /* UIDevice+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79AC16E15060000EEA84 /* UIDevice+SSToolkitAdditions.m */; };
+		864832B616E158BC00D64E89 /* UIImage+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79AE16E15060000EEA84 /* UIImage+SSToolkitAdditions.m */; };
+		864832B716E158BC00D64E89 /* UIScreen+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79B016E15060000EEA84 /* UIScreen+SSToolkitAdditions.m */; };
+		864832B816E158BC00D64E89 /* UIScrollView+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79B216E15060000EEA84 /* UIScrollView+SSToolkitAdditions.m */; };
+		864832B916E158BC00D64E89 /* UIView+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79B416E15060000EEA84 /* UIView+SSToolkitAdditions.m */; };
+		864832BA16E158BC00D64E89 /* UIViewController+SSToolkitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF79B616E15060000EEA84 /* UIViewController+SSToolkitAdditions.m */; };
+		865B55FF16E151C900D3AC7F /* SSToolkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF794E16E14F88000EEA84 /* SSToolkit.h */; };
+		865B560016E151C900D3AC7F /* SSCategories.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF794D16E14F88000EEA84 /* SSCategories.h */; };
+		865B560116E151C900D3AC7F /* SSBadgeView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795016E14FB5000EEA84 /* SSBadgeView.h */; };
+		865B560216E151C900D3AC7F /* SSCollectionView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795316E14FBF000EEA84 /* SSCollectionView.h */; };
+		865B560316E151C900D3AC7F /* SSCollectionViewItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */; };
+		865B560416E151C900D3AC7F /* SSGradientView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795716E14FBF000EEA84 /* SSGradientView.h */; };
+		865B560516E151C900D3AC7F /* SSHUDView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795916E14FBF000EEA84 /* SSHUDView.h */; };
+		865B560616E151C900D3AC7F /* SSIndicatorLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795B16E14FBF000EEA84 /* SSIndicatorLabel.h */; };
+		865B560716E151C900D3AC7F /* SSLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795D16E14FBF000EEA84 /* SSLabel.h */; };
+		865B560816E151C900D3AC7F /* SSLineView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795F16E14FBF000EEA84 /* SSLineView.h */; };
+		865B560916E151C900D3AC7F /* SSLoadingView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796116E14FBF000EEA84 /* SSLoadingView.h */; };
+		865B560A16E151C900D3AC7F /* SSPieProgressView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796316E14FBF000EEA84 /* SSPieProgressView.h */; };
+		865B560B16E151C900D3AC7F /* SSWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796516E14FBF000EEA84 /* SSWebView.h */; };
+		865B560C16E151C900D3AC7F /* SSInnerWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796716E14FBF000EEA84 /* SSInnerWebView.h */; };
+		865B560D16E151C900D3AC7F /* SSBadgeTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796A16E14FEB000EEA84 /* SSBadgeTableViewCell.h */; };
+		865B560E16E151C900D3AC7F /* SSCollectionViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796D16E15000000EEA84 /* SSCollectionViewController.h */; };
+		865B560F16E151C900D3AC7F /* SSNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796F16E15000000EEA84 /* SSNavigationController.h */; };
+		865B561016E151C900D3AC7F /* SSModalViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797116E15000000EEA84 /* SSModalViewController.h */; };
+		865B561116E151C900D3AC7F /* SSPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797216E15000000EEA84 /* SSPickerViewController.h */; };
+		865B561216E151C900D3AC7F /* SSRatingPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797416E15000000EEA84 /* SSRatingPickerViewController.h */; };
+		865B561316E151C900D3AC7F /* SSTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797616E15000000EEA84 /* SSTableViewController.h */; };
+		865B561416E151C900D3AC7F /* SSViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797816E15000000EEA84 /* SSViewController.h */; };
+		865B561516E151C900D3AC7F /* SSDropShadowView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797A16E15000000EEA84 /* SSDropShadowView.h */; };
+		865B561616E151C900D3AC7F /* SSAddressBarTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797D16E1500F000EEA84 /* SSAddressBarTextField.h */; };
+		865B561716E151C900D3AC7F /* SSTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797F16E1500F000EEA84 /* SSTextField.h */; };
+		865B561816E151C900D3AC7F /* SSTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798116E1500F000EEA84 /* SSTextView.h */; };
+		865B561916E151C900D3AC7F /* SSRatingPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798316E1500F000EEA84 /* SSRatingPicker.h */; };
+		865B561A16E151C900D3AC7F /* SSSwitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798516E1500F000EEA84 /* SSSwitch.h */; };
+		865B561B16E151C900D3AC7F /* SSConcurrentOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798816E1501D000EEA84 /* SSConcurrentOperation.h */; };
+		865B561C16E151C900D3AC7F /* SSDrawingMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798A16E1501D000EEA84 /* SSDrawingMacros.h */; };
+		865B561D16E151C900D3AC7F /* SSToolkitDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798C16E1501D000EEA84 /* SSToolkitDefines.h */; };
+		865B561E16E151C900D3AC7F /* NSArray+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF799616E15049000EEA84 /* NSArray+SSToolkitAdditions.h */; };
+		865B561F16E151C900D3AC7F /* NSCalendar+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF799816E15049000EEA84 /* NSCalendar+SSToolkitAdditions.h */; };
+		865B562016E151C900D3AC7F /* NSData+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF799A16E15049000EEA84 /* NSData+SSToolkitAdditions.h */; };
+		865B562116E151C900D3AC7F /* NSDate+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF799C16E15049000EEA84 /* NSDate+SSToolkitAdditions.h */; };
+		865B562216E151C900D3AC7F /* NSDictionary+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF799E16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.h */; };
+		865B562316E151C900D3AC7F /* NSString+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79A016E15049000EEA84 /* NSString+SSToolkitAdditions.h */; };
+		865B562416E151C900D3AC7F /* NSURL+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79A216E15049000EEA84 /* NSURL+SSToolkitAdditions.h */; };
+		865B562516E151C900D3AC7F /* UIApplication+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79A516E15060000EEA84 /* UIApplication+SSToolkitAdditions.h */; };
+		865B562616E151C900D3AC7F /* UIColor+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79A716E15060000EEA84 /* UIColor+SSToolkitAdditions.h */; };
+		865B562716E151C900D3AC7F /* UIControl+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79A916E15060000EEA84 /* UIControl+SSToolkitAdditions.h */; };
+		865B562816E151C900D3AC7F /* UIDevice+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79AB16E15060000EEA84 /* UIDevice+SSToolkitAdditions.h */; };
+		865B562916E151C900D3AC7F /* UIImage+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79AD16E15060000EEA84 /* UIImage+SSToolkitAdditions.h */; };
+		865B562A16E151C900D3AC7F /* UIScreen+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79AF16E15060000EEA84 /* UIScreen+SSToolkitAdditions.h */; };
+		865B562B16E151C900D3AC7F /* UIScrollView+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79B116E15060000EEA84 /* UIScrollView+SSToolkitAdditions.h */; };
+		865B562C16E151C900D3AC7F /* UIView+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79B316E15060000EEA84 /* UIView+SSToolkitAdditions.h */; };
+		865B562D16E151C900D3AC7F /* UIViewController+SSToolkitAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF79B516E15060000EEA84 /* UIViewController+SSToolkitAdditions.h */; };
+		8687F25116E14F3F00715A83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8687F25016E14F3F00715A83 /* Foundation.framework */; };
+		86AF795216E14FB5000EEA84 /* SSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795116E14FB5000EEA84 /* SSBadgeView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8687F24B16E14F3F00715A83 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				865B55FF16E151C900D3AC7F /* SSToolkit.h in CopyFiles */,
+				865B560016E151C900D3AC7F /* SSCategories.h in CopyFiles */,
+				865B560116E151C900D3AC7F /* SSBadgeView.h in CopyFiles */,
+				865B560216E151C900D3AC7F /* SSCollectionView.h in CopyFiles */,
+				865B560316E151C900D3AC7F /* SSCollectionViewItem.h in CopyFiles */,
+				865B560416E151C900D3AC7F /* SSGradientView.h in CopyFiles */,
+				865B560516E151C900D3AC7F /* SSHUDView.h in CopyFiles */,
+				865B560616E151C900D3AC7F /* SSIndicatorLabel.h in CopyFiles */,
+				865B560716E151C900D3AC7F /* SSLabel.h in CopyFiles */,
+				865B560816E151C900D3AC7F /* SSLineView.h in CopyFiles */,
+				865B560916E151C900D3AC7F /* SSLoadingView.h in CopyFiles */,
+				865B560A16E151C900D3AC7F /* SSPieProgressView.h in CopyFiles */,
+				865B560B16E151C900D3AC7F /* SSWebView.h in CopyFiles */,
+				865B560C16E151C900D3AC7F /* SSInnerWebView.h in CopyFiles */,
+				865B560D16E151C900D3AC7F /* SSBadgeTableViewCell.h in CopyFiles */,
+				865B560E16E151C900D3AC7F /* SSCollectionViewController.h in CopyFiles */,
+				865B560F16E151C900D3AC7F /* SSNavigationController.h in CopyFiles */,
+				865B561016E151C900D3AC7F /* SSModalViewController.h in CopyFiles */,
+				865B561116E151C900D3AC7F /* SSPickerViewController.h in CopyFiles */,
+				865B561216E151C900D3AC7F /* SSRatingPickerViewController.h in CopyFiles */,
+				865B561316E151C900D3AC7F /* SSTableViewController.h in CopyFiles */,
+				865B561416E151C900D3AC7F /* SSViewController.h in CopyFiles */,
+				865B561516E151C900D3AC7F /* SSDropShadowView.h in CopyFiles */,
+				865B561616E151C900D3AC7F /* SSAddressBarTextField.h in CopyFiles */,
+				865B561716E151C900D3AC7F /* SSTextField.h in CopyFiles */,
+				865B561816E151C900D3AC7F /* SSTextView.h in CopyFiles */,
+				865B561916E151C900D3AC7F /* SSRatingPicker.h in CopyFiles */,
+				865B561A16E151C900D3AC7F /* SSSwitch.h in CopyFiles */,
+				865B561B16E151C900D3AC7F /* SSConcurrentOperation.h in CopyFiles */,
+				865B561C16E151C900D3AC7F /* SSDrawingMacros.h in CopyFiles */,
+				865B561D16E151C900D3AC7F /* SSToolkitDefines.h in CopyFiles */,
+				865B561E16E151C900D3AC7F /* NSArray+SSToolkitAdditions.h in CopyFiles */,
+				865B561F16E151C900D3AC7F /* NSCalendar+SSToolkitAdditions.h in CopyFiles */,
+				865B562016E151C900D3AC7F /* NSData+SSToolkitAdditions.h in CopyFiles */,
+				865B562116E151C900D3AC7F /* NSDate+SSToolkitAdditions.h in CopyFiles */,
+				865B562216E151C900D3AC7F /* NSDictionary+SSToolkitAdditions.h in CopyFiles */,
+				865B562316E151C900D3AC7F /* NSString+SSToolkitAdditions.h in CopyFiles */,
+				865B562416E151C900D3AC7F /* NSURL+SSToolkitAdditions.h in CopyFiles */,
+				865B562516E151C900D3AC7F /* UIApplication+SSToolkitAdditions.h in CopyFiles */,
+				865B562616E151C900D3AC7F /* UIColor+SSToolkitAdditions.h in CopyFiles */,
+				865B562716E151C900D3AC7F /* UIControl+SSToolkitAdditions.h in CopyFiles */,
+				865B562816E151C900D3AC7F /* UIDevice+SSToolkitAdditions.h in CopyFiles */,
+				865B562916E151C900D3AC7F /* UIImage+SSToolkitAdditions.h in CopyFiles */,
+				865B562A16E151C900D3AC7F /* UIScreen+SSToolkitAdditions.h in CopyFiles */,
+				865B562B16E151C900D3AC7F /* UIScrollView+SSToolkitAdditions.h in CopyFiles */,
+				865B562C16E151C900D3AC7F /* UIView+SSToolkitAdditions.h in CopyFiles */,
+				865B562D16E151C900D3AC7F /* UIViewController+SSToolkitAdditions.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		867DA5A9149A60DF00F54740 /* SSDropShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDropShadowView.h; sourceTree = "<group>"; };
-		867DA5AA149A60DF00F54740 /* SSDropShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDropShadowView.m; sourceTree = "<group>"; };
-		868D73BF14D0A83900C96124 /* NSCalendar+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		868D73C014D0A83900C96124 /* NSCalendar+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSInnerWebView.h; sourceTree = "<group>"; };
-		956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
-		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B20AC0671267988600687143 /* SSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTableViewController.h; sourceTree = "<group>"; };
-		B20AC0681267988600687143 /* SSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTableViewController.m; sourceTree = "<group>"; };
-		B215045E10583A7300409ED4 /* SSToolkit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkit_Prefix.pch; sourceTree = "<group>"; };
-		B21504C910583B4000409ED4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		B215051110583BBB00409ED4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B21D2DFF121F2FE500161E66 /* SSDrawingMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingMacros.m; sourceTree = "<group>"; };
-		B227D2E8124931590078A059 /* NSDictionary+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B227D2E9124931590078A059 /* NSDictionary+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E01121DC2910085F81E /* SSToolkit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSToolkit.bundle; sourceTree = "<group>"; };
-		B24E9E05121DC29A0085F81E /* NSArray+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E06121DC29A0085F81E /* NSArray+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E07121DC29A0085F81E /* NSData+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E08121DC29A0085F81E /* NSData+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E09121DC29A0085F81E /* NSDate+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E0A121DC29A0085F81E /* NSDate+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E0B121DC29A0085F81E /* NSString+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E0C121DC29A0085F81E /* NSString+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E0D121DC29A0085F81E /* NSURL+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E0E121DC29A0085F81E /* NSURL+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E0F121DC29A0085F81E /* SSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCategories.h; sourceTree = "<group>"; };
-		B24E9E10121DC29A0085F81E /* SSConcurrentOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSConcurrentOperation.h; sourceTree = "<group>"; };
-		B24E9E11121DC29A0085F81E /* SSConcurrentOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConcurrentOperation.m; sourceTree = "<group>"; };
-		B24E9E12121DC29A0085F81E /* SSDrawingMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingMacros.h; sourceTree = "<group>"; };
-		B24E9E13121DC29A0085F81E /* SSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
-		B24E9E14121DC29A0085F81E /* SSGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGradientView.m; sourceTree = "<group>"; };
-		B24E9E15121DC29A0085F81E /* SSHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSHUDView.h; sourceTree = "<group>"; };
-		B24E9E16121DC29A0085F81E /* SSHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSHUDView.m; sourceTree = "<group>"; };
-		B24E9E17121DC29A0085F81E /* SSIndicatorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSIndicatorLabel.h; sourceTree = "<group>"; };
-		B24E9E18121DC29A0085F81E /* SSIndicatorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSIndicatorLabel.m; sourceTree = "<group>"; };
-		B24E9E1B121DC29A0085F81E /* SSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLabel.h; sourceTree = "<group>"; };
-		B24E9E1C121DC29A0085F81E /* SSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLabel.m; sourceTree = "<group>"; };
-		B24E9E1D121DC29A0085F81E /* SSLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLineView.h; sourceTree = "<group>"; };
-		B24E9E1E121DC29A0085F81E /* SSLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLineView.m; sourceTree = "<group>"; };
-		B24E9E1F121DC29A0085F81E /* SSLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSLoadingView.h; sourceTree = "<group>"; };
-		B24E9E20121DC29A0085F81E /* SSLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSLoadingView.m; sourceTree = "<group>"; };
-		B24E9E27121DC29A0085F81E /* SSModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSModalViewController.h; sourceTree = "<group>"; };
-		B24E9E28121DC29A0085F81E /* SSPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPickerViewController.h; sourceTree = "<group>"; };
-		B24E9E29121DC29A0085F81E /* SSPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPickerViewController.m; sourceTree = "<group>"; };
-		B24E9E2A121DC29A0085F81E /* SSPieProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPieProgressView.h; sourceTree = "<group>"; };
-		B24E9E2B121DC29A0085F81E /* SSPieProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPieProgressView.m; sourceTree = "<group>"; };
-		B24E9E2C121DC29A0085F81E /* SSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
-		B24E9E2D121DC29A0085F81E /* SSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
-		B24E9E2E121DC29A0085F81E /* SSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
-		B24E9E2F121DC29A0085F81E /* SSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
-		B24E9E30121DC29A0085F81E /* SSToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkit.h; sourceTree = "<group>"; };
-		B24E9E31121DC29A0085F81E /* SSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
-		B24E9E32121DC29A0085F81E /* SSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
-		B24E9E33121DC29A0085F81E /* SSWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSWebView.h; sourceTree = "<group>"; };
-		B24E9E34121DC29A0085F81E /* SSWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSWebView.m; sourceTree = "<group>"; };
-		B24E9E35121DC29A0085F81E /* UIColor+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E36121DC29A0085F81E /* UIColor+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E37121DC29A0085F81E /* UIControl+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E38121DC29A0085F81E /* UIControl+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E39121DC29A0085F81E /* UIDevice+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E3A121DC29A0085F81E /* UIDevice+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E3B121DC29A0085F81E /* UIImage+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E3C121DC29A0085F81E /* UIImage+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E3D121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E3E121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E3F121DC29A0085F81E /* UIView+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E40121DC29A0085F81E /* UIView+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B24E9E41121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B24E9E42121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B267D3431226CE0400B66519 /* SSCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewController.h; sourceTree = "<group>"; };
-		B267D3441226CE0400B66519 /* SSCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewController.m; sourceTree = "<group>"; };
-		B279539712FC67E300FFE28D /* UIScreen+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B279539812FC67E300FFE28D /* UIScreen+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B279539C12FC6C6F00FFE28D /* SSRatingPickerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRatingPickerScrollView.h; sourceTree = "<group>"; };
-		B279539D12FC6C6F00FFE28D /* SSRatingPickerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRatingPickerScrollView.m; sourceTree = "<group>"; };
-		B27B1A1912241D3400111EA2 /* SSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionView.h; sourceTree = "<group>"; };
-		B27B1A1A12241D3400111EA2 /* SSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionView.m; sourceTree = "<group>"; };
-		B27B1A2012241D6F00111EA2 /* SSCollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewItem.h; sourceTree = "<group>"; };
-		B27B1A2112241D6F00111EA2 /* SSCollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewItem.m; sourceTree = "<group>"; };
-		B28218BC12FA6AE100BAF3C6 /* SSToolkitDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkitDefines.h; sourceTree = "<group>"; };
-		B28218BD12FA6AE100BAF3C6 /* SSToolkitDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSToolkitDefines.m; sourceTree = "<group>"; };
-		B28219DB12FA8EB500BAF3C6 /* SSRatingPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRatingPicker.h; sourceTree = "<group>"; };
-		B28219DC12FA8EB500BAF3C6 /* SSRatingPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRatingPicker.m; sourceTree = "<group>"; };
-		B28C6D0512FBE5C400667755 /* SSRatingPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSRatingPickerViewController.h; sourceTree = "<group>"; };
-		B28C6D0612FBE5C400667755 /* SSRatingPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSRatingPickerViewController.m; sourceTree = "<group>"; };
-		B2AAE65A1281B73E0068EE7F /* SSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSNavigationController.h; sourceTree = "<group>"; };
-		B2AAE65B1281B73E0068EE7F /* SSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSNavigationController.m; sourceTree = "<group>"; };
-		B2AE1132126F963300534CF2 /* UIApplication+SSToolkitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SSToolkitAdditions.h"; sourceTree = "<group>"; };
-		B2AE1133126F963300534CF2 /* UIApplication+SSToolkitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SSToolkitAdditions.m"; sourceTree = "<group>"; };
-		B2B3CED61296F637001BAC94 /* SSSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSSwitch.h; sourceTree = "<group>"; };
-		B2B3CED71296F637001BAC94 /* SSSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSSwitch.m; sourceTree = "<group>"; };
-		B2E2414E1301C71400F7DC3B /* SSAddressBarTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextField.h; sourceTree = "<group>"; };
-		B2E2414F1301C71400F7DC3B /* SSAddressBarTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextField.m; sourceTree = "<group>"; };
-		B2E241501301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextFieldBackgroundView.h; sourceTree = "<group>"; };
-		B2E241511301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextFieldBackgroundView.m; sourceTree = "<group>"; };
-		B2E241521301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextFieldBackgroundViewInnerView.h; sourceTree = "<group>"; };
-		B2E241531301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextFieldBackgroundViewInnerView.m; sourceTree = "<group>"; };
-		B2EA9F5C12F4A5C900C929D6 /* SSBadgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBadgeTableViewCell.h; sourceTree = "<group>"; };
-		B2EA9F5D12F4A5C900C929D6 /* SSBadgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBadgeTableViewCell.m; sourceTree = "<group>"; };
-		B2EA9F6012F4A5E100C929D6 /* SSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBadgeView.h; sourceTree = "<group>"; };
-		B2EA9F6112F4A5E100C929D6 /* SSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBadgeView.m; sourceTree = "<group>"; };
-		D2AAC07E0554694100DB518D /* libSSToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSSToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		865B55FE16E1511D00D3AC7F /* SSToolkit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SSToolkit.bundle; path = Resources/SSToolkit.bundle; sourceTree = "<group>"; };
+		8687F24D16E14F3F00715A83 /* libSSToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSSToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8687F25016E14F3F00715A83 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8687F25416E14F3F00715A83 /* SSToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SSToolkit-Prefix.pch"; sourceTree = "<group>"; };
+		86AF794D16E14F88000EEA84 /* SSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSCategories.h; sourceTree = "<group>"; };
+		86AF794E16E14F88000EEA84 /* SSToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkit.h; sourceTree = "<group>"; };
+		86AF795016E14FB5000EEA84 /* SSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBadgeView.h; sourceTree = "<group>"; };
+		86AF795116E14FB5000EEA84 /* SSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBadgeView.m; sourceTree = "<group>"; };
+		86AF795316E14FBF000EEA84 /* SSCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionView.h; sourceTree = "<group>"; };
+		86AF795416E14FBF000EEA84 /* SSCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionView.m; sourceTree = "<group>"; };
+		86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewItem.h; sourceTree = "<group>"; };
+		86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewItem.m; sourceTree = "<group>"; };
+		86AF795716E14FBF000EEA84 /* SSGradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
+		86AF795816E14FBF000EEA84 /* SSGradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSGradientView.m; sourceTree = "<group>"; };
+		86AF795916E14FBF000EEA84 /* SSHUDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSHUDView.h; sourceTree = "<group>"; };
+		86AF795A16E14FBF000EEA84 /* SSHUDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSHUDView.m; sourceTree = "<group>"; };
+		86AF795B16E14FBF000EEA84 /* SSIndicatorLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSIndicatorLabel.h; sourceTree = "<group>"; };
+		86AF795C16E14FBF000EEA84 /* SSIndicatorLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSIndicatorLabel.m; sourceTree = "<group>"; };
+		86AF795D16E14FBF000EEA84 /* SSLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLabel.h; sourceTree = "<group>"; };
+		86AF795E16E14FBF000EEA84 /* SSLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSLabel.m; sourceTree = "<group>"; };
+		86AF795F16E14FBF000EEA84 /* SSLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLineView.h; sourceTree = "<group>"; };
+		86AF796016E14FBF000EEA84 /* SSLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSLineView.m; sourceTree = "<group>"; };
+		86AF796116E14FBF000EEA84 /* SSLoadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSLoadingView.h; sourceTree = "<group>"; };
+		86AF796216E14FBF000EEA84 /* SSLoadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSLoadingView.m; sourceTree = "<group>"; };
+		86AF796316E14FBF000EEA84 /* SSPieProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSPieProgressView.h; sourceTree = "<group>"; };
+		86AF796416E14FBF000EEA84 /* SSPieProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSPieProgressView.m; sourceTree = "<group>"; };
+		86AF796516E14FBF000EEA84 /* SSWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSWebView.h; sourceTree = "<group>"; };
+		86AF796616E14FBF000EEA84 /* SSWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSWebView.m; sourceTree = "<group>"; };
+		86AF796716E14FBF000EEA84 /* SSInnerWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSInnerWebView.h; sourceTree = "<group>"; };
+		86AF796816E14FBF000EEA84 /* SSInnerWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
+		86AF796A16E14FEB000EEA84 /* SSBadgeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBadgeTableViewCell.h; sourceTree = "<group>"; };
+		86AF796B16E14FEB000EEA84 /* SSBadgeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBadgeTableViewCell.m; sourceTree = "<group>"; };
+		86AF796D16E15000000EEA84 /* SSCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewController.h; sourceTree = "<group>"; };
+		86AF796E16E15000000EEA84 /* SSCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewController.m; sourceTree = "<group>"; };
+		86AF796F16E15000000EEA84 /* SSNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSNavigationController.h; sourceTree = "<group>"; };
+		86AF797016E15000000EEA84 /* SSNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSNavigationController.m; sourceTree = "<group>"; };
+		86AF797116E15000000EEA84 /* SSModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSModalViewController.h; sourceTree = "<group>"; };
+		86AF797216E15000000EEA84 /* SSPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSPickerViewController.h; sourceTree = "<group>"; };
+		86AF797316E15000000EEA84 /* SSPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSPickerViewController.m; sourceTree = "<group>"; };
+		86AF797416E15000000EEA84 /* SSRatingPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRatingPickerViewController.h; sourceTree = "<group>"; };
+		86AF797516E15000000EEA84 /* SSRatingPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRatingPickerViewController.m; sourceTree = "<group>"; };
+		86AF797616E15000000EEA84 /* SSTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSTableViewController.h; sourceTree = "<group>"; };
+		86AF797716E15000000EEA84 /* SSTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSTableViewController.m; sourceTree = "<group>"; };
+		86AF797816E15000000EEA84 /* SSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSViewController.h; sourceTree = "<group>"; };
+		86AF797916E15000000EEA84 /* SSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSViewController.m; sourceTree = "<group>"; };
+		86AF797A16E15000000EEA84 /* SSDropShadowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSDropShadowView.h; sourceTree = "<group>"; };
+		86AF797B16E15000000EEA84 /* SSDropShadowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSDropShadowView.m; sourceTree = "<group>"; };
+		86AF797D16E1500F000EEA84 /* SSAddressBarTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextField.h; sourceTree = "<group>"; };
+		86AF797E16E1500F000EEA84 /* SSAddressBarTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextField.m; sourceTree = "<group>"; };
+		86AF797F16E1500F000EEA84 /* SSTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSTextField.h; sourceTree = "<group>"; };
+		86AF798016E1500F000EEA84 /* SSTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSTextField.m; sourceTree = "<group>"; };
+		86AF798116E1500F000EEA84 /* SSTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSTextView.h; sourceTree = "<group>"; };
+		86AF798216E1500F000EEA84 /* SSTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
+		86AF798316E1500F000EEA84 /* SSRatingPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRatingPicker.h; sourceTree = "<group>"; };
+		86AF798416E1500F000EEA84 /* SSRatingPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRatingPicker.m; sourceTree = "<group>"; };
+		86AF798516E1500F000EEA84 /* SSSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSwitch.h; sourceTree = "<group>"; };
+		86AF798616E1500F000EEA84 /* SSSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSSwitch.m; sourceTree = "<group>"; };
+		86AF798816E1501D000EEA84 /* SSConcurrentOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSConcurrentOperation.h; sourceTree = "<group>"; };
+		86AF798916E1501D000EEA84 /* SSConcurrentOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSConcurrentOperation.m; sourceTree = "<group>"; };
+		86AF798A16E1501D000EEA84 /* SSDrawingMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSDrawingMacros.h; sourceTree = "<group>"; };
+		86AF798B16E1501D000EEA84 /* SSDrawingMacros.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSDrawingMacros.m; sourceTree = "<group>"; };
+		86AF798C16E1501D000EEA84 /* SSToolkitDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSToolkitDefines.h; sourceTree = "<group>"; };
+		86AF798D16E1501D000EEA84 /* SSToolkitDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSToolkitDefines.m; sourceTree = "<group>"; };
+		86AF798F16E15037000EEA84 /* SSRatingPickerScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRatingPickerScrollView.h; sourceTree = "<group>"; };
+		86AF799016E15037000EEA84 /* SSRatingPickerScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRatingPickerScrollView.m; sourceTree = "<group>"; };
+		86AF799116E15037000EEA84 /* SSAddressBarTextFieldBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextFieldBackgroundView.h; sourceTree = "<group>"; };
+		86AF799216E15037000EEA84 /* SSAddressBarTextFieldBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextFieldBackgroundView.m; sourceTree = "<group>"; };
+		86AF799316E15037000EEA84 /* SSAddressBarTextFieldBackgroundViewInnerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSAddressBarTextFieldBackgroundViewInnerView.h; sourceTree = "<group>"; };
+		86AF799416E15037000EEA84 /* SSAddressBarTextFieldBackgroundViewInnerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSAddressBarTextFieldBackgroundViewInnerView.m; sourceTree = "<group>"; };
+		86AF799616E15049000EEA84 /* NSArray+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF799716E15049000EEA84 /* NSArray+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF799816E15049000EEA84 /* NSCalendar+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF799916E15049000EEA84 /* NSCalendar+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF799A16E15049000EEA84 /* NSData+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF799B16E15049000EEA84 /* NSData+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF799C16E15049000EEA84 /* NSDate+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF799D16E15049000EEA84 /* NSDate+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF799E16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF799F16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79A016E15049000EEA84 /* NSString+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79A116E15049000EEA84 /* NSString+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79A216E15049000EEA84 /* NSURL+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79A316E15049000EEA84 /* NSURL+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79A516E15060000EEA84 /* UIApplication+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79A616E15060000EEA84 /* UIApplication+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79A716E15060000EEA84 /* UIColor+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79A816E15060000EEA84 /* UIColor+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79A916E15060000EEA84 /* UIControl+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79AA16E15060000EEA84 /* UIControl+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79AB16E15060000EEA84 /* UIDevice+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79AC16E15060000EEA84 /* UIDevice+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79AD16E15060000EEA84 /* UIImage+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79AE16E15060000EEA84 /* UIImage+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79AF16E15060000EEA84 /* UIScreen+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79B016E15060000EEA84 /* UIScreen+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79B116E15060000EEA84 /* UIScrollView+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79B216E15060000EEA84 /* UIScrollView+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79B316E15060000EEA84 /* UIView+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79B416E15060000EEA84 /* UIView+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+SSToolkitAdditions.m"; sourceTree = "<group>"; };
+		86AF79B516E15060000EEA84 /* UIViewController+SSToolkitAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SSToolkitAdditions.h"; sourceTree = "<group>"; };
+		86AF79B616E15060000EEA84 /* UIViewController+SSToolkitAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SSToolkitAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D2AAC07C0554694100DB518D /* Frameworks */ = {
+		8687F24A16E14F3F00715A83 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				B21504CA10583B4000409ED4 /* SystemConfiguration.framework in Frameworks */,
-				B215051210583BBB00409ED4 /* UIKit.framework in Frameworks */,
+				8687F25116E14F3F00715A83 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		034768DFFF38A50411DB9C8B /* Products */ = {
+		865B55FD16E1510B00D3AC7F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libSSToolkit.a */,
+				865B55FE16E1511D00D3AC7F /* SSToolkit.bundle */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8687F24416E14F3E00715A83 = {
+			isa = PBXGroup;
+			children = (
+				8687F25216E14F3F00715A83 /* SSToolkit */,
+				8687F24F16E14F3F00715A83 /* Frameworks */,
+				8687F24E16E14F3F00715A83 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8687F24E16E14F3F00715A83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8687F24D16E14F3F00715A83 /* libSSToolkit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0867D691FE84028FC02AAC07 /* TWToolkit */ = {
+		8687F24F16E14F3F00715A83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B24E9E04121DC29A0085F81E /* SSToolkit */,
-				B215045D10583A7300409ED4 /* Other Sources */,
-				B22A2A7F10B4908D00EA6CD9 /* Resources */,
-				0867D69AFE84028FC02AAC07 /* Frameworks */,
-				034768DFFF38A50411DB9C8B /* Products */,
-			);
-			name = TWToolkit;
-			sourceTree = "<group>";
-		};
-		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
-				B21504C910583B4000409ED4 /* SystemConfiguration.framework */,
-				B215051110583BBB00409ED4 /* UIKit.framework */,
+				8687F25016E14F3F00715A83 /* Foundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B215045D10583A7300409ED4 /* Other Sources */ = {
+		8687F25216E14F3F00715A83 /* SSToolkit */ = {
 			isa = PBXGroup;
 			children = (
-				B215045E10583A7300409ED4 /* SSToolkit_Prefix.pch */,
-			);
-			path = "Other Sources";
-			sourceTree = "<group>";
-		};
-		B22A2A7F10B4908D00EA6CD9 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B24E9E01121DC2910085F81E /* SSToolkit.bundle */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		B24E9E04121DC29A0085F81E /* SSToolkit */ = {
-			isa = PBXGroup;
-			children = (
-				B24E9E30121DC29A0085F81E /* SSToolkit.h */,
-				B24E9E0F121DC29A0085F81E /* SSCategories.h */,
-				B2601A76122307B1005506D5 /* Views */,
-				B2EA9F5B12F4A5B900C929D6 /* Cells */,
-				B2601A78122307CD005506D5 /* View Controllers */,
-				B2601A791223086D005506D5 /* Controls */,
-				B2601A8A122308E2005506D5 /* Misc */,
-				B279539B12FC6BD400FFE28D /* Private */,
-				B2601A6F12230794005506D5 /* Categories */,
+				86AF794E16E14F88000EEA84 /* SSToolkit.h */,
+				86AF794D16E14F88000EEA84 /* SSCategories.h */,
+				86AF794F16E14F94000EEA84 /* Views */,
+				86AF796916E14FDC000EEA84 /* Cells */,
+				86AF796C16E14FF0000EEA84 /* View Controllers */,
+				86AF797C16E15003000EEA84 /* Controls */,
+				86AF798716E15013000EEA84 /* Misc */,
+				86AF798E16E15027000EEA84 /* Private */,
+				86AF799516E1503B000EEA84 /* Categories */,
+				8687F25316E14F3F00715A83 /* Supporting Files */,
+				865B55FD16E1510B00D3AC7F /* Resources */,
 			);
 			path = SSToolkit;
 			sourceTree = "<group>";
 		};
-		B2601A6F12230794005506D5 /* Categories */ = {
+		8687F25316E14F3F00715A83 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B2601A711223079A005506D5 /* Foundation */,
-				B2601A72122307A2005506D5 /* UIKit */,
+				8687F25416E14F3F00715A83 /* SSToolkit-Prefix.pch */,
 			);
-			name = Categories;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B2601A711223079A005506D5 /* Foundation */ = {
+		86AF794F16E14F94000EEA84 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B24E9E05121DC29A0085F81E /* NSArray+SSToolkitAdditions.h */,
-				B24E9E06121DC29A0085F81E /* NSArray+SSToolkitAdditions.m */,
-				868D73BF14D0A83900C96124 /* NSCalendar+SSToolkitAdditions.h */,
-				868D73C014D0A83900C96124 /* NSCalendar+SSToolkitAdditions.m */,
-				B24E9E07121DC29A0085F81E /* NSData+SSToolkitAdditions.h */,
-				B24E9E08121DC29A0085F81E /* NSData+SSToolkitAdditions.m */,
-				B24E9E09121DC29A0085F81E /* NSDate+SSToolkitAdditions.h */,
-				B24E9E0A121DC29A0085F81E /* NSDate+SSToolkitAdditions.m */,
-				B227D2E8124931590078A059 /* NSDictionary+SSToolkitAdditions.h */,
-				B227D2E9124931590078A059 /* NSDictionary+SSToolkitAdditions.m */,
-				B24E9E0B121DC29A0085F81E /* NSString+SSToolkitAdditions.h */,
-				B24E9E0C121DC29A0085F81E /* NSString+SSToolkitAdditions.m */,
-				B24E9E0D121DC29A0085F81E /* NSURL+SSToolkitAdditions.h */,
-				B24E9E0E121DC29A0085F81E /* NSURL+SSToolkitAdditions.m */,
-			);
-			name = Foundation;
-			sourceTree = "<group>";
-		};
-		B2601A72122307A2005506D5 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				B2AE1132126F963300534CF2 /* UIApplication+SSToolkitAdditions.h */,
-				B2AE1133126F963300534CF2 /* UIApplication+SSToolkitAdditions.m */,
-				B24E9E35121DC29A0085F81E /* UIColor+SSToolkitAdditions.h */,
-				B24E9E36121DC29A0085F81E /* UIColor+SSToolkitAdditions.m */,
-				B24E9E37121DC29A0085F81E /* UIControl+SSToolkitAdditions.h */,
-				B24E9E38121DC29A0085F81E /* UIControl+SSToolkitAdditions.m */,
-				B24E9E39121DC29A0085F81E /* UIDevice+SSToolkitAdditions.h */,
-				B24E9E3A121DC29A0085F81E /* UIDevice+SSToolkitAdditions.m */,
-				B24E9E3B121DC29A0085F81E /* UIImage+SSToolkitAdditions.h */,
-				B24E9E3C121DC29A0085F81E /* UIImage+SSToolkitAdditions.m */,
-				B279539712FC67E300FFE28D /* UIScreen+SSToolkitAdditions.h */,
-				B279539812FC67E300FFE28D /* UIScreen+SSToolkitAdditions.m */,
-				B24E9E3D121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.h */,
-				B24E9E3E121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.m */,
-				B24E9E3F121DC29A0085F81E /* UIView+SSToolkitAdditions.h */,
-				B24E9E40121DC29A0085F81E /* UIView+SSToolkitAdditions.m */,
-				B24E9E41121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h */,
-				B24E9E42121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m */,
-			);
-			name = UIKit;
-			sourceTree = "<group>";
-		};
-		B2601A76122307B1005506D5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B2EA9F6012F4A5E100C929D6 /* SSBadgeView.h */,
-				B2EA9F6112F4A5E100C929D6 /* SSBadgeView.m */,
-				B27B1A1912241D3400111EA2 /* SSCollectionView.h */,
-				B27B1A1A12241D3400111EA2 /* SSCollectionView.m */,
-				B27B1A2012241D6F00111EA2 /* SSCollectionViewItem.h */,
-				B27B1A2112241D6F00111EA2 /* SSCollectionViewItem.m */,
-				B24E9E13121DC29A0085F81E /* SSGradientView.h */,
-				B24E9E14121DC29A0085F81E /* SSGradientView.m */,
-				B24E9E15121DC29A0085F81E /* SSHUDView.h */,
-				B24E9E16121DC29A0085F81E /* SSHUDView.m */,
-				B24E9E17121DC29A0085F81E /* SSIndicatorLabel.h */,
-				B24E9E18121DC29A0085F81E /* SSIndicatorLabel.m */,
-				B24E9E1B121DC29A0085F81E /* SSLabel.h */,
-				B24E9E1C121DC29A0085F81E /* SSLabel.m */,
-				B24E9E1D121DC29A0085F81E /* SSLineView.h */,
-				B24E9E1E121DC29A0085F81E /* SSLineView.m */,
-				B24E9E1F121DC29A0085F81E /* SSLoadingView.h */,
-				B24E9E20121DC29A0085F81E /* SSLoadingView.m */,
-				B24E9E2A121DC29A0085F81E /* SSPieProgressView.h */,
-				B24E9E2B121DC29A0085F81E /* SSPieProgressView.m */,
-				B24E9E33121DC29A0085F81E /* SSWebView.h */,
-				B24E9E34121DC29A0085F81E /* SSWebView.m */,
-				956E83CE1332C5BF00C7E252 /* SSInnerWebView.h */,
-				956E83CF1332C5BF00C7E252 /* SSInnerWebView.m */,
+				86AF795016E14FB5000EEA84 /* SSBadgeView.h */,
+				86AF795116E14FB5000EEA84 /* SSBadgeView.m */,
+				86AF795316E14FBF000EEA84 /* SSCollectionView.h */,
+				86AF795416E14FBF000EEA84 /* SSCollectionView.m */,
+				86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */,
+				86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */,
+				86AF795716E14FBF000EEA84 /* SSGradientView.h */,
+				86AF795816E14FBF000EEA84 /* SSGradientView.m */,
+				86AF795916E14FBF000EEA84 /* SSHUDView.h */,
+				86AF795A16E14FBF000EEA84 /* SSHUDView.m */,
+				86AF795B16E14FBF000EEA84 /* SSIndicatorLabel.h */,
+				86AF795C16E14FBF000EEA84 /* SSIndicatorLabel.m */,
+				86AF795D16E14FBF000EEA84 /* SSLabel.h */,
+				86AF795E16E14FBF000EEA84 /* SSLabel.m */,
+				86AF795F16E14FBF000EEA84 /* SSLineView.h */,
+				86AF796016E14FBF000EEA84 /* SSLineView.m */,
+				86AF796116E14FBF000EEA84 /* SSLoadingView.h */,
+				86AF796216E14FBF000EEA84 /* SSLoadingView.m */,
+				86AF796316E14FBF000EEA84 /* SSPieProgressView.h */,
+				86AF796416E14FBF000EEA84 /* SSPieProgressView.m */,
+				86AF796516E14FBF000EEA84 /* SSWebView.h */,
+				86AF796616E14FBF000EEA84 /* SSWebView.m */,
+				86AF796716E14FBF000EEA84 /* SSInnerWebView.h */,
+				86AF796816E14FBF000EEA84 /* SSInnerWebView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		B2601A78122307CD005506D5 /* View Controllers */ = {
+		86AF796916E14FDC000EEA84 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B267D3431226CE0400B66519 /* SSCollectionViewController.h */,
-				B267D3441226CE0400B66519 /* SSCollectionViewController.m */,
-				B2AAE65A1281B73E0068EE7F /* SSNavigationController.h */,
-				B2AAE65B1281B73E0068EE7F /* SSNavigationController.m */,
-				B24E9E27121DC29A0085F81E /* SSModalViewController.h */,
-				B24E9E28121DC29A0085F81E /* SSPickerViewController.h */,
-				B24E9E29121DC29A0085F81E /* SSPickerViewController.m */,
-				B28C6D0512FBE5C400667755 /* SSRatingPickerViewController.h */,
-				B28C6D0612FBE5C400667755 /* SSRatingPickerViewController.m */,
-				B20AC0671267988600687143 /* SSTableViewController.h */,
-				B20AC0681267988600687143 /* SSTableViewController.m */,
-				B24E9E31121DC29A0085F81E /* SSViewController.h */,
-				B24E9E32121DC29A0085F81E /* SSViewController.m */,
-				867DA5A9149A60DF00F54740 /* SSDropShadowView.h */,
-				867DA5AA149A60DF00F54740 /* SSDropShadowView.m */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		B2601A791223086D005506D5 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				B2E2414E1301C71400F7DC3B /* SSAddressBarTextField.h */,
-				B2E2414F1301C71400F7DC3B /* SSAddressBarTextField.m */,
-				B24E9E2C121DC29A0085F81E /* SSTextField.h */,
-				B24E9E2D121DC29A0085F81E /* SSTextField.m */,
-				B24E9E2E121DC29A0085F81E /* SSTextView.h */,
-				B24E9E2F121DC29A0085F81E /* SSTextView.m */,
-				B28219DB12FA8EB500BAF3C6 /* SSRatingPicker.h */,
-				B28219DC12FA8EB500BAF3C6 /* SSRatingPicker.m */,
-				B2B3CED61296F637001BAC94 /* SSSwitch.h */,
-				B2B3CED71296F637001BAC94 /* SSSwitch.m */,
-			);
-			name = Controls;
-			sourceTree = "<group>";
-		};
-		B2601A8A122308E2005506D5 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				B24E9E10121DC29A0085F81E /* SSConcurrentOperation.h */,
-				B24E9E11121DC29A0085F81E /* SSConcurrentOperation.m */,
-				B24E9E12121DC29A0085F81E /* SSDrawingMacros.h */,
-				B21D2DFF121F2FE500161E66 /* SSDrawingMacros.m */,
-				B28218BC12FA6AE100BAF3C6 /* SSToolkitDefines.h */,
-				B28218BD12FA6AE100BAF3C6 /* SSToolkitDefines.m */,
-			);
-			name = Misc;
-			sourceTree = "<group>";
-		};
-		B279539B12FC6BD400FFE28D /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				B279539C12FC6C6F00FFE28D /* SSRatingPickerScrollView.h */,
-				B279539D12FC6C6F00FFE28D /* SSRatingPickerScrollView.m */,
-				B2E241501301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h */,
-				B2E241511301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m */,
-				B2E241521301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h */,
-				B2E241531301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m */,
-			);
-			name = Private;
-			sourceTree = "<group>";
-		};
-		B2EA9F5B12F4A5B900C929D6 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				B2EA9F5C12F4A5C900C929D6 /* SSBadgeTableViewCell.h */,
-				B2EA9F5D12F4A5C900C929D6 /* SSBadgeTableViewCell.m */,
+				86AF796A16E14FEB000EEA84 /* SSBadgeTableViewCell.h */,
+				86AF796B16E14FEB000EEA84 /* SSBadgeTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		86AF796C16E14FF0000EEA84 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				86AF796D16E15000000EEA84 /* SSCollectionViewController.h */,
+				86AF796E16E15000000EEA84 /* SSCollectionViewController.m */,
+				86AF796F16E15000000EEA84 /* SSNavigationController.h */,
+				86AF797016E15000000EEA84 /* SSNavigationController.m */,
+				86AF797116E15000000EEA84 /* SSModalViewController.h */,
+				86AF797216E15000000EEA84 /* SSPickerViewController.h */,
+				86AF797316E15000000EEA84 /* SSPickerViewController.m */,
+				86AF797416E15000000EEA84 /* SSRatingPickerViewController.h */,
+				86AF797516E15000000EEA84 /* SSRatingPickerViewController.m */,
+				86AF797616E15000000EEA84 /* SSTableViewController.h */,
+				86AF797716E15000000EEA84 /* SSTableViewController.m */,
+				86AF797816E15000000EEA84 /* SSViewController.h */,
+				86AF797916E15000000EEA84 /* SSViewController.m */,
+				86AF797A16E15000000EEA84 /* SSDropShadowView.h */,
+				86AF797B16E15000000EEA84 /* SSDropShadowView.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		86AF797C16E15003000EEA84 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				86AF797D16E1500F000EEA84 /* SSAddressBarTextField.h */,
+				86AF797E16E1500F000EEA84 /* SSAddressBarTextField.m */,
+				86AF797F16E1500F000EEA84 /* SSTextField.h */,
+				86AF798016E1500F000EEA84 /* SSTextField.m */,
+				86AF798116E1500F000EEA84 /* SSTextView.h */,
+				86AF798216E1500F000EEA84 /* SSTextView.m */,
+				86AF798316E1500F000EEA84 /* SSRatingPicker.h */,
+				86AF798416E1500F000EEA84 /* SSRatingPicker.m */,
+				86AF798516E1500F000EEA84 /* SSSwitch.h */,
+				86AF798616E1500F000EEA84 /* SSSwitch.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		86AF798716E15013000EEA84 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				86AF798816E1501D000EEA84 /* SSConcurrentOperation.h */,
+				86AF798916E1501D000EEA84 /* SSConcurrentOperation.m */,
+				86AF798A16E1501D000EEA84 /* SSDrawingMacros.h */,
+				86AF798B16E1501D000EEA84 /* SSDrawingMacros.m */,
+				86AF798C16E1501D000EEA84 /* SSToolkitDefines.h */,
+				86AF798D16E1501D000EEA84 /* SSToolkitDefines.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		86AF798E16E15027000EEA84 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				86AF798F16E15037000EEA84 /* SSRatingPickerScrollView.h */,
+				86AF799016E15037000EEA84 /* SSRatingPickerScrollView.m */,
+				86AF799116E15037000EEA84 /* SSAddressBarTextFieldBackgroundView.h */,
+				86AF799216E15037000EEA84 /* SSAddressBarTextFieldBackgroundView.m */,
+				86AF799316E15037000EEA84 /* SSAddressBarTextFieldBackgroundViewInnerView.h */,
+				86AF799416E15037000EEA84 /* SSAddressBarTextFieldBackgroundViewInnerView.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		86AF799516E1503B000EEA84 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				86AF79A416E15052000EEA84 /* Foundation */,
+				86AF79B716E15063000EEA84 /* UIKit */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		86AF79A416E15052000EEA84 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				86AF799616E15049000EEA84 /* NSArray+SSToolkitAdditions.h */,
+				86AF799716E15049000EEA84 /* NSArray+SSToolkitAdditions.m */,
+				86AF799816E15049000EEA84 /* NSCalendar+SSToolkitAdditions.h */,
+				86AF799916E15049000EEA84 /* NSCalendar+SSToolkitAdditions.m */,
+				86AF799A16E15049000EEA84 /* NSData+SSToolkitAdditions.h */,
+				86AF799B16E15049000EEA84 /* NSData+SSToolkitAdditions.m */,
+				86AF799C16E15049000EEA84 /* NSDate+SSToolkitAdditions.h */,
+				86AF799D16E15049000EEA84 /* NSDate+SSToolkitAdditions.m */,
+				86AF799E16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.h */,
+				86AF799F16E15049000EEA84 /* NSDictionary+SSToolkitAdditions.m */,
+				86AF79A016E15049000EEA84 /* NSString+SSToolkitAdditions.h */,
+				86AF79A116E15049000EEA84 /* NSString+SSToolkitAdditions.m */,
+				86AF79A216E15049000EEA84 /* NSURL+SSToolkitAdditions.h */,
+				86AF79A316E15049000EEA84 /* NSURL+SSToolkitAdditions.m */,
+			);
+			name = Foundation;
+			sourceTree = "<group>";
+		};
+		86AF79B716E15063000EEA84 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				86AF79A516E15060000EEA84 /* UIApplication+SSToolkitAdditions.h */,
+				86AF79A616E15060000EEA84 /* UIApplication+SSToolkitAdditions.m */,
+				86AF79A716E15060000EEA84 /* UIColor+SSToolkitAdditions.h */,
+				86AF79A816E15060000EEA84 /* UIColor+SSToolkitAdditions.m */,
+				86AF79A916E15060000EEA84 /* UIControl+SSToolkitAdditions.h */,
+				86AF79AA16E15060000EEA84 /* UIControl+SSToolkitAdditions.m */,
+				86AF79AB16E15060000EEA84 /* UIDevice+SSToolkitAdditions.h */,
+				86AF79AC16E15060000EEA84 /* UIDevice+SSToolkitAdditions.m */,
+				86AF79AD16E15060000EEA84 /* UIImage+SSToolkitAdditions.h */,
+				86AF79AE16E15060000EEA84 /* UIImage+SSToolkitAdditions.m */,
+				86AF79AF16E15060000EEA84 /* UIScreen+SSToolkitAdditions.h */,
+				86AF79B016E15060000EEA84 /* UIScreen+SSToolkitAdditions.m */,
+				86AF79B116E15060000EEA84 /* UIScrollView+SSToolkitAdditions.h */,
+				86AF79B216E15060000EEA84 /* UIScrollView+SSToolkitAdditions.m */,
+				86AF79B316E15060000EEA84 /* UIView+SSToolkitAdditions.h */,
+				86AF79B416E15060000EEA84 /* UIView+SSToolkitAdditions.m */,
+				86AF79B516E15060000EEA84 /* UIViewController+SSToolkitAdditions.h */,
+				86AF79B616E15060000EEA84 /* UIViewController+SSToolkitAdditions.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		D2AAC07A0554694100DB518D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B24E9E43121DC29A0085F81E /* NSArray+SSToolkitAdditions.h in Headers */,
-				B24E9E45121DC29A0085F81E /* NSData+SSToolkitAdditions.h in Headers */,
-				B24E9E47121DC29A0085F81E /* NSDate+SSToolkitAdditions.h in Headers */,
-				B24E9E49121DC29A0085F81E /* NSString+SSToolkitAdditions.h in Headers */,
-				B24E9E4B121DC29A0085F81E /* NSURL+SSToolkitAdditions.h in Headers */,
-				B24E9E4D121DC29A0085F81E /* SSCategories.h in Headers */,
-				B24E9E4E121DC29A0085F81E /* SSConcurrentOperation.h in Headers */,
-				B24E9E50121DC29A0085F81E /* SSDrawingMacros.h in Headers */,
-				B24E9E51121DC29A0085F81E /* SSGradientView.h in Headers */,
-				B24E9E53121DC29A0085F81E /* SSHUDView.h in Headers */,
-				B24E9E55121DC29A0085F81E /* SSIndicatorLabel.h in Headers */,
-				B24E9E59121DC29A0085F81E /* SSLabel.h in Headers */,
-				B24E9E5B121DC29A0085F81E /* SSLineView.h in Headers */,
-				B24E9E5D121DC29A0085F81E /* SSLoadingView.h in Headers */,
-				B24E9E65121DC29A0085F81E /* SSModalViewController.h in Headers */,
-				B24E9E66121DC29A0085F81E /* SSPickerViewController.h in Headers */,
-				B24E9E68121DC29A0085F81E /* SSPieProgressView.h in Headers */,
-				B24E9E6A121DC29A0085F81E /* SSTextField.h in Headers */,
-				B24E9E6C121DC29A0085F81E /* SSTextView.h in Headers */,
-				B24E9E6E121DC29A0085F81E /* SSToolkit.h in Headers */,
-				B24E9E6F121DC29A0085F81E /* SSViewController.h in Headers */,
-				B24E9E71121DC29A0085F81E /* SSWebView.h in Headers */,
-				B24E9E73121DC29A0085F81E /* UIColor+SSToolkitAdditions.h in Headers */,
-				B24E9E75121DC29A0085F81E /* UIControl+SSToolkitAdditions.h in Headers */,
-				B24E9E77121DC29A0085F81E /* UIDevice+SSToolkitAdditions.h in Headers */,
-				B24E9E79121DC29A0085F81E /* UIImage+SSToolkitAdditions.h in Headers */,
-				B24E9E7B121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.h in Headers */,
-				B24E9E7D121DC29A0085F81E /* UIView+SSToolkitAdditions.h in Headers */,
-				B24E9E7F121DC29A0085F81E /* UIViewController+SSToolkitAdditions.h in Headers */,
-				B27B1A1B12241D3400111EA2 /* SSCollectionView.h in Headers */,
-				B27B1A2212241D6F00111EA2 /* SSCollectionViewItem.h in Headers */,
-				B267D3451226CE0400B66519 /* SSCollectionViewController.h in Headers */,
-				B227D2EA124931590078A059 /* NSDictionary+SSToolkitAdditions.h in Headers */,
-				B20AC0691267988600687143 /* SSTableViewController.h in Headers */,
-				B2AE1134126F963300534CF2 /* UIApplication+SSToolkitAdditions.h in Headers */,
-				B2AAE65C1281B73E0068EE7F /* SSNavigationController.h in Headers */,
-				B2B3CED81296F637001BAC94 /* SSSwitch.h in Headers */,
-				B2EA9F5E12F4A5C900C929D6 /* SSBadgeTableViewCell.h in Headers */,
-				B2EA9F6212F4A5E100C929D6 /* SSBadgeView.h in Headers */,
-				B28218BE12FA6AE100BAF3C6 /* SSToolkitDefines.h in Headers */,
-				B28219DD12FA8EB500BAF3C6 /* SSRatingPicker.h in Headers */,
-				B28C6D0712FBE5C400667755 /* SSRatingPickerViewController.h in Headers */,
-				B279539912FC67E300FFE28D /* UIScreen+SSToolkitAdditions.h in Headers */,
-				B279539E12FC6C6F00FFE28D /* SSRatingPickerScrollView.h in Headers */,
-				B2E241541301C71400F7DC3B /* SSAddressBarTextField.h in Headers */,
-				B2E241561301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.h in Headers */,
-				B2E241581301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.h in Headers */,
-				956E83D01332C5BF00C7E252 /* SSInnerWebView.h in Headers */,
-				B215045F10583A7300409ED4 /* SSToolkit_Prefix.pch in Headers */,
-				867DA5AB149A60DF00F54740 /* SSDropShadowView.h in Headers */,
-				868D73C114D0A83900C96124 /* NSCalendar+SSToolkitAdditions.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		D2AAC07D0554694100DB518D /* SSToolkit */ = {
+		8687F24C16E14F3F00715A83 /* SSToolkit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SSToolkit" */;
+			buildConfigurationList = 8687F25B16E14F3F00715A83 /* Build configuration list for PBXNativeTarget "SSToolkit" */;
 			buildPhases = (
-				D2AAC07A0554694100DB518D /* Headers */,
-				D2AAC07B0554694100DB518D /* Sources */,
-				D2AAC07C0554694100DB518D /* Frameworks */,
+				8687F24916E14F3F00715A83 /* Sources */,
+				8687F24A16E14F3F00715A83 /* Frameworks */,
+				8687F24B16E14F3F00715A83 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SSToolkit;
-			productName = TWToolkit;
-			productReference = D2AAC07E0554694100DB518D /* libSSToolkit.a */;
+			productName = SSToolkit;
+			productReference = 8687F24D16E14F3F00715A83 /* libSSToolkit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0867D690FE84028FC02AAC07 /* Project object */ = {
+		8687F24516E14F3F00715A83 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rethink Books";
 			};
-			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SSToolkit" */;
+			buildConfigurationList = 8687F24816E14F3F00715A83 /* Build configuration list for PBXProject "SSToolkit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
-			hasScannedForEncodings = 1;
+			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				en,
 			);
-			mainGroup = 0867D691FE84028FC02AAC07 /* TWToolkit */;
-			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			mainGroup = 8687F24416E14F3E00715A83;
+			productRefGroup = 8687F24E16E14F3F00715A83 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D2AAC07D0554694100DB518D /* SSToolkit */,
+				8687F24C16E14F3F00715A83 /* SSToolkit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D2AAC07B0554694100DB518D /* Sources */ = {
+		8687F24916E14F3F00715A83 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B24E9E44121DC29A0085F81E /* NSArray+SSToolkitAdditions.m in Sources */,
-				B24E9E46121DC29A0085F81E /* NSData+SSToolkitAdditions.m in Sources */,
-				B24E9E48121DC29A0085F81E /* NSDate+SSToolkitAdditions.m in Sources */,
-				B24E9E4A121DC29A0085F81E /* NSString+SSToolkitAdditions.m in Sources */,
-				B24E9E4C121DC29A0085F81E /* NSURL+SSToolkitAdditions.m in Sources */,
-				B24E9E4F121DC29A0085F81E /* SSConcurrentOperation.m in Sources */,
-				B24E9E52121DC29A0085F81E /* SSGradientView.m in Sources */,
-				B24E9E54121DC29A0085F81E /* SSHUDView.m in Sources */,
-				B24E9E56121DC29A0085F81E /* SSIndicatorLabel.m in Sources */,
-				B24E9E5A121DC29A0085F81E /* SSLabel.m in Sources */,
-				B24E9E5C121DC29A0085F81E /* SSLineView.m in Sources */,
-				B24E9E5E121DC29A0085F81E /* SSLoadingView.m in Sources */,
-				B24E9E67121DC29A0085F81E /* SSPickerViewController.m in Sources */,
-				B24E9E69121DC29A0085F81E /* SSPieProgressView.m in Sources */,
-				B24E9E6B121DC29A0085F81E /* SSTextField.m in Sources */,
-				B24E9E6D121DC29A0085F81E /* SSTextView.m in Sources */,
-				B24E9E70121DC29A0085F81E /* SSViewController.m in Sources */,
-				B24E9E72121DC29A0085F81E /* SSWebView.m in Sources */,
-				B24E9E74121DC29A0085F81E /* UIColor+SSToolkitAdditions.m in Sources */,
-				B24E9E76121DC29A0085F81E /* UIControl+SSToolkitAdditions.m in Sources */,
-				B24E9E78121DC29A0085F81E /* UIDevice+SSToolkitAdditions.m in Sources */,
-				B24E9E7A121DC29A0085F81E /* UIImage+SSToolkitAdditions.m in Sources */,
-				B24E9E7C121DC29A0085F81E /* UIScrollView+SSToolkitAdditions.m in Sources */,
-				B24E9E7E121DC29A0085F81E /* UIView+SSToolkitAdditions.m in Sources */,
-				B24E9E80121DC29A0085F81E /* UIViewController+SSToolkitAdditions.m in Sources */,
-				B21D2E00121F2FE500161E66 /* SSDrawingMacros.m in Sources */,
-				B27B1A1C12241D3400111EA2 /* SSCollectionView.m in Sources */,
-				B27B1A2312241D6F00111EA2 /* SSCollectionViewItem.m in Sources */,
-				B267D3461226CE0400B66519 /* SSCollectionViewController.m in Sources */,
-				B227D2EB124931590078A059 /* NSDictionary+SSToolkitAdditions.m in Sources */,
-				B20AC06A1267988600687143 /* SSTableViewController.m in Sources */,
-				B2AE1135126F963300534CF2 /* UIApplication+SSToolkitAdditions.m in Sources */,
-				B2AAE65D1281B73E0068EE7F /* SSNavigationController.m in Sources */,
-				B2B3CED91296F637001BAC94 /* SSSwitch.m in Sources */,
-				B2EA9F5F12F4A5C900C929D6 /* SSBadgeTableViewCell.m in Sources */,
-				B2EA9F6312F4A5E100C929D6 /* SSBadgeView.m in Sources */,
-				B28218BF12FA6AE100BAF3C6 /* SSToolkitDefines.m in Sources */,
-				B28219DE12FA8EB500BAF3C6 /* SSRatingPicker.m in Sources */,
-				B28C6D0812FBE5C400667755 /* SSRatingPickerViewController.m in Sources */,
-				B279539A12FC67E300FFE28D /* UIScreen+SSToolkitAdditions.m in Sources */,
-				B279539F12FC6C6F00FFE28D /* SSRatingPickerScrollView.m in Sources */,
-				B2E241551301C71400F7DC3B /* SSAddressBarTextField.m in Sources */,
-				B2E241571301C71400F7DC3B /* SSAddressBarTextFieldBackgroundView.m in Sources */,
-				B2E241591301C71400F7DC3B /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */,
-				956E83D11332C5BF00C7E252 /* SSInnerWebView.m in Sources */,
-				867DA5AC149A60DF00F54740 /* SSDropShadowView.m in Sources */,
-				868D73C214D0A83900C96124 /* NSCalendar+SSToolkitAdditions.m in Sources */,
+				86AF795216E14FB5000EEA84 /* SSBadgeView.m in Sources */,
+				8648328D16E158BC00D64E89 /* SSCollectionView.m in Sources */,
+				8648328E16E158BC00D64E89 /* SSCollectionViewItem.m in Sources */,
+				8648328F16E158BC00D64E89 /* SSGradientView.m in Sources */,
+				8648329016E158BC00D64E89 /* SSHUDView.m in Sources */,
+				8648329116E158BC00D64E89 /* SSIndicatorLabel.m in Sources */,
+				8648329216E158BC00D64E89 /* SSLabel.m in Sources */,
+				8648329316E158BC00D64E89 /* SSLineView.m in Sources */,
+				8648329416E158BC00D64E89 /* SSLoadingView.m in Sources */,
+				8648329516E158BC00D64E89 /* SSPieProgressView.m in Sources */,
+				8648329616E158BC00D64E89 /* SSWebView.m in Sources */,
+				8648329716E158BC00D64E89 /* SSInnerWebView.m in Sources */,
+				8648329816E158BC00D64E89 /* SSBadgeTableViewCell.m in Sources */,
+				8648329916E158BC00D64E89 /* SSCollectionViewController.m in Sources */,
+				8648329A16E158BC00D64E89 /* SSNavigationController.m in Sources */,
+				8648329B16E158BC00D64E89 /* SSPickerViewController.m in Sources */,
+				8648329C16E158BC00D64E89 /* SSRatingPickerViewController.m in Sources */,
+				8648329D16E158BC00D64E89 /* SSTableViewController.m in Sources */,
+				8648329E16E158BC00D64E89 /* SSViewController.m in Sources */,
+				8648329F16E158BC00D64E89 /* SSDropShadowView.m in Sources */,
+				864832A016E158BC00D64E89 /* SSAddressBarTextField.m in Sources */,
+				864832A116E158BC00D64E89 /* SSTextField.m in Sources */,
+				864832A216E158BC00D64E89 /* SSTextView.m in Sources */,
+				864832A316E158BC00D64E89 /* SSRatingPicker.m in Sources */,
+				864832A416E158BC00D64E89 /* SSSwitch.m in Sources */,
+				864832A516E158BC00D64E89 /* SSConcurrentOperation.m in Sources */,
+				864832A616E158BC00D64E89 /* SSDrawingMacros.m in Sources */,
+				864832A716E158BC00D64E89 /* SSToolkitDefines.m in Sources */,
+				864832A816E158BC00D64E89 /* SSRatingPickerScrollView.m in Sources */,
+				864832A916E158BC00D64E89 /* SSAddressBarTextFieldBackgroundView.m in Sources */,
+				864832AA16E158BC00D64E89 /* SSAddressBarTextFieldBackgroundViewInnerView.m in Sources */,
+				864832AB16E158BC00D64E89 /* NSArray+SSToolkitAdditions.m in Sources */,
+				864832AC16E158BC00D64E89 /* NSCalendar+SSToolkitAdditions.m in Sources */,
+				864832AD16E158BC00D64E89 /* NSData+SSToolkitAdditions.m in Sources */,
+				864832AE16E158BC00D64E89 /* NSDate+SSToolkitAdditions.m in Sources */,
+				864832AF16E158BC00D64E89 /* NSDictionary+SSToolkitAdditions.m in Sources */,
+				864832B016E158BC00D64E89 /* NSString+SSToolkitAdditions.m in Sources */,
+				864832B116E158BC00D64E89 /* NSURL+SSToolkitAdditions.m in Sources */,
+				864832B216E158BC00D64E89 /* UIApplication+SSToolkitAdditions.m in Sources */,
+				864832B316E158BC00D64E89 /* UIColor+SSToolkitAdditions.m in Sources */,
+				864832B416E158BC00D64E89 /* UIControl+SSToolkitAdditions.m in Sources */,
+				864832B516E158BC00D64E89 /* UIDevice+SSToolkitAdditions.m in Sources */,
+				864832B616E158BC00D64E89 /* UIImage+SSToolkitAdditions.m in Sources */,
+				864832B716E158BC00D64E89 /* UIScreen+SSToolkitAdditions.m in Sources */,
+				864832B816E158BC00D64E89 /* UIScrollView+SSToolkitAdditions.m in Sources */,
+				864832B916E158BC00D64E89 /* UIView+SSToolkitAdditions.m in Sources */,
+				864832BA16E158BC00D64E89 /* UIViewController+SSToolkitAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB921F08733DC00010E9CD /* Debug */ = {
+		8687F25916E14F3F00715A83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/SSToolkit.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/SSToolkit_Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
-				PRODUCT_NAME = SSToolkit;
-				PUBLIC_HEADERS_FOLDER_PATH = include;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
-		1DEB922008733DC00010E9CD /* Release */ = {
+		8687F25A16E14F3F00715A83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				DSTROOT = /tmp/SSToolkit.dst;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Other Sources/SSToolkit_Prefix.pch";
-				GCC_THUMB_SUPPORT = NO;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				LD_OPENMP_FLAGS = "-fopenmp -lxml2";
-				PRODUCT_NAME = SSToolkit;
-				PUBLIC_HEADERS_FOLDER_PATH = include;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		1DEB922308733DC00010E9CD /* Debug */ = {
+		8687F25C16E14F3F00715A83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				DSTROOT = /tmp/SSToolkit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSToolkit/SSToolkit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		1DEB922408733DC00010E9CD /* Release */ = {
+		8687F25D16E14F3F00715A83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				DSTROOT = /tmp/SSToolkit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SSToolkit/SSToolkit-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "SSToolkit" */ = {
+		8687F24816E14F3F00715A83 /* Build configuration list for PBXProject "SSToolkit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB921F08733DC00010E9CD /* Debug */,
-				1DEB922008733DC00010E9CD /* Release */,
+				8687F25916E14F3F00715A83 /* Debug */,
+				8687F25A16E14F3F00715A83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "SSToolkit" */ = {
+		8687F25B16E14F3F00715A83 /* Build configuration list for PBXNativeTarget "SSToolkit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1DEB922308733DC00010E9CD /* Debug */,
-				1DEB922408733DC00010E9CD /* Release */,
+				8687F25C16E14F3F00715A83 /* Debug */,
+				8687F25D16E14F3F00715A83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+	rootObject = 8687F24516E14F3F00715A83 /* Project object */;
 }
