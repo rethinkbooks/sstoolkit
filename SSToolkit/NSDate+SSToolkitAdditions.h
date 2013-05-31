@@ -23,4 +23,7 @@
 
 - (NSString *)unitsGroupStringFromDate:(NSDate *)date;
 
++ (NSDate *)today;
++ (NSDate *)yesterday;
+
 @end
