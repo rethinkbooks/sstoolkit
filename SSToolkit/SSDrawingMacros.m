@@ -120,9 +120,8 @@ CGGradientRef SSGradientWithColorsAndLocations(UIColor *topColor, UIColor *botto
 	
 	CGColorRef topCGColor = topColor.CGColor;
 	CGColorSpaceRef colorSpace = CGColorGetColorSpace(topCGColor);
-	NSArray *colors = [[NSArray alloc] initWithObjects:(id)topCGColor, (id)bottomColor.CGColor, nil];
-	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (CFArrayRef)colors, locations);
-	[colors release];
+	NSArray *colors = @[(__bridge id)topCGColor, (id)bottomColor.CGColor];
+	CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
 	
 	return gradient;
 }

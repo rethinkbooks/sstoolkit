@@ -14,12 +14,7 @@
  back out when it is complete. This is great for a view that shows
  some sort of status that can refresh.
  */
-@interface SSIndicatorLabel : UIView {
-
-	UILabel *_textLabel;
-	UIActivityIndicatorView *_indicator;
-	BOOL _loading;
-}
+@interface SSIndicatorLabel : UIView
 
 /**
  @brief Returns the label used for the main textual content of the view.

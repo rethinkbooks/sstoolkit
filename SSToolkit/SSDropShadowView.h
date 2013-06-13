@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SSDropShadowView : UIView {
-    UIView *view_;
-}
+@interface SSDropShadowView : UIView
 
 - (id)initWithView:(UIView *)view;
 

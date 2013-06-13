@@ -18,16 +18,15 @@ static CGFloat kLoadingBackgroundWidth = 49.0f;
 @end
 
 @implementation SSAddressBarTextFieldBackgroundView
-
-@synthesize loading;
+{
+	NSTimer *_moveTimer;
+	SSAddressBarTextFieldBackgroundViewInnerView *_innerView;
+}
 
 #pragma mark NSObject
 
 - (void)dealloc {
 	[_moveTimer invalidate];
-	[_moveTimer release];
-	[_innerView release];
-	[super dealloc];
 }
 
 

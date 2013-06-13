@@ -11,9 +11,6 @@
 
 @implementation SSInnerWebView
 
-@synthesize disableStandardActions = _disableStandardActions;
-
-
 #pragma mark UIResponder
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {

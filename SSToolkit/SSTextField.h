@@ -9,10 +9,7 @@
 /**
  @brief Simple UITextField subclass to adds text insets.
  */
-@interface SSTextField : UITextField {
-
-	UIEdgeInsets _textEdgeInsets;
-}
+@interface SSTextField : UITextField
 
 /**
  @brief The inset or outset margins for the edges of the text content drawing rectangle.

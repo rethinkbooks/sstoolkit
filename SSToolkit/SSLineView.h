@@ -13,12 +13,7 @@
  
  The inset is drawn under the line if showInset is set to YES.
  */
-@interface SSLineView : UIView {
-
-	UIColor *_lineColor;
-	UIColor *_insetColor;
-	BOOL _showInset;
-}
+@interface SSLineView : UIView
 
 /**
  @brief The primary color of the line.

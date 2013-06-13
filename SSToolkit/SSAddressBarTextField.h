@@ -10,16 +10,7 @@
 
 @class SSAddressBarTextFieldBackgroundView;
 
-@interface SSAddressBarTextField : SSTextField {
-
-	BOOL _loading;
-	UIButton *_reloadButton;
-	UIButton *_stopButton;
-
-@private
-	
-	SSAddressBarTextFieldBackgroundView *_textFieldBackgroundView;
-}
+@interface SSAddressBarTextField : SSTextField
 
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
 @property (nonatomic, retain) UIButton *reloadButton;

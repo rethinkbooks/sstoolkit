@@ -14,23 +14,13 @@
 #import "SSDrawingMacros.h"
 
 @implementation SSRatingPickerScrollView
-
-@synthesize ratingPicker = _ratingPicker;
-@synthesize titleTextField = _titleTextField;
-@synthesize reviewTextField = _reviewTextField;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_topView release];
-	[_gradientView release];
-	[_ratingPicker release];
-	[_titleTextField release];
-	[_lineView release];
-	[_reviewTextField release];
-	[super dealloc];
+{
+@private
+	UIView *_topView;
+	SSGradientView *_gradientView;
+	UIView *_lineView;
+    SSTextView *_reviewTextView;
 }
-
 
 #pragma mark UIView
 

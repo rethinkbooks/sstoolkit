@@ -15,22 +15,10 @@ static CGFloat kIndicatorSize = 40.0;
 
 @implementation SSHUDView
 
-@synthesize textLabel = _textLabel;
-@synthesize activityIndicator = _activityIndicator;
-@synthesize loading = _loading;
-@synthesize successful = _successful;
-
 #pragma mark NSObject
 
 - (id)init {
 	return [self initWithTitle:nil loading:YES];
-}
-
-
-- (void)dealloc {
-	[_activityIndicator release];
-	[_textLabel release];
-	[super dealloc];
 }
 
 
@@ -144,7 +132,6 @@ static CGFloat kIndicatorSize = 40.0;
 
 - (void)completeAndDismissWithTitle:(NSString *)aTitle {
 	[self completeWithTitle:aTitle];
-	[self retain];
 	[self performSelector:@selector(releaseAndDismiss) withObject:nil afterDelay:1.0];
 }
 
@@ -158,13 +145,11 @@ static CGFloat kIndicatorSize = 40.0;
 
 - (void)failAndDismissWithTitle:(NSString *)aTitle {
 	[self failWithTitle:aTitle];
-	[self retain];
 	[self performSelector:@selector(releaseAndDismiss) withObject:nil afterDelay:1.0];
 }
 
 
 - (void)releaseAndDismiss {
-	[self autorelease];
 	[self dismissAnimated:YES];
 }
 

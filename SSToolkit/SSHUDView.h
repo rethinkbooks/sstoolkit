@@ -6,14 +6,8 @@
 //  Copyright 2009-2010 Sam Soffes. All rights reserved.
 //
 
-@interface SSHUDView : UIAlertView {
+@interface SSHUDView : UIAlertView
 	
-	UILabel *_textLabel;
-	UIActivityIndicatorView *_activityIndicator;
-	BOOL _loading;
-	BOOL _successful;
-}
-
 @property (nonatomic, retain, readonly) UILabel *textLabel;
 @property (nonatomic, retain, readonly) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, assign, getter=isLoading) BOOL loading;

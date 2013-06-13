@@ -9,14 +9,7 @@
 /**
  @brief Pie chart style progress bar similar to the one in Xcode's status bar
  */
-@interface SSPieProgressView : UIView {
-
-	CGFloat _progress;
-	CGFloat _pieBorderWidth;
-	UIColor *_pieBorderColor;
-	UIColor *_pieFillColor;
-	UIColor *_pieBackgroundColor;
-}
+@interface SSPieProgressView : UIView
 
 /**
  @brief The current progress shown by the receiver.

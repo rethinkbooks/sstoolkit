@@ -6,16 +6,7 @@
 //  Copyright 2011 Sam Soffes. All rights reserved.
 //
 
-@interface SSRatingPicker : UIControl {
-
-	CGFloat _numberOfStars;
-	NSUInteger _totalNumberOfStars;
-	UIImage *_emptyStarImage;
-	UIImage *_filledStarImage;
-	CGSize _starSize;
-	CGFloat _starSpacing;
-	UILabel *_textLabel;
-}
+@interface SSRatingPicker : UIControl
 
 @property (nonatomic, assign) CGFloat numberOfStars;
 @property (nonatomic, assign) NSUInteger totalNumberOfStars;

@@ -8,10 +8,7 @@
 
 @class SSBadgeView;
 
-@interface SSBadgeTableViewCell : UITableViewCell {
-
-	SSBadgeView *_badgeView;
-}
+@interface SSBadgeTableViewCell : UITableViewCell
 
 @property (nonatomic, retain, readonly) SSBadgeView *badgeView;
 

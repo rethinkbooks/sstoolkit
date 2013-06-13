@@ -19,13 +19,7 @@
  @see SSViewController
  @see SSModalViewController
  */
-@interface SSNavigationController : UINavigationController <SSModalViewController> {
-
-	SSViewController *_modalParentViewController;
-	BOOL _dismissCustomModalOnVignetteTap;
-	CGSize _contentSizeForViewInCustomModal;
-	CGPoint _originOffsetForViewInCustomModal;
-}
+@interface SSNavigationController : UINavigationController <SSModalViewController>
 
 @property (nonatomic, assign) SSViewController *modalParentViewController;
 @property (nonatomic, assign) BOOL dismissCustomModalOnVignetteTap;

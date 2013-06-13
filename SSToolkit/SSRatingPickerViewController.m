@@ -15,16 +15,6 @@
 
 @implementation SSRatingPickerViewController
 
-@synthesize scrollView = _scrollView;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_scrollView release];
-	[super dealloc];
-}
-
-
 #pragma mark UIViewController
 
 - (void)loadView {

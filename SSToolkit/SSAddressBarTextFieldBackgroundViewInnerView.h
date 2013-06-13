@@ -6,8 +6,5 @@
 //  Copyright 2010 Sam Soffes. All rights reserved.
 //
 
-@interface SSAddressBarTextFieldBackgroundViewInnerView : UIView {
-
-}
-
+@interface SSAddressBarTextFieldBackgroundViewInnerView : UIView
 @end

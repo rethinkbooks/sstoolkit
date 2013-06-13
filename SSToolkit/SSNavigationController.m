@@ -11,10 +11,10 @@
 
 @implementation SSNavigationController
 
-@synthesize modalParentViewController = _modalParentViewController;
-@synthesize dismissCustomModalOnVignetteTap = _dismissCustomModalOnVignetteTap;
-@synthesize contentSizeForViewInCustomModal = _contentSizeForViewInCustomModal;
-@synthesize originOffsetForViewInCustomModal = _originOffsetForViewInCustomModal;
+@synthesize modalParentViewController;
+@synthesize dismissCustomModalOnVignetteTap;
+@synthesize contentSizeForViewInCustomModal;
+@synthesize originOffsetForViewInCustomModal;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {

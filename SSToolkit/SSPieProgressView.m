@@ -13,22 +13,6 @@ CGFloat const kAngleOffset = -90.0f;
 
 @implementation SSPieProgressView
 
-@synthesize progress = _progress;
-@synthesize pieBorderWidth = _pieBorderWidth;
-@synthesize pieBorderColor = _pieBorderColor;
-@synthesize pieFillColor = _pieFillColor;
-@synthesize pieBackgroundColor = _pieBackgroundColor;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	self.pieBorderColor = nil;
-	self.pieFillColor = nil;
-	self.pieBackgroundColor = nil;
-	[super dealloc];
-}
-
-
 #pragma mark UIView
 
 - (id)initWithFrame:(CGRect)aFrame {

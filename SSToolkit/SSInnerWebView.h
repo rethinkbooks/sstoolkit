@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SSInnerWebView : UIWebView {
-    
-    BOOL    _disableStandardActions;
-}
+@interface SSInnerWebView : UIWebView
 
 @property (nonatomic, assign) BOOL disableStandardActions;
 

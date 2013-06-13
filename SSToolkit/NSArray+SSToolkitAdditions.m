@@ -32,7 +32,6 @@
 		[copy removeObjectAtIndex:index];
 	}
 	
-	[copy release];
 	return array;
 }
 

@@ -27,13 +27,12 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 @end
 
 
-@implementation SSViewController
-
-@synthesize modalParentViewController = _modalParentViewController;
-@synthesize customModalViewController = _customModalViewController;
-@synthesize dismissCustomModalOnVignetteTap = _dismissCustomModalOnVignetteTap;
-@synthesize contentSizeForViewInCustomModal = _contentSizeForViewInCustomModal;
-@synthesize originOffsetForViewInCustomModal = _originOffsetForViewInCustomModal;
+@implementation SSViewController {
+@private
+    UIButton *_vignetteButton;
+    SSDropShadowView *_modalDropShadowView;
+    dispatch_block_t _dismissCompletion;
+}
 
 #pragma mark NSObject
 
@@ -48,7 +47,6 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 
 - (void)dealloc {
     [self _cleanUpModal];
-    [super dealloc];
 }
 
 #pragma mark UIViewController
@@ -88,7 +86,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
         return;
     }
 
-    _customModalViewController = [viewController retain];
+    _customModalViewController = viewController;
     if (_customModalViewController == nil) {
         NSLog(@"ERROR: Attempt to present a nil modal view controller");
         return;
@@ -118,7 +116,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     [window addSubview:_modalDropShadowView];
 
     _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
-    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:self];
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.present-modal" context:(__bridge void *)self];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:animated ? 0.5 : 0.0];
     [UIView setAnimationDelegate:self];
@@ -128,12 +126,11 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 }
 
 - (void)dismissCustomModalViewControllerAnimated:(BOOL)animated completion:(dispatch_block_t)completion {
-    [_dismissCompletion release];
     _dismissCompletion = [completion copy];
 
     [self customModalWillDisappear:animated];    
 
-    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:self];
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.dismiss-modal" context:(__bridge void *)self];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:animated ? 0.4 : 0.0];
     [UIView setAnimationDelegate:self];
@@ -141,7 +138,7 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
     _modalDropShadowView.frame = [self _modalContainerBackgroundViewOffScreenRect];
     [UIView commitAnimations];
 
-    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.remove-vignette" context:self];
+    [UIView beginAnimations:@"com.samsoffes.sstoolkit.ssviewcontroller.remove-vignette" context:(__bridge void *)self];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelay:animated ? 0.2 : 0.0];
     [UIView setAnimationDelegate:self];
@@ -180,18 +177,14 @@ static CGSize const kSSViewControllerDefaultContentSizeForViewInCustomModal = {5
 #pragma mark Private Methods
 
 - (void)_cleanUpModal {
-    [_dismissCompletion release];
     _dismissCompletion = nil;
 
     [_modalDropShadowView removeFromSuperview];
-    [_modalDropShadowView release];
     _modalDropShadowView = nil;
 
     [_vignetteButton removeFromSuperview];
-    [_vignetteButton release];
     _vignetteButton = nil;
 
-    [_customModalViewController release];
     _customModalViewController = nil;
 }
 

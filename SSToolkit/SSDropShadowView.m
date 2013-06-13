@@ -10,6 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation SSDropShadowView
+{
+    UIView *view_;
+}
 
 - (id)initWithView:(UIView *)view {
     self = [super initWithFrame:view.frame];
@@ -23,18 +26,12 @@
                                                            cornerRadius:8.0f].CGPath;
         self.layer.shadowRadius = 12.0f;
 
-        view_ = [view retain];
+        view_ = view;
         view.layer.cornerRadius = 8.0f;
         view.clipsToBounds = YES;
         [self addSubview:view_];
     }
     return self;
-}
-
-- (void)dealloc {
-    [view_ release];
-    view_ = nil;
-    [super dealloc];
 }
 
 - (void)layoutSubviews {

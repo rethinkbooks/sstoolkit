@@ -19,22 +19,7 @@
  
  Things of interest are the SSWebView properties and the extra delegate methods.
  */
-@interface SSWebView : UIView <UIWebViewDelegate> {
-
-	id<SSWebViewDelegate> _delegate;
-	 
-	SSInnerWebView *_webView;
-	NSURLRequest *_lastRequest;
-	BOOL _loadingPage;
-	BOOL _bounces;
-	BOOL _shadowsHidden;
-	BOOL _consoleEnabled;
-	
-@protected
-	
-	BOOL _testedDOM;
-	BOOL _DOMloaded;
-}
+@interface SSWebView : UIView <UIWebViewDelegate>
 
 /**
  @brief Returns whether the web view is loading a page. (read-only)

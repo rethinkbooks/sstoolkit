@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8648328D16E158BC00D64E89 /* SSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795416E14FBF000EEA84 /* SSCollectionView.m */; };
-		8648328E16E158BC00D64E89 /* SSCollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */; };
 		8648328F16E158BC00D64E89 /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795816E14FBF000EEA84 /* SSGradientView.m */; };
 		8648329016E158BC00D64E89 /* SSHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795A16E14FBF000EEA84 /* SSHUDView.m */; };
 		8648329116E158BC00D64E89 /* SSIndicatorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF795C16E14FBF000EEA84 /* SSIndicatorLabel.m */; };
@@ -19,7 +17,6 @@
 		8648329616E158BC00D64E89 /* SSWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796616E14FBF000EEA84 /* SSWebView.m */; };
 		8648329716E158BC00D64E89 /* SSInnerWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796816E14FBF000EEA84 /* SSInnerWebView.m */; };
 		8648329816E158BC00D64E89 /* SSBadgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796B16E14FEB000EEA84 /* SSBadgeTableViewCell.m */; };
-		8648329916E158BC00D64E89 /* SSCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF796E16E15000000EEA84 /* SSCollectionViewController.m */; };
 		8648329A16E158BC00D64E89 /* SSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797016E15000000EEA84 /* SSNavigationController.m */; };
 		8648329B16E158BC00D64E89 /* SSPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797316E15000000EEA84 /* SSPickerViewController.m */; };
 		8648329C16E158BC00D64E89 /* SSRatingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF797516E15000000EEA84 /* SSRatingPickerViewController.m */; };
@@ -30,7 +27,6 @@
 		864832A116E158BC00D64E89 /* SSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798016E1500F000EEA84 /* SSTextField.m */; };
 		864832A216E158BC00D64E89 /* SSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798216E1500F000EEA84 /* SSTextView.m */; };
 		864832A316E158BC00D64E89 /* SSRatingPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798416E1500F000EEA84 /* SSRatingPicker.m */; };
-		864832A416E158BC00D64E89 /* SSSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798616E1500F000EEA84 /* SSSwitch.m */; };
 		864832A516E158BC00D64E89 /* SSConcurrentOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798916E1501D000EEA84 /* SSConcurrentOperation.m */; };
 		864832A616E158BC00D64E89 /* SSDrawingMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798B16E1501D000EEA84 /* SSDrawingMacros.m */; };
 		864832A716E158BC00D64E89 /* SSToolkitDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AF798D16E1501D000EEA84 /* SSToolkitDefines.m */; };
@@ -56,8 +52,6 @@
 		865B55FF16E151C900D3AC7F /* SSToolkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF794E16E14F88000EEA84 /* SSToolkit.h */; };
 		865B560016E151C900D3AC7F /* SSCategories.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF794D16E14F88000EEA84 /* SSCategories.h */; };
 		865B560116E151C900D3AC7F /* SSBadgeView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795016E14FB5000EEA84 /* SSBadgeView.h */; };
-		865B560216E151C900D3AC7F /* SSCollectionView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795316E14FBF000EEA84 /* SSCollectionView.h */; };
-		865B560316E151C900D3AC7F /* SSCollectionViewItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */; };
 		865B560416E151C900D3AC7F /* SSGradientView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795716E14FBF000EEA84 /* SSGradientView.h */; };
 		865B560516E151C900D3AC7F /* SSHUDView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795916E14FBF000EEA84 /* SSHUDView.h */; };
 		865B560616E151C900D3AC7F /* SSIndicatorLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF795B16E14FBF000EEA84 /* SSIndicatorLabel.h */; };
@@ -68,7 +62,6 @@
 		865B560B16E151C900D3AC7F /* SSWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796516E14FBF000EEA84 /* SSWebView.h */; };
 		865B560C16E151C900D3AC7F /* SSInnerWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796716E14FBF000EEA84 /* SSInnerWebView.h */; };
 		865B560D16E151C900D3AC7F /* SSBadgeTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796A16E14FEB000EEA84 /* SSBadgeTableViewCell.h */; };
-		865B560E16E151C900D3AC7F /* SSCollectionViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796D16E15000000EEA84 /* SSCollectionViewController.h */; };
 		865B560F16E151C900D3AC7F /* SSNavigationController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF796F16E15000000EEA84 /* SSNavigationController.h */; };
 		865B561016E151C900D3AC7F /* SSModalViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797116E15000000EEA84 /* SSModalViewController.h */; };
 		865B561116E151C900D3AC7F /* SSPickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797216E15000000EEA84 /* SSPickerViewController.h */; };
@@ -80,7 +73,6 @@
 		865B561716E151C900D3AC7F /* SSTextField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF797F16E1500F000EEA84 /* SSTextField.h */; };
 		865B561816E151C900D3AC7F /* SSTextView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798116E1500F000EEA84 /* SSTextView.h */; };
 		865B561916E151C900D3AC7F /* SSRatingPicker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798316E1500F000EEA84 /* SSRatingPicker.h */; };
-		865B561A16E151C900D3AC7F /* SSSwitch.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798516E1500F000EEA84 /* SSSwitch.h */; };
 		865B561B16E151C900D3AC7F /* SSConcurrentOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798816E1501D000EEA84 /* SSConcurrentOperation.h */; };
 		865B561C16E151C900D3AC7F /* SSDrawingMacros.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798A16E1501D000EEA84 /* SSDrawingMacros.h */; };
 		865B561D16E151C900D3AC7F /* SSToolkitDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86AF798C16E1501D000EEA84 /* SSToolkitDefines.h */; };
@@ -114,8 +106,6 @@
 				865B55FF16E151C900D3AC7F /* SSToolkit.h in CopyFiles */,
 				865B560016E151C900D3AC7F /* SSCategories.h in CopyFiles */,
 				865B560116E151C900D3AC7F /* SSBadgeView.h in CopyFiles */,
-				865B560216E151C900D3AC7F /* SSCollectionView.h in CopyFiles */,
-				865B560316E151C900D3AC7F /* SSCollectionViewItem.h in CopyFiles */,
 				865B560416E151C900D3AC7F /* SSGradientView.h in CopyFiles */,
 				865B560516E151C900D3AC7F /* SSHUDView.h in CopyFiles */,
 				865B560616E151C900D3AC7F /* SSIndicatorLabel.h in CopyFiles */,
@@ -126,7 +116,6 @@
 				865B560B16E151C900D3AC7F /* SSWebView.h in CopyFiles */,
 				865B560C16E151C900D3AC7F /* SSInnerWebView.h in CopyFiles */,
 				865B560D16E151C900D3AC7F /* SSBadgeTableViewCell.h in CopyFiles */,
-				865B560E16E151C900D3AC7F /* SSCollectionViewController.h in CopyFiles */,
 				865B560F16E151C900D3AC7F /* SSNavigationController.h in CopyFiles */,
 				865B561016E151C900D3AC7F /* SSModalViewController.h in CopyFiles */,
 				865B561116E151C900D3AC7F /* SSPickerViewController.h in CopyFiles */,
@@ -138,7 +127,6 @@
 				865B561716E151C900D3AC7F /* SSTextField.h in CopyFiles */,
 				865B561816E151C900D3AC7F /* SSTextView.h in CopyFiles */,
 				865B561916E151C900D3AC7F /* SSRatingPicker.h in CopyFiles */,
-				865B561A16E151C900D3AC7F /* SSSwitch.h in CopyFiles */,
 				865B561B16E151C900D3AC7F /* SSConcurrentOperation.h in CopyFiles */,
 				865B561C16E151C900D3AC7F /* SSDrawingMacros.h in CopyFiles */,
 				865B561D16E151C900D3AC7F /* SSToolkitDefines.h in CopyFiles */,
@@ -172,10 +160,6 @@
 		86AF794E16E14F88000EEA84 /* SSToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSToolkit.h; sourceTree = "<group>"; };
 		86AF795016E14FB5000EEA84 /* SSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBadgeView.h; sourceTree = "<group>"; };
 		86AF795116E14FB5000EEA84 /* SSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBadgeView.m; sourceTree = "<group>"; };
-		86AF795316E14FBF000EEA84 /* SSCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionView.h; sourceTree = "<group>"; };
-		86AF795416E14FBF000EEA84 /* SSCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionView.m; sourceTree = "<group>"; };
-		86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewItem.h; sourceTree = "<group>"; };
-		86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewItem.m; sourceTree = "<group>"; };
 		86AF795716E14FBF000EEA84 /* SSGradientView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
 		86AF795816E14FBF000EEA84 /* SSGradientView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSGradientView.m; sourceTree = "<group>"; };
 		86AF795916E14FBF000EEA84 /* SSHUDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSHUDView.h; sourceTree = "<group>"; };
@@ -196,8 +180,6 @@
 		86AF796816E14FBF000EEA84 /* SSInnerWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSInnerWebView.m; sourceTree = "<group>"; };
 		86AF796A16E14FEB000EEA84 /* SSBadgeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSBadgeTableViewCell.h; sourceTree = "<group>"; };
 		86AF796B16E14FEB000EEA84 /* SSBadgeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSBadgeTableViewCell.m; sourceTree = "<group>"; };
-		86AF796D16E15000000EEA84 /* SSCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCollectionViewController.h; sourceTree = "<group>"; };
-		86AF796E16E15000000EEA84 /* SSCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSCollectionViewController.m; sourceTree = "<group>"; };
 		86AF796F16E15000000EEA84 /* SSNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSNavigationController.h; sourceTree = "<group>"; };
 		86AF797016E15000000EEA84 /* SSNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSNavigationController.m; sourceTree = "<group>"; };
 		86AF797116E15000000EEA84 /* SSModalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSModalViewController.h; sourceTree = "<group>"; };
@@ -219,8 +201,6 @@
 		86AF798216E1500F000EEA84 /* SSTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSTextView.m; sourceTree = "<group>"; };
 		86AF798316E1500F000EEA84 /* SSRatingPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSRatingPicker.h; sourceTree = "<group>"; };
 		86AF798416E1500F000EEA84 /* SSRatingPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSRatingPicker.m; sourceTree = "<group>"; };
-		86AF798516E1500F000EEA84 /* SSSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSwitch.h; sourceTree = "<group>"; };
-		86AF798616E1500F000EEA84 /* SSSwitch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSSwitch.m; sourceTree = "<group>"; };
 		86AF798816E1501D000EEA84 /* SSConcurrentOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSConcurrentOperation.h; sourceTree = "<group>"; };
 		86AF798916E1501D000EEA84 /* SSConcurrentOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSConcurrentOperation.m; sourceTree = "<group>"; };
 		86AF798A16E1501D000EEA84 /* SSDrawingMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSDrawingMacros.h; sourceTree = "<group>"; };
@@ -344,10 +324,6 @@
 			children = (
 				86AF795016E14FB5000EEA84 /* SSBadgeView.h */,
 				86AF795116E14FB5000EEA84 /* SSBadgeView.m */,
-				86AF795316E14FBF000EEA84 /* SSCollectionView.h */,
-				86AF795416E14FBF000EEA84 /* SSCollectionView.m */,
-				86AF795516E14FBF000EEA84 /* SSCollectionViewItem.h */,
-				86AF795616E14FBF000EEA84 /* SSCollectionViewItem.m */,
 				86AF795716E14FBF000EEA84 /* SSGradientView.h */,
 				86AF795816E14FBF000EEA84 /* SSGradientView.m */,
 				86AF795916E14FBF000EEA84 /* SSHUDView.h */,
@@ -382,8 +358,6 @@
 		86AF796C16E14FF0000EEA84 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				86AF796D16E15000000EEA84 /* SSCollectionViewController.h */,
-				86AF796E16E15000000EEA84 /* SSCollectionViewController.m */,
 				86AF796F16E15000000EEA84 /* SSNavigationController.h */,
 				86AF797016E15000000EEA84 /* SSNavigationController.m */,
 				86AF797116E15000000EEA84 /* SSModalViewController.h */,
@@ -412,8 +386,6 @@
 				86AF798216E1500F000EEA84 /* SSTextView.m */,
 				86AF798316E1500F000EEA84 /* SSRatingPicker.h */,
 				86AF798416E1500F000EEA84 /* SSRatingPicker.m */,
-				86AF798516E1500F000EEA84 /* SSSwitch.h */,
-				86AF798616E1500F000EEA84 /* SSSwitch.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -551,8 +523,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				86AF795216E14FB5000EEA84 /* SSBadgeView.m in Sources */,
-				8648328D16E158BC00D64E89 /* SSCollectionView.m in Sources */,
-				8648328E16E158BC00D64E89 /* SSCollectionViewItem.m in Sources */,
 				8648328F16E158BC00D64E89 /* SSGradientView.m in Sources */,
 				8648329016E158BC00D64E89 /* SSHUDView.m in Sources */,
 				8648329116E158BC00D64E89 /* SSIndicatorLabel.m in Sources */,
@@ -563,7 +533,6 @@
 				8648329616E158BC00D64E89 /* SSWebView.m in Sources */,
 				8648329716E158BC00D64E89 /* SSInnerWebView.m in Sources */,
 				8648329816E158BC00D64E89 /* SSBadgeTableViewCell.m in Sources */,
-				8648329916E158BC00D64E89 /* SSCollectionViewController.m in Sources */,
 				8648329A16E158BC00D64E89 /* SSNavigationController.m in Sources */,
 				8648329B16E158BC00D64E89 /* SSPickerViewController.m in Sources */,
 				8648329C16E158BC00D64E89 /* SSRatingPickerViewController.m in Sources */,
@@ -574,7 +543,6 @@
 				864832A116E158BC00D64E89 /* SSTextField.m in Sources */,
 				864832A216E158BC00D64E89 /* SSTextView.m in Sources */,
 				864832A316E158BC00D64E89 /* SSRatingPicker.m in Sources */,
-				864832A416E158BC00D64E89 /* SSSwitch.m in Sources */,
 				864832A516E158BC00D64E89 /* SSConcurrentOperation.m in Sources */,
 				864832A616E158BC00D64E89 /* SSDrawingMacros.m in Sources */,
 				864832A716E158BC00D64E89 /* SSToolkitDefines.m in Sources */,
@@ -659,6 +627,7 @@
 		8687F25C16E14F3F00715A83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/SSToolkit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSToolkit/SSToolkit-Prefix.pch";
@@ -671,6 +640,7 @@
 		8687F25D16E14F3F00715A83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/SSToolkit.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SSToolkit/SSToolkit-Prefix.pch";

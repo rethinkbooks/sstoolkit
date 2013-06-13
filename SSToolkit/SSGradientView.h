@@ -19,23 +19,7 @@
  (because there are only 2 components in the gray colorspace and 4 in the RGB colorspace). Automatic colorspace
  conversions are planned for the future.
  */
-@interface SSGradientView : UIView {
-	
-@private
-	
-	UIColor *_topColor;
-	UIColor *_bottomColor;
-	UIColor *_topBorderColor;
-	UIColor *_bottomBorderColor;
-	CGFloat _topInsetAlpha;
-	CGFloat _bottomInsetAlpha;
-	CGFloat _gradientScale;
-	BOOL _hasTopBorder;
-	BOOL _hasBottomBorder;
-	BOOL _showsInsets;
-	
-	CGGradientRef _gradient;
-}
+@interface SSGradientView : UIView
 
 /**
  @brief The top gradient color.

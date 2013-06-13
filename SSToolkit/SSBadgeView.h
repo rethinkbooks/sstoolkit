@@ -25,18 +25,7 @@ typedef enum {
  Not limited to numbers, strings should still be short enough to fit within the 
  accesoryView bounds.
  */
-@interface SSBadgeView : UIView {
-
-	NSString *_text;
-	UIColor *_textColor;
-	UIColor *_highlightedTextColor;
-	UIFont *_font;
-	UIColor *_badgeColor;
-	UIColor *_highlightedBadgeColor;
-	CGFloat _cornerRadius;
-	SSBadgeViewAlignment _badgeAlignment;
-	BOOL _highlighted;
-}
+@interface SSBadgeView : UIView
 
 /**
  @brief Display value.

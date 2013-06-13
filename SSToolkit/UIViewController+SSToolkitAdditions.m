@@ -26,7 +26,6 @@
 	// LLLLLL
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Alert error title") message:string delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 	[alert show];
-	[alert release];
 }
 
 @end

@@ -10,18 +10,6 @@
 
 @implementation SSLineView
 
-@synthesize lineColor = _lineColor;
-@synthesize insetColor = _insetColor;
-@synthesize showInset = _showInset;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	self.lineColor = nil;
-	[super dealloc];
-}
-
-
 #pragma mark UIView
 
 - (id)initWithFrame:(CGRect)frame {

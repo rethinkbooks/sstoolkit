@@ -12,12 +12,7 @@
 //  Copyright 2009-2010 Sam Soffes. All rights reserved.
 //
 
-@interface SSPickerViewController : UITableViewController {
-
-	NSArray *_keys;
-	NSString *_selectedKey;
-	NSIndexPath *_currentIndexPath;
-}
+@interface SSPickerViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *keys;
 @property (nonatomic, retain) NSString *selectedKey;

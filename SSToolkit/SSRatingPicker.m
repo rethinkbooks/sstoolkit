@@ -17,24 +17,6 @@
 
 @implementation SSRatingPicker
 
-@synthesize numberOfStars = _numberOfStars;
-@synthesize totalNumberOfStars = _totalNumberOfStars;
-@synthesize emptyStarImage = _emptyStarImage;
-@synthesize filledStarImage = _filledStarImage;
-@synthesize starSize = _starSize;
-@synthesize starSpacing = _starSpacing;
-@synthesize textLabel = _textLabel;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_emptyStarImage release];
-	[_filledStarImage release];
-	[_textLabel release];
-	[super dealloc];
-}
-
-
 #pragma mark UIResponder
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -72,7 +54,6 @@
 		label.textAlignment = UITextAlignmentCenter;
 		self.textLabel = label;
 		[self addSubview:label];
-		[label release];
 	}
 	return self;
 }

@@ -15,10 +15,6 @@
 
 @implementation SSIndicatorLabel
 
-@synthesize textLabel = _textLabel;
-@synthesize activityIndicatorView = _activityIndicatorView;
-@synthesize loading = _loading;
-
 #pragma mark Class Methods
 
 + (CGSize)indicatorSize {
@@ -28,15 +24,6 @@
 
 + (CGFloat)padding {
 	return 6.0f;
-}
-
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_textLabel release];
-	[_activityIndicatorView release]; 
-	[super dealloc];
 }
 
 

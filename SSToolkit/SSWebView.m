@@ -23,14 +23,14 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 @end
 
 @implementation SSWebView
+{
+@protected
+	SSInnerWebView *_webView;
+	BOOL _testedDOM;
+	BOOL _DOMloaded;
+}
 
-@synthesize delegate = _delegate;
-@synthesize scrollEnabled = _scrollEnabled;
-@synthesize bounces = _bounces;
 @synthesize shadowsHidden = _shadowsHidden;
-@synthesize consoleEnabled = _consoleEnabled;
-@synthesize lastRequest = _lastRequest;
-@synthesize loadingPage = _loadingPage;
 
 #pragma mark NSObject
 
@@ -42,9 +42,6 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 	_delegate = nil;
 	_webView.delegate = nil;
 	[_webView stopLoading];
-	[_webView release];
-	[_lastRequest release];
-	[super dealloc];
 }
 
 
@@ -115,7 +112,6 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 #endif
 		
 		[_webView removeFromSuperview];
-		[_webView release];
 	}
 	
 	_webView = [[SSInnerWebView alloc] initWithFrame:CGRectZero];
@@ -429,7 +425,6 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 
 
 - (void)reload {
-	[_lastRequest release];
 	_lastRequest = nil;
 	[_webView reload];
 }
@@ -540,8 +535,7 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 	
 	// Starting a new request
 	if ([[aRequest mainDocumentURL] isEqual:[_lastRequest mainDocumentURL]] == NO) {
-		[_lastRequest release];
-		_lastRequest = [aRequest retain];
+		_lastRequest = aRequest;
 		_testedDOM = NO;
 		
 		[self _startLoading];

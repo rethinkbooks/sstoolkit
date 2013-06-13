@@ -19,17 +19,10 @@
 
 
 @implementation SSGradientView
-
-@synthesize topColor = _topColor;
-@synthesize bottomColor = _bottomColor;
-@synthesize topBorderColor = _topBorderColor;
-@synthesize bottomBorderColor = _bottomBorderColor;
-@synthesize topInsetAlpha = _topInsetAlpha;
-@synthesize bottomInsetAlpha = _bottomInsetAlpha;
-@synthesize gradientScale = _gradientScale;
-@synthesize hasTopBorder = _hasTopBorder;
-@synthesize hasBottomBorder = _hasBottomBorder;
-@synthesize showsInsets = _showsInsets;
+{
+@private
+	CGGradientRef _gradient;
+}
 
 #pragma mark Class Methods
 
@@ -65,17 +58,6 @@
 
 + (CGFloat)defaultGradientScale {
 	return 1.0f;
-}
-
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	self.topColor = nil;
-	self.bottomColor = nil;
-	self.topBorderColor = nil;
-	self.bottomBorderColor = nil;
-	[super dealloc];
 }
 
 

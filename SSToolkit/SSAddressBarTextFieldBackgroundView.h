@@ -8,13 +8,6 @@
 
 @class SSAddressBarTextFieldBackgroundViewInnerView;
 
-@interface SSAddressBarTextFieldBackgroundView : UIView {
-	
-	BOOL _loading;
-	NSTimer *_moveTimer;
-	SSAddressBarTextFieldBackgroundViewInnerView *_innerView;
-}
-
+@interface SSAddressBarTextFieldBackgroundView : UIView
 @property (nonatomic, assign, getter=isLoading) BOOL loading;
-
 @end

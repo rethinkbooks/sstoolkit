@@ -13,14 +13,9 @@
 @class SSTextField;
 @class SSTextView;
 
-@interface SSRatingPickerViewController : SSViewController {
+@interface SSRatingPickerViewController : SSViewController
 
-@private
-	
-    SSRatingPickerScrollView *_scrollView;
-}
-
-@property (nonatomic, retain, readonly) UIScrollView *scrollView;
+@property (nonatomic, retain, readonly) SSRatingPickerScrollView *scrollView;
 @property (nonatomic, retain, readonly) SSRatingPicker *ratingPicker;
 @property (nonatomic, retain, readonly) SSTextField *titleTextField;
 @property (nonatomic, retain, readonly) SSTextView *reviewTextField;

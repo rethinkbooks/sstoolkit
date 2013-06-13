@@ -10,15 +10,11 @@
 
 @implementation SSLabel
 
-@synthesize verticalTextAlignment = _verticalTextAlignment;
-@synthesize textEdgeInsets = _textEdgeInsets;
-
 #pragma mark NSObject
 
 - (void)dealloc {
 	[self removeObserver:self forKeyPath:@"verticalTextAlignment"];
 	[self removeObserver:self forKeyPath:@"textEdgeInsets"];
-	[super dealloc];
 }
 
 

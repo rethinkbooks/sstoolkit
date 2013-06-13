@@ -11,16 +11,6 @@
 
 @implementation SSBadgeTableViewCell
 
-@synthesize badgeView = _badgeView;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_badgeView release];
-	[super dealloc];
-}
-
-
 #pragma mark UITableView
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

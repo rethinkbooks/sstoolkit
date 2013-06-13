@@ -12,18 +12,9 @@
 #import "UIImage+SSToolkitAdditions.h"
 
 @implementation SSAddressBarTextField
-
-@synthesize loading = _loading;
-@synthesize reloadButton = _reloadButton;
-@synthesize stopButton = _stopButton;
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	self.reloadButton = nil;
-	self.stopButton = nil;
-	[_textFieldBackgroundView release];
-	[super dealloc];
+{
+@private
+	SSAddressBarTextFieldBackgroundView *_textFieldBackgroundView;
 }
 
 #pragma mark UIView

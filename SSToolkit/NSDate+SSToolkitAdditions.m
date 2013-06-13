@@ -109,7 +109,7 @@
 
 
 - (NSDate *)adjustedDate {
-	return [[[NSDate alloc] initWithTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT] sinceDate:self] autorelease];
+	return [[NSDate alloc] initWithTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT] sinceDate:self];
 }
 
 
@@ -133,7 +133,7 @@
 
     NSCalendar *cal = [NSCalendar currentCalendar];
 
-    const BOOL haveWeeks = [[[[NSDateComponents alloc] init] autorelease] respondsToSelector:@selector(weekOfYear)];
+    const BOOL haveWeeks = [[[NSDateComponents alloc] init] respondsToSelector:@selector(weekOfYear)];
     unsigned int unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
     if (haveWeeks) {
         unitFlags |= NSWeekOfYearCalendarUnit;

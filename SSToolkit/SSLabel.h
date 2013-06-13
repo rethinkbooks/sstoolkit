@@ -16,11 +16,7 @@ typedef enum {
  @brief Simple label subclass that adds the ability to align your text
  to the top or bottom.
  */
-@interface SSLabel : UILabel {
-	
-	SSLabelVerticalTextAlignment _verticalTextAlignment;
-	UIEdgeInsets _textEdgeInsets;
-}
+@interface SSLabel : UILabel
 
 /**
  @brief The vertical text alignment of the receiver.

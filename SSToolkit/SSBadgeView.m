@@ -15,33 +15,10 @@
 
 @implementation SSBadgeView
 
-@synthesize text = _text;
-@synthesize textColor = _textColor;
-@synthesize highlightedTextColor = _highlightedTextColor;
-@synthesize font = _font;
-@synthesize badgeColor = _badgeColor;
-@synthesize highlightedBadgeColor = _highlightedBadgeColor;
-@synthesize cornerRadius = _cornerRadius;
-@synthesize badgeAlignment = _badgeAlignment;
-@synthesize highlighted = _highlighted;
-
 #pragma mark Class Methods
 
 + (UIColor *)defaultBadgeColor {
 	return [UIColor colorWithRed:0.541f green:0.596f blue:0.694f alpha:1.0f];
-}
-
-
-#pragma mark NSObject
-
-- (void)dealloc {
-	[_text release];
-	[_textColor release];
-	[_highlightedTextColor release];
-	[_font release];
-	[_badgeColor release];
-	[_highlightedBadgeColor release];
-	[super dealloc];
 }
 
 
@@ -142,7 +119,6 @@
 #pragma mark Setters
 
 - (void)setText:(NSString *)text {
-	[_text release];
 	_text = [text copy];
 	
 	self.hidden = ([_text length] == 0);

@@ -15,18 +15,15 @@
 
 
 @implementation SSTextView
-
-@synthesize placeholder = _placeholder;
-@synthesize placeholderColor = _placeholderColor;
+{
+@protected
+	BOOL _shouldDrawPlaceholder;
+}
 
 #pragma mark NSObject
 
 - (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UITextViewTextDidChangeNotification object:self];
-	
-	[_placeholder release];
-	[_placeholderColor release];
-	[super dealloc];
 }
 
 
@@ -66,8 +63,7 @@
 		return;
 	}
 	
-	[_placeholder release];
-	_placeholder = [string retain];
+	_placeholder = string;
 	
 	[self _updateShouldDrawPlaceholder];
 }

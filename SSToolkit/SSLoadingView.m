@@ -14,13 +14,6 @@ static CGFloat indicatorRightMargin = 8.0f;
 
 @implementation SSLoadingView
 
-@synthesize activityIndicatorView = _activityIndicatorView;
-@synthesize text = _text;
-@synthesize font = _font;
-@synthesize textColor = _textColor;
-@synthesize shadowColor = _shadowColor;
-@synthesize shadowOffset = _shadowOffset;
-
 #pragma mark NSObject
 
 - (void)dealloc {
@@ -29,15 +22,7 @@ static CGFloat indicatorRightMargin = 8.0f;
 	[self removeObserver:self forKeyPath:@"textColor"];
 	[self removeObserver:self forKeyPath:@"shadowColor"];
 	[self removeObserver:self forKeyPath:@"shadowOffset"];
-	
-	self.font = nil;
-	self.text = nil;
-	self.textColor = nil;
-	self.shadowColor = nil;
-	[_activityIndicatorView release];
-	[super dealloc];
 }
-
 
 #pragma mark UIView
 

@@ -10,8 +10,6 @@
 
 @implementation SSTextField
 
-@synthesize textEdgeInsets = _textEdgeInsets;
-
 #pragma mark UIView
 
 - (id)initWithFrame:(CGRect)frame {

@@ -11,9 +11,6 @@
 
 @implementation SSTableViewController
 
-@synthesize tableView = _tableView;
-@synthesize clearsSelectionOnViewWillAppear = _clearsSelectionOnViewWillAppear;
-
 #pragma mark NSObject
 
 - (id)init {
@@ -25,8 +22,6 @@
 - (void)dealloc {
 	_tableView.dataSource = nil;
 	_tableView.delegate = nil;
-	[_tableView release];
-	[super dealloc];
 }
 
 

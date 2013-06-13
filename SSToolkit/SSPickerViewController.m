@@ -10,25 +10,12 @@
 
 @implementation SSPickerViewController
 
-@synthesize selectedKey = _selectedKey;
-@synthesize keys = _keys;
-@synthesize currentIndexPath = _currentIndexPath;
-
 #pragma mark NSObject
 
 - (id)init {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	return self;
 }
-
-
-- (void)dealloc {
-	[_keys release];
-	[_selectedKey release];
-	[_currentIndexPath release];
-    [super dealloc];
-}
-
 
 #pragma mark UIViewController Methods
 
@@ -38,7 +25,7 @@
 	[self loadKeys];
 	
 	if(self.selectedKey != nil) {
-		self.currentIndexPath = [[NSIndexPath indexPathForRow:[self.keys indexOfObject:self.selectedKey] inSection:0] retain];
+		self.currentIndexPath = [NSIndexPath indexPathForRow:[self.keys indexOfObject:self.selectedKey] inSection:0];
 		[self.tableView reloadData];
 		[self.tableView scrollToRowAtIndexPath:self.currentIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 	}
@@ -87,7 +74,7 @@
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 	NSString *key = [self.keys objectAtIndex:indexPath.row];
 	cell.textLabel.text = [self cellTextForKey:key];

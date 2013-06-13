@@ -24,7 +24,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 	for (i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
 		[ms appendFormat: @"%02x", (int)(digest[i])];
 	}
-	return [[ms copy] autorelease];
+	return [ms copy];
 }
 
 
@@ -49,14 +49,10 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 	for (NSUInteger i = 0; i < [leftFields count]; i++) {
 		NSComparisonResult result = [[leftFields objectAtIndex:i] compare:[rightFields objectAtIndex:i] options:NSNumericSearch];
 		if (result != NSOrderedSame) {
-			[leftFields release];
-			[rightFields release];
 			return result;
 		}
 	}
 	
-	[leftFields release];
-	[rightFields release];	
 	return NSOrderedSame;
 }
 
@@ -115,7 +111,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 - (NSString *)unescapeHTML {
 	NSMutableString *s = [NSMutableString string];
-	NSMutableString *target = [[self mutableCopy] autorelease];
+	NSMutableString *target = [self mutableCopy];
 	NSCharacterSet *chs = [NSCharacterSet characterSetWithCharactersInString:@"&"];
 	
 	while ([target length] > 0) {
@@ -161,29 +157,28 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 #pragma mark URL Methods
 
 - (NSString *)URLEncodedString {
-	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-																(CFStringRef)self,
-																NULL,
-																CFSTR("!*'();:@&=+$,/?%#[]"),
-																kCFStringEncodingUTF8) autorelease];
+	return (__bridge_transfer NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                  (CFStringRef)self,
+                                                                                  NULL,
+                                                                                  CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                                  kCFStringEncodingUTF8);
 }
 
 
 - (NSString *)URLEncodedParameterString {
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
-                                                                           NULL,
-                                                                           CFSTR(":/=,!$&'()*+;[]@#?"),
-                                                                           kCFStringEncodingUTF8);
-	return [result autorelease];
+    return (__bridge_transfer NSString *) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                  (CFStringRef)self,
+                                                                                  NULL,
+                                                                                  CFSTR(":/=,!$&'()*+;[]@#?"),
+                                                                                  kCFStringEncodingUTF8);
 }
 
 
 - (NSString*)URLDecodedString {
-	return [(NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-																				(CFStringRef)self,
-																				CFSTR(""),
-																				kCFStringEncodingUTF8) autorelease];
+	return (__bridge_transfer NSString *) CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                                  (CFStringRef)self,
+                                                                                                  CFSTR(""),
+                                                                                                  kCFStringEncodingUTF8);
 }
 
 
@@ -204,7 +199,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 - (NSString*)stringByEscapingForURLQuery {
 	NSString *result = self;
 
-	CFStringRef originalAsCFString = (CFStringRef) self;
+	CFStringRef originalAsCFString = (__bridge CFStringRef) self;
 	CFStringRef leaveAlone = CFSTR(" ");
 	CFStringRef toEscape = CFSTR("\n\r?[]()$,!'*;:@&=#%+/");
 
@@ -212,7 +207,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 	escapedStr = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, originalAsCFString, leaveAlone, toEscape, kCFStringEncodingUTF8);
 
 	if (escapedStr) {
-		NSMutableString *mutable = [NSMutableString stringWithString:(NSString *)escapedStr];
+		NSMutableString *mutable = [NSMutableString stringWithString:(__bridge NSString *)escapedStr];
 		CFRelease(escapedStr);
 
 		[mutable replaceOccurrencesOfString:@" " withString:@"+" options:0 range:NSMakeRange(0, [mutable length])];
@@ -265,7 +260,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 		}
     }
     
-    return [[[NSString alloc] initWithBytesNoCopy:characters length:length encoding:NSASCIIStringEncoding freeWhenDone:YES] autorelease];
+    return [[NSString alloc] initWithBytesNoCopy:characters length:length encoding:NSASCIIStringEncoding freeWhenDone:YES];
 }
 
 @end
