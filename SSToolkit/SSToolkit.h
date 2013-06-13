@@ -8,8 +8,6 @@
 
 // Views
 #import <SSToolkit/SSBadgeView.h>
-#import <SSToolkit/SSCollectionView.h>
-#import <SSToolkit/SSCollectionViewItem.h>
 #import <SSToolkit/SSGradientView.h>
 #import <SSToolkit/SSHUDView.h>
 #import <SSToolkit/SSIndicatorLabel.h>
@@ -27,10 +25,8 @@
 #import <SSToolkit/SSTextField.h>
 #import <SSToolkit/SSTextView.h>
 #import <SSToolkit/SSRatingPicker.h>
-#import <SSToolkit/SSSwitch.h>
 
 // View Controllers
-#import <SSToolkit/SSCollectionViewController.h>
 #import <SSToolkit/SSModalViewController.h>
 #import <SSToolkit/SSNavigationController.h>
 #import <SSToolkit/SSPickerViewController.h>
