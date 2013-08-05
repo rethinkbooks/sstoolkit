@@ -77,7 +77,7 @@ static CGFloat indicatorRightMargin = 8.0f;
 	
 	// Calculate sizes
 	CGSize maxSize = CGSizeMake(frame.size.width - (interiorPadding * 2.0f) - indicatorSize - indicatorRightMargin, indicatorSize);
-	CGSize textSize = [_text sizeWithFont:_font constrainedToSize:maxSize lineBreakMode:UILineBreakModeWordWrap];
+	CGSize textSize = [_text sizeWithFont:_font constrainedToSize:maxSize lineBreakMode:NSLineBreakByTruncatingTail];
 	
 	// Calculate position
 	CGFloat totalWidth = textSize.width + indicatorSize + indicatorRightMargin;
@@ -93,12 +93,12 @@ static CGFloat indicatorRightMargin = 8.0f;
 	if (_shadowColor) {
 		[_shadowColor set];
 		CGRect shadowRect = CGRectMake(textRect.origin.x + _shadowOffset.width, textRect.origin.y + _shadowOffset.height, textRect.size.width, textRect.size.height);
-		[_text drawInRect:shadowRect withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentLeft];	
+		[_text drawInRect:shadowRect withFont:_font lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentLeft];
 	}
 	
 	// Draw text
 	[_textColor set];
-	[_text drawInRect:textRect withFont:_font lineBreakMode:UILineBreakModeTailTruncation alignment:UITextAlignmentLeft];
+	[_text drawInRect:textRect withFont:_font lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentLeft];
 }
 
 

@@ -56,7 +56,7 @@ static CGFloat kIndicatorSize = 40.0;
 		NSString *dingbat = _successful ? @"✔" : @"✘";
 		CGFloat margin = roundf((kHUDSize - 40.0f) / 2.0f);
 		CGRect dingbatRect = CGRectMake(margin, margin - 20.0f, 40.0f, 40.0f);
-		[dingbat drawInRect:dingbatRect withFont:[UIFont systemFontOfSize:60.0f] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];
+		[dingbat drawInRect:dingbatRect withFont:[UIFont systemFontOfSize:60.0f] lineBreakMode:NSLineBreakByClipping alignment:NSTextAlignmentCenter];
 	}
 }
 
