@@ -33,31 +33,41 @@
 
 - (id)initWithFrame:(CGRect)rect {
 	if ((self = [super initWithFrame:rect])) {
-		self.backgroundColor = [UIColor whiteColor];
-		self.opaque = YES;
-		self.clipsToBounds = YES;
-		
-		self.emptyStarImage = [UIImage imageNamed:@"gray-star.png" bundle:kSSToolkitBundleName];
-		self.filledStarImage = [UIImage imageNamed:@"orange-star.png" bundle:kSSToolkitBundleName];
-		self.starSize = CGSizeMake(21.0f, 36.0f);
-		self.starSpacing = 19.0f;
-		self.numberOfStars = 0.0f;
-		self.totalNumberOfStars = 5;
-		
-		UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-		label.textColor = [UIColor colorWithRed:0.612f green:0.620f blue:0.624f alpha:1.0f];
-		label.shadowColor = [UIColor whiteColor];
-		label.shadowOffset = CGSizeMake(0.0f, 1.0f);
-		label.backgroundColor = [UIColor clearColor];
-		label.text = NSLocalizedString(@"Tap a Star to Rate", @"Rating picker tap a star");
-		label.font = [UIFont boldSystemFontOfSize:10.0f];
-		label.textAlignment = UITextAlignmentCenter;
-		self.textLabel = label;
-		[self addSubview:label];
+        [self initSSRatingPicker];
 	}
 	return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if ((self = [super initWithCoder:aDecoder])) {
+        [self initSSRatingPicker];
+    }
+    return self;
+}
+
+- (void)initSSRatingPicker {
+    self.backgroundColor = [UIColor whiteColor];
+    self.opaque = YES;
+    self.clipsToBounds = YES;
+
+    self.emptyStarImage = [UIImage imageNamed:@"SSToolkit.bundle/gray-star.png" bundle:kSSToolkitBundleName];
+    self.filledStarImage = [UIImage imageNamed:@"SSToolkit.bundle/orange-star.png" bundle:kSSToolkitBundleName];
+    self.starSize = CGSizeMake(21.0f, 36.0f);
+    self.starSpacing = 19.0f;
+    self.numberOfStars = 0.0f;
+    self.totalNumberOfStars = 5;
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.textColor = [UIColor colorWithRed:0.612f green:0.620f blue:0.624f alpha:1.0f];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    label.backgroundColor = [UIColor clearColor];
+    label.text = NSLocalizedString(@"Tap a Star to Rate", @"Rating picker tap a star");
+    label.font = [UIFont boldSystemFontOfSize:10.0f];
+    label.textAlignment = UITextAlignmentCenter;
+    self.textLabel = label;
+    [self addSubview:label];
+}
 
 - (CGSize)sizeThatFits:(CGSize)size {
 	return CGSizeMake(_starSize.width * (CGFloat)_totalNumberOfStars, _starSize.height);
