@@ -46,10 +46,6 @@
 }
 
 - (void)initSSRatingPicker {
-    self.backgroundColor = [UIColor whiteColor];
-    self.opaque = YES;
-    self.clipsToBounds = YES;
-
     self.emptyStarImage = [UIImage imageNamed:@"SSToolkit.bundle/gray-star.png" bundle:kSSToolkitBundleName];
     self.filledStarImage = [UIImage imageNamed:@"SSToolkit.bundle/orange-star.png" bundle:kSSToolkitBundleName];
     self.starSize = CGSizeMake(21.0f, 36.0f);
