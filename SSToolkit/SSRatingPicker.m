@@ -55,6 +55,7 @@
     self.starSize = CGSizeMake(21.0f, 36.0f);
     self.starSpacing = 19.0f;
     self.numberOfStars = 0.0f;
+    self.numberOfMediumStars = 0.0f;
     self.totalNumberOfStars = 5;
 
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -63,7 +64,7 @@
     label.shadowOffset = CGSizeMake(0.0f, 1.0f);
     label.backgroundColor = [UIColor clearColor];
     label.text = NSLocalizedString(@"Tap a Star to Rate", @"Rating picker tap a star");
-    label.font = [UIFont boldSystemFontOfSize:10.0f];
+    label.font = [UIFont boldSystemFontOfSize:12.0f];
     label.textAlignment = UITextAlignmentCenter;
     self.textLabel = label;
     [self addSubview:label];
@@ -75,23 +76,37 @@
 
 
 - (void)layoutSubviews {
-	CGSize size = self.frame.size;
-	_textLabel.frame = CGRectMake(0.0f, size.height - 15.0f, size.width, 12.0f);
+	_textLabel.frame = self.bounds;
 }
 
 
 - (void)drawRect:(CGRect)rect {
-	[super drawRect:rect];
-	
+	const CGRect bounds = self.bounds;
 	CGFloat totalWidth = (_starSize.width * (CGFloat)_totalNumberOfStars) + 
 						 (_starSpacing * (CGFloat)(_totalNumberOfStars - 1));
-	CGPoint origin = CGPointMake(roundf((rect.size.width - totalWidth) / 2.0f), 10.0f); // TODO: don't hard code the 10
-	
-	for (NSUInteger i = 0; i < _totalNumberOfStars; i++) {
-		UIImage *image = (roundf(_numberOfStars) >= i + 1) ? _filledStarImage : _emptyStarImage;
-		
-		[image drawInRect:CGRectMake(origin.x + (_starSize.width + _starSpacing) * (CGFloat)i, origin.y, 
-									 _starSize.width, _starSize.height)];
+	CGPoint origin = CGPointMake(roundf((bounds.size.width - totalWidth) / 2.0f),
+                                 roundf((bounds.size.height - self.starSize.height) / 2.0f));
+
+    NSUInteger numberOfStars = roundf(_numberOfStars);
+    if (numberOfStars > 0.0f) {
+        for (NSUInteger i = 0; i < _totalNumberOfStars; i++) {
+            UIImage *image = numberOfStars >= i + 1 ? _filledStarImage : _emptyStarImage;
+            [image drawInRect:[self _starRectAtIndex:i withOrigin:origin]];
+        }
+    } else {
+        NSUInteger numberOfMediumHalfStars = roundf(_numberOfMediumStars * 2);
+        for (NSUInteger i = 0; i < _totalNumberOfStars; i++) {
+            NSUInteger halfStarIndex = i * 2;
+            UIImage *image;
+            if (halfStarIndex + 1 < numberOfMediumHalfStars) {
+                image = _mediumStarImage;
+            } else if (halfStarIndex < numberOfMediumHalfStars) {
+                image = _mediumStarHalfImage;
+            } else {
+                image = _emptyStarImage;
+            }
+            [image drawInRect:[self _starRectAtIndex:i withOrigin:origin]];
+        }
 	}
 }
 
@@ -102,16 +117,22 @@
 	if (newSuperview) {
 		[self addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"numberOfStars" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+        [self addObserver:self forKeyPath:@"numberOfMediumStars" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 		[self addObserver:self forKeyPath:@"totalNumberOfStars" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"emptyStarImage" options:NSKeyValueObservingOptionNew context:nil];
+        [self addObserver:self forKeyPath:@"mediumStarImage" options:NSKeyValueObservingOptionNew context:nil];
+        [self addObserver:self forKeyPath:@"mediumStarHalfImage" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"filledStarImage" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"starSize" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"starSpacing" options:NSKeyValueObservingOptionNew context:nil];
 	} else {
 		[self removeObserver:self forKeyPath:@"frame"];
 		[self removeObserver:self forKeyPath:@"numberOfStars"];
+        [self removeObserver:self forKeyPath:@"numberOfMediumStars"];
 		[self removeObserver:self forKeyPath:@"totalNumberOfStars"];
 		[self removeObserver:self forKeyPath:@"emptyStarImage"];
+        [self removeObserver:self forKeyPath:@"mediumStarImage"];
+        [self removeObserver:self forKeyPath:@"mediumStarHalfImage"];
 		[self removeObserver:self forKeyPath:@"filledStarImage"];
 		[self removeObserver:self forKeyPath:@"starSize"];
 		[self removeObserver:self forKeyPath:@"starSpacing"];
@@ -142,17 +163,24 @@
 	self.numberOfStars = ceilf((point.x - left) / (_starSize.width + _starSpacing));
 }
 
+- (CGRect)_starRectAtIndex:(NSUInteger)index withOrigin:(CGPoint)origin {
+    return CGRectMake(origin.x + (_starSize.width + _starSpacing) * (CGFloat)index,
+                      origin.y,
+                      _starSize.width,_starSize.height);
+}
+
 
 #pragma mark NSKeyValueObserving
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 	if ([keyPath isEqual:@"frame"] || [keyPath isEqual:@"totalNumberOfStars"] || [keyPath isEqual:@"emptyStarImage"] ||
-		[keyPath isEqual:@"filledStarImage"] || [keyPath isEqual:@"starSize"] || [keyPath isEqual:@"starSpacing"]) {
+		[keyPath isEqual:@"mediumStarImage"] || [keyPath isEqual:@"mediumStarHalfImage"] || [keyPath isEqual:@"filledStarImage"] ||
+        [keyPath isEqual:@"starSize"] || [keyPath isEqual:@"starSpacing"]) {
 		[self setNeedsDisplay];
 		return;
 	}
 	
-	if ([keyPath isEqual:@"numberOfStars"]) {
+	if ([keyPath isEqual:@"numberOfStars"] || [keyPath isEqual:@"numberOfMediumStars"]) {
 		CGFloat new = [[change valueForKey:NSKeyValueChangeNewKey] floatValue];
 		CGFloat old = [[change valueForKey:NSKeyValueChangeOldKey] floatValue];
 		

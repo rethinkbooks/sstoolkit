@@ -9,8 +9,11 @@
 @interface SSRatingPicker : UIControl
 
 @property (nonatomic, assign) CGFloat numberOfStars;
+@property (nonatomic, assign) CGFloat numberOfMediumStars;
 @property (nonatomic, assign) NSUInteger totalNumberOfStars;
 @property (nonatomic, retain) UIImage *emptyStarImage;
+@property (nonatomic, retain) UIImage *mediumStarImage;
+@property (nonatomic, retain) UIImage *mediumStarHalfImage;
 @property (nonatomic, retain) UIImage *filledStarImage;
 @property (nonatomic, assign) CGSize starSize;
 @property (nonatomic, assign) CGFloat starSpacing;
