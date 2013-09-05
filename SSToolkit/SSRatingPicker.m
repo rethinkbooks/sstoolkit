@@ -70,11 +70,9 @@
 	return CGSizeMake(_starSize.width * (CGFloat)_totalNumberOfStars, _starSize.height);
 }
 
-
 - (void)layoutSubviews {
 	_textLabel.frame = self.bounds;
 }
-
 
 - (void)drawRect:(CGRect)rect {
 	const CGRect bounds = self.bounds;
@@ -106,14 +104,11 @@
 	}
 }
 
-
 - (void)willMoveToSuperview:(UIView *)newSuperview {
 	[super willMoveToSuperview:newSuperview];
 	
 	if (newSuperview) {
 		[self addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
-		[self addObserver:self forKeyPath:@"numberOfStars" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-        [self addObserver:self forKeyPath:@"numberOfMediumStars" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 		[self addObserver:self forKeyPath:@"totalNumberOfStars" options:NSKeyValueObservingOptionNew context:nil];
 		[self addObserver:self forKeyPath:@"emptyStarImage" options:NSKeyValueObservingOptionNew context:nil];
         [self addObserver:self forKeyPath:@"mediumStarImage" options:NSKeyValueObservingOptionNew context:nil];
@@ -123,8 +118,6 @@
 		[self addObserver:self forKeyPath:@"starSpacing" options:NSKeyValueObservingOptionNew context:nil];
 	} else {
 		[self removeObserver:self forKeyPath:@"frame"];
-		[self removeObserver:self forKeyPath:@"numberOfStars"];
-        [self removeObserver:self forKeyPath:@"numberOfMediumStars"];
 		[self removeObserver:self forKeyPath:@"totalNumberOfStars"];
 		[self removeObserver:self forKeyPath:@"emptyStarImage"];
         [self removeObserver:self forKeyPath:@"mediumStarImage"];
@@ -135,8 +128,37 @@
 	}
 }
 
+- (void)setNumberOfMediumStars:(CGFloat)numberOfMediumStars {
+    [self _setNumberOfMediumStars:numberOfMediumStars sendActions:NO];
+}
+
+- (void)setNumberOfStars:(CGFloat)numberOfStars {
+    [self _setNumberOfStars:numberOfStars sendActions:NO];
+}
 
 #pragma mark Private Methods
+
+- (void)_setNumberOfMediumStars:(CGFloat)numberOfMediumStars sendActions:(BOOL)sendActions {
+    if (_numberOfMediumStars != numberOfMediumStars) {
+        _numberOfMediumStars = numberOfMediumStars;
+        if (sendActions) {
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+        }
+        [self _reloadTextLabel];
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)_setNumberOfStars:(CGFloat)numberOfStars sendActions:(BOOL)sendActions {
+    if (_numberOfStars != numberOfStars) {
+        _numberOfStars = numberOfStars;
+        if (sendActions) {
+            [self sendActionsForControlEvents:UIControlEventValueChanged];
+        }
+        [self _reloadTextLabel];
+        [self setNeedsDisplay];
+    }
+}
 
 - (void)_setNumberOfStarsWithTouch:(UITouch *)touch {
 	CGPoint point = [touch locationInView:self];
@@ -146,17 +168,17 @@
 	CGFloat left = roundf((self.frame.size.width - totalWidth) / 2.0f);
 	
 	if (point.x < left) {
-		self.numberOfStars = 0.0f;
+		[self _setNumberOfStars:0.0f sendActions:YES];
 		return;
 	}
 	
 	if (point.x >= left + totalWidth) {
-		self.numberOfStars = (CGFloat)_totalNumberOfStars;
+        [self _setNumberOfStars:_totalNumberOfStars sendActions:YES];
 		return;
 	}
 	
 	// TODO: Improve
-	self.numberOfStars = ceilf((point.x - left) / (_starSize.width + _starSpacing));
+    [self _setNumberOfStars:ceilf((point.x - left) / (_starSize.width + _starSpacing)) sendActions:YES];
 }
 
 - (CGRect)_starRectAtIndex:(NSUInteger)index withOrigin:(CGPoint)origin {
@@ -165,6 +187,32 @@
                       _starSize.width,_starSize.height);
 }
 
+- (void)_reloadTextLabel {
+    if (self.numberOfStars > 0.0f || self.numberOfMediumStars > 0.0f) {
+        if (_textLabel.alpha != 0.0f) {
+            [UIView animateWithDuration:0.2
+                                  delay:0.0
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 _textLabel.alpha = 0.0f;
+                             } completion:^(BOOL finished) {
+                                 if (finished) {
+                                     _textLabel.hidden = YES;
+                                 }
+                             }];
+        }
+    } else {
+        if (_textLabel.alpha == 0.0f) {
+            _textLabel.hidden = NO;
+            [UIView animateWithDuration:0.2
+                                  delay:0.0
+                                options:UIViewAnimationOptionCurveEaseIn
+                             animations:^{
+                                 _textLabel.alpha = 1.0f;
+                             } completion:NULL];
+        }
+    }
+}
 
 #pragma mark NSKeyValueObserving
 
@@ -175,33 +223,6 @@
 		[self setNeedsDisplay];
 		return;
 	}
-	
-	if ([keyPath isEqual:@"numberOfStars"] || [keyPath isEqual:@"numberOfMediumStars"]) {
-		CGFloat new = [[change valueForKey:NSKeyValueChangeNewKey] floatValue];
-		CGFloat old = [[change valueForKey:NSKeyValueChangeOldKey] floatValue];
-		
-		if (new == old) {
-			return;
-		}
-		
-		[self setNeedsDisplay];
-		
-		// Animate in the text label if necessary
-		if ((new > 0 && old == 0) || (new == 0 && old > 0)) {
-			[UIView beginAnimations:@"fadeTextLabel" context:nil];
-			
-			// TODO: Make animation parameters match Apple more
-			[UIView setAnimationDuration:0.2];
-			[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-			_textLabel.alpha = (new == 0.0f) ? 1.0f : 0.0f;
-			[UIView commitAnimations];
-		}
-		
-		[self sendActionsForControlEvents:UIControlEventValueChanged];
-		
-		return;
-	}
-	
 	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
