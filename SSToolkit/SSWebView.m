@@ -354,6 +354,9 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 	}
 }
 
+- (BOOL)usesRelativePageOffsets {
+    return ![_webView respondsToSelector:@selector(paginationMode)];
+}
 
 #pragma mark UIWebView Methods
 
