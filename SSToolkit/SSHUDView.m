@@ -111,7 +111,7 @@ static CGFloat kIndicatorSize = 40.0;
 		_textLabel.textColor = [UIColor whiteColor];
 		_textLabel.shadowColor = [UIColor blackColor];
 		_textLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
-		_textLabel.textAlignment = UITextAlignmentCenter;
+		_textLabel.textAlignment = NSTextAlignmentCenter;
 		_textLabel.lineBreakMode = UILineBreakModeTailTruncation;
 		_textLabel.text = aTitle ? aTitle : @"Loading";
 		[self addSubview:_textLabel];

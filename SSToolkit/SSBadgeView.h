@@ -7,9 +7,9 @@
 //
 
 typedef enum {
-	SSBadgeViewAlignmentLeft = UITextAlignmentLeft,
-	SSBadgeViewAlignmentCenter = UITextAlignmentCenter,
-	SSBadgeViewAlignmentRight = UITextAlignmentRight
+	SSBadgeViewAlignmentLeft = NSTextAlignmentLeft,
+	SSBadgeViewAlignmentCenter = NSTextAlignmentCenter,
+	SSBadgeViewAlignmentRight = NSTextAlignmentRight
 } SSBadgeViewAlignment;
 
 /**

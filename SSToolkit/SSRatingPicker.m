@@ -61,7 +61,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.text = NSLocalizedString(@"Tap a Star to Rate", @"Rating picker tap a star");
     label.font = [UIFont boldSystemFontOfSize:12.0f];
-    label.textAlignment = UITextAlignmentCenter;
+    label.textAlignment = NSTextAlignmentCenter;
     self.textLabel = label;
     [self addSubview:label];
 }
