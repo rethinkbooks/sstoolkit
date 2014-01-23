@@ -10,7 +10,7 @@
 #import "SSInnerWebView.h"
 #import "NSString+SSToolkitAdditions.h"
 
-static NSTimeInterval kSSWebViewLoadDelay = 0.3;
+static NSTimeInterval kSSWebViewLoadDelay = 0.0;
 static BOOL SSWebViewIsBackedByScroller;
 static BOOL SSWebViewIsBackedByScrollerCached = NO;
 
@@ -116,6 +116,7 @@ static BOOL SSWebViewIsBackedByScrollerCached = NO;
 	
 	_webView = [[SSInnerWebView alloc] initWithFrame:CGRectZero];
 	_webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _webView.suppressesIncrementalRendering = YES;
 	
 	if (loadPreviousSettings) {
 		_webView.dataDetectorTypes = tempDataDetectorTypes;
